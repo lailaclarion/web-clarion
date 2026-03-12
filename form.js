@@ -1,7 +1,7 @@
 // ===== FORM CLARION CONSULTATION =====
 
 // GANTI dengan URL Google Apps Script kamu
-const scriptURL = "https://script.google.com/macros/s/AKfycbxbuobmfzbsnn2l-NRrtTLIEHHNvqd1uK8IAdTF961Ljs3FLaEATcaO9hKFTNCFoao9pQ/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbyAIEt5Rb9bmyKB-r2HzO_iVD3DrvlM-Z08lj8BlaEHzDlG-B3a_WjjTg5ovWDdDQf-4g/exec";
 
 const form = document.getElementById("clarionForm");
 
@@ -69,5 +69,6 @@ window.location.href =
 "https://wa.me/6281378699699?text=" + encodeURIComponent(pesanWA);
 
 });
+
 
 }
