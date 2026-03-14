@@ -311,3 +311,54 @@ footer { background: #222; color: white; padding: 50px 0; text-align: center; }
     .contact-info h2 { font-size: 2rem; text-align: center; }
     .contact-info p { text-align: center; }
 }
+/* ==========================================================================
+   9. HALAMAN CUSTOMER
+   ========================================================================== */
+.customer-hero { padding: 80px 0; text-align: center; background: #f0f7ff; }
+.customer-hero h1 { font-size: 2.5rem; color: #007bff; margin-bottom: 15px; }
+.customer-hero p { max-width: 800px; margin: 0 auto; color: #555; }
+
+.section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; }
+
+/* Stats */
+.stats-section { padding: 50px 0; background: #007bff; color: white; text-align: center; }
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.stat-item h2 { font-size: 3rem; margin-bottom: 5px; }
+
+/* Testimonials */
+.testimonials { padding: 80px 0; }
+.testimonial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.testi-card { background: #fff; padding: 30px; border-radius: 15px; border-left: 5px solid #007bff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+/* Galeri Pemasangan */
+.pemasangan { padding: 80px 0; background: #fff; }
+.category-block { margin-bottom: 50px; }
+.category-block h3 { margin-bottom: 20px; color: #333; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+.image-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+.image-grid img { width: 100%; border-radius: 10px; transition: 0.3s; cursor: pointer; }
+.image-grid img:hover { transform: scale(1.03); }
+
+/* LOGO SLIDER (Scrolling) */
+.logo-slider { padding: 80px 0; background: #f9f9f9; overflow: hidden; }
+.slider-container { width: 100%; overflow: hidden; position: relative; }
+.logo-track {
+    display: flex;
+    width: calc(250px * 10); /* Sesuaikan jumlah logo */
+    animation: scroll 20s linear infinite;
+    gap: 50px;
+    align-items: center;
+}
+.logo-track img { width: 150px; height: auto; filter: grayscale(100%); opacity: 0.6; transition: 0.3s; }
+.logo-track img:hover { filter: grayscale(0%); opacity: 1; }
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 5)); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stats-grid, .testimonial-grid, .image-grid { grid-template-columns: 1fr; }
+    .logo-track img { width: 120px; }
+}
+
