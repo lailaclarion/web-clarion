@@ -6,7 +6,202 @@
     <title>Clarion Indonesia | Solusi Filter Air Rumah & Industri</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { line-height: 1.6; color: #333; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img { height: 65px; width: auto; display: block; }
+
+        nav ul { list-style: none; display: flex; align-items: center; gap: 25px; }
+        nav ul li { position: relative; padding: 15px 0; /* Padding ini penting agar area hover tidak putus */ }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        /* --- PERBAIKAN DROPDOWN (Area Tanpa Celah) --- */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%; /* Menempel tepat di bawah padding li */
+            left: 0;
+            background: #fff;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            padding: 10px 0;
+            /* Menghilangkan jeda agar kursor tidak "jatuh" saat turun ke menu */
+            margin-top: -5px; 
+            border-top: 3px solid #007bff;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li { padding: 0; } /* Reset padding li di dalam dropdown */
+        
+        .dropdown-menu li a {
+            padding: 10px 20px;
+            display: block;
+            font-weight: 400;
+            font-size: 14px;
+        }
+
+        .dropdown-menu li a:hover {
+            background: #f8f9fa;
+            color: #007bff;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background: url('banner-bg.jpg') no-repeat center center/cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero .container { position: relative; z-index: 2; }
+        .hero h2 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; }
+        .btn {
+            display: inline-block;
+            background: #007bff;
+            color: #fff;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        /* --- FORM KONSULTASI (Update Daerah & Budget) --- */
+        .consultation { padding: 80px 0; background: #fff; }
+        .consultation h3 { text-align: center; margin-bottom: 10px; font-size: 2rem; }
+        .consultation p { text-align: center; margin-bottom: 40px; color: #666; }
+
+        #clarionForm {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        #clarionForm input, #clarionForm select, #clarionForm textarea {
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 100%;
+            font-size: 15px;
+            outline: none;
+        }
+
+        #clarionForm input:focus { border-color: #007bff; }
+
+        #clarionForm button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 16px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; }
+            .hero h2 { font-size: 2rem; }
+            nav ul { display: none; } /* Untuk mobile disarankan pakai hamburger menu nanti */
+        }
+        /* --- FOOTER --- */
+        footer {
+            background: #222;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #bbb;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* --- WHATSAPP FLOATING BUTTON --- */
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            padding: 15px 25px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Responsif Mobile */
+        @media (max-width: 768px) {
+            header .container { flex-direction: column; gap: 15px; }
+            .hero h2 { font-size: 2.2rem; }
+            nav ul { gap: 15px; }
+            .logo img { height: 50px; }
+            .wa-float { bottom: 20px; right: 20px; padding: 12px 20px; }
+        }
+    </style>
 </head>
 <body>
 
