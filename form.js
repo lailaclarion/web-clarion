@@ -1,92 +1,61 @@
-// GANTI dengan URL Google Apps Script kamu
 const scriptURL = "https://script.google.com/macros/s/AKfycbyAIEt5Rb9bmyKB-r2HzO_iVD3DrvlM-Z08lj8BlaEHzDlG-B3a_WjjTg5ovWDdDQf-4g/exec";
-
 const form = document.getElementById("clarionForm");
 
 if(form){
-    const masalahSelect = document.getElementById("masalah");
-    const masalahCustom = document.getElementById("masalahCustom");
-
-    // Tampilkan kolom masalah custom jika ada
-    if(masalahSelect && masalahCustom){
-        masalahSelect.addEventListener("change", function(){
-            if(this.value === "lainnya"){
-                masalahCustom.style.display = "block";
-                masalahCustom.required = true;
-            } else {
-                masalahCustom.style.display = "none";
-                masalahCustom.required = false;
-            }
-        });
-    }
-
     form.addEventListener("submit", function(e){
         e.preventDefault();
 
-        // Ambil data dari elemen (Pastikan ID di HTML sudah sesuai)
+        // Ambil data langsung dari ID
         let nama = document.getElementById("nama").value;
         let wa = document.getElementById("wa").value;
-        let kota = document.getElementById("kota").value; // Ini untuk Asal Daerah
+        let kota = document.getElementById("kota").value; 
         let sumber = document.getElementById("sumber").value;
-        let budget = document.getElementById("budget").value; // Tambahan Budget
+        let budget = document.getElementById("budget").value; 
         let masalah = document.getElementById("masalah").value;
-        let custom = document.getElementById("masalahCustom") ? document.getElementById("masalahCustom").value : "";
-        let pesan = document.getElementById("pesan").value;
 
-        // Jika pilih masalah lainnya
-        if(masalah === "lainnya"){
-            masalah = custom;
-        }
-
-        // Tampilkan loading sederhana pada tombol
         const btn = form.querySelector('button');
-        btn.innerText = "Sedang Mengirim...";
+        btn.innerText = "Mengirim...";
         btn.disabled = true;
 
-        // 1. Kirim ke Google Sheet via Fetch
+        // 1. Kirim ke Google Sheet
         fetch(scriptURL, {
             method: "POST",
-            mode: "no-cors", // Tambahkan ini agar tidak kena error CORS di beberapa browser
+            mode: "no-cors", 
             body: JSON.stringify({
                 nama: nama,
                 wa: wa,
                 kota: kota,
                 sumber: sumber,
-                budget: budget, // Pastikan di Apps Script juga ditambahkan kolom Budget
-                masalah: masalah,
-                pesan: pesan
+                budget: budget,
+                masalah: masalah
             })
         })
         .then(() => {
-            console.log("Data tercatat ke Sheets");
-            lanjutKeWA();
-        })
-        .catch(error => {
-            console.log(error);
-            // Tetap lanjut ke WA meskipun sheet gagal agar tidak kehilangan customer
-            lanjutKeWA(); 
-        });
-
-        function lanjutKeWA() {
-            // 2. Susun pesan WhatsApp
-            let pesanWA = `*KONSULTASI FILTER AIR CLARION*\n` +
-                          `-------------------------------------------\n` +
-                          `*Nama:* ${nama}\n` +
-                          `*WhatsApp:* ${wa}\n` +
-                          `*Kota/Daerah:* ${kota}\n` +
-                          `*Sumber Air:* ${sumber}\n` +
-                          `*Estimasi Budget:* ${budget}\n` +
-                          `*Masalah Air:* ${masalah}\n\n` +
-                          `*Pesan Tambahan:*\n${pesan}\n` +
-                          `-------------------------------------------\n` +
-                          `_Mohon bantuannya untuk solusi terbaik._`;
-
-            // 3. Buka WhatsApp
-            window.location.href = "https://wa.me/6281378699699?text=" + encodeURIComponent(pesanWA);
-            
-            // Kembalikan tombol
+            lanjutKeWA(nama, wa, kota, sumber, budget, masalah);
             btn.innerText = "KONSULTASI SEKARANG";
             btn.disabled = false;
-        }
+            form.reset();
+        })
+        .catch(error => {
+            console.error(error);
+            lanjutKeWA(nama, wa, kota, sumber, budget, masalah);
+            btn.innerText = "KONSULTASI SEKARANG";
+            btn.disabled = false;
+        });
     });
+}
+
+function lanjutKeWA(nama, wa, kota, sumber, budget, masalah) {
+    let pesanWA = `*KONSULTASI FILTER AIR CLARION*%0A` +
+                  `-------------------------------------------%0A` +
+                  `*Nama:* ${nama}%0A` +
+                  `*WhatsApp:* ${wa}%0A` +
+                  `*Kota/Daerah:* ${kota}%0A` +
+                  `*Sumber Air:* ${sumber}%0A` +
+                  `*Estimasi Budget:* ${budget}%0A` +
+                  `*Masalah Air:* ${masalah}%0A` +
+                  `-------------------------------------------%0A` +
+                  `_Mohon info solusi dan harganya._`;
+
+    window.open("https://wa.me/6281378699699?text=" + pesanWA, "_blank");
 }
