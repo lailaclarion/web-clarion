@@ -5,19 +5,19 @@ if(form){
     form.addEventListener("submit", function(e){
         e.preventDefault();
 
-        // Ambil data langsung dari ID
+        // 1. Ambil data sesuai ID yang ada di index.html kamu
         let nama = document.getElementById("nama").value;
         let wa = document.getElementById("wa").value;
         let kota = document.getElementById("kota").value; 
         let sumber = document.getElementById("sumber").value;
         let budget = document.getElementById("budget").value; 
-        let masalah = document.getElementById("masalah").value;
+        let pesanMasalah = document.getElementById("pesan").value; // Mengambil dari textarea id="pesan"
 
         const btn = form.querySelector('button');
-        btn.innerText = "Mengirim...";
+        btn.innerText = "MENGIRIM...";
         btn.disabled = true;
 
-        // 1. Kirim ke Google Sheet
+        // 2. Kirim ke Google Sheet
         fetch(scriptURL, {
             method: "POST",
             mode: "no-cors", 
@@ -27,18 +27,19 @@ if(form){
                 kota: kota,
                 sumber: sumber,
                 budget: budget,
-                masalah: masalah
+                masalah: pesanMasalah // Di sheet akan masuk ke kolom masalah
             })
         })
         .then(() => {
-            lanjutKeWA(nama, wa, kota, sumber, budget, masalah);
+            lanjutKeWA(nama, wa, kota, sumber, budget, pesanMasalah);
             btn.innerText = "KONSULTASI SEKARANG";
             btn.disabled = false;
             form.reset();
         })
         .catch(error => {
-            console.error(error);
-            lanjutKeWA(nama, wa, kota, sumber, budget, masalah);
+            console.error("Error!", error.message);
+            // Tetap buka WA jika sheet gagal
+            lanjutKeWA(nama, wa, kota, sumber, budget, pesanMasalah);
             btn.innerText = "KONSULTASI SEKARANG";
             btn.disabled = false;
         });
@@ -50,7 +51,7 @@ function lanjutKeWA(nama, wa, kota, sumber, budget, masalah) {
                   `-------------------------------------------%0A` +
                   `*Nama:* ${nama}%0A` +
                   `*WhatsApp:* ${wa}%0A` +
-                  `*Kota/Daerah:* ${kota}%0A` +
+                  `*Kota/Kabupaten:* ${kota}%0A` +
                   `*Sumber Air:* ${sumber}%0A` +
                   `*Estimasi Budget:* ${budget}%0A` +
                   `*Masalah Air:* ${masalah}%0A` +
