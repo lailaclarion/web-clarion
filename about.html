@@ -1,46 +1,74 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tentang Kami - Clarion</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami | Clarion Indonesia</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
+
+<header>
     <div class="container">
-      <h1>Clarion</h1>
-      <nav>
-        <ul>
-          <li><a href="index.html">Beranda</a></li>
-          <li><a href="about.html" class="active">Tentang Kami</a></li>
-          <li><a href="products.html">Produk</a></li>
-          <li><a href="contact.html">Kontak</a></li>
-        </ul>
-      </nav>
+        <a href="index.html" class="logo">
+            <img src="logo.png.png" alt="Clarion Logo">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="about.html" style="color: #007bff;">Tentang Kami</a></li>
+                <li class="dropdown">
+                    <a href="#">Produk ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="prefilter.html">Prefilter</a></li>
+                        <li><a href="drinking-system.html">Drinking System</a></li>
+                        <li><a href="isi-ulang.html">Isi Ulang</a></li>
+                        <li><a href="aksesoris.html">Aksesoris</a></li>
+                        <li><a href="industri.html">Industri</a></li>
+                    </ul>
+                </li>
+                <li><a href="customer.html">Pelanggan</a></li>
+                <li><a href="contact.html">Kontak</a></li>
+            </ul>
+        </nav>
     </div>
-  </header>
+</header>
 
-  <main class="container">
-    <h2>Tentang Kami</h2>
-    <p><strong>Clarion</strong> adalah brand unggulan dari <strong>PT Harjaya Mapan Sentosa</strong> yang bergerak di bidang teknologi penyaringan air bersih. Kami menyediakan berbagai produk seperti Water Purifier, Prefilter, dan aksesoris pendukung lainnya yang cocok untuk kebutuhan rumah tangga, usaha kuliner, hingga industri.</p>
-
-    <p>Dengan pengalaman dan dedikasi tinggi, Clarion hadir untuk memberikan solusi air bersih dan sehat dengan teknologi modern seperti sistem UF Membran, UVC LED, dan resin softener. Kami percaya, akses terhadap air bersih bukanlah kemewahan, melainkan kebutuhan dasar yang wajib terpenuhi.</p>
-
-    <h3>Informasi Perusahaan</h3>
-    <ul>
-      <li><strong>Nama PT:</strong> PT Harjaya Mapan Sentosa</li>
-      <li><strong>Alamat:</strong> Kawasan Industri dan Pergudangan SiRIE Blok S-9, Jalan Lingkar Timur, Desa Rangkahkidul, Kecamatan Sidoarjo, Kabupaten Sidoarjo Jawa Timur 61234</li>
-      <li><strong>Telepon Kantor:</strong> 031-9970-5301</li>
-      <li><strong>WhatsApp Admin:</strong> 0813-7869-9699</li>
-      <li><strong>Email:</strong> clarionhms@hotmail.com</li>
-    </ul>
-  </main>
-
-  <footer>
+<section class="about-content">
     <div class="container">
-      <p>&copy; 2025 PT Harjaya Mapan Sentosa - Clarion Indonesia</p>
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800" alt="Tentang Clarion">
+            </div>
+            <div class="about-text">
+                <h2>Clarion Indonesia</h2>
+                <p><strong>PT Harjaya Mapan Sentosa</strong> melalui brand <strong>Clarion</strong> berkomitmen untuk memberikan solusi air bersih terbaik bagi masyarakat Indonesia.</p>
+                <p>Berawal dari keprihatinan terhadap kualitas air di berbagai daerah yang keruh, berbau, dan tidak layak konsumsi, kami menghadirkan teknologi filtrasi modern yang efisien dan terjangkau.</p>
+                <p>Kami melayani pemasangan filter air mulai dari skala rumah tangga kecil, perumahan mewah, hingga sistem pengolahan air untuk industri besar.</p>
+            </div>
+        </div>
     </div>
-  </footer>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2026 PT Harjaya Mapan Sentosa</p>
+        <div class="footer-links">
+            <a href="https://instagram.com/clarionid">Instagram</a> | 
+            <a href="#">Shopee</a> | 
+            <a href="#">Tokopedia</a>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/6281378699699" class="wa-float" target="_blank">
+    <span>Chat WhatsApp</span>
+</a>
+
+<script src="form.js"></script>
+
 </body>
 </html>
