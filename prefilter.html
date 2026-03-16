@@ -7,6 +7,52 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
+      /* CSS SAMA DENGAN INDEX UNTUK KONSISTENSI */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { line-height: 1.6; color: #333; background-color: #f9f9f9; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+        /* HEADER */
+        header { background: #fff; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 65px; width: auto; display: block; }
+        nav ul { list-style: none; display: flex; align-items: center; gap: 25px; }
+        nav ul li { position: relative; padding: 15px 0; }
+        nav ul li a { text-decoration: none; color: #333; font-weight: 600; transition: 0.3s; }
+        
+        /* DROPDOWN */
+        .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-radius: 4px; padding: 10px 0; margin-top: -5px; border-top: 3px solid #007bff; }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu li { padding: 0; }
+        .dropdown-menu li a { padding: 10px 20px; display: block; font-weight: 400; font-size: 14px; }
+        .dropdown-menu li a:hover { background: #f8f9fa; color: #007bff; }
+
+        /* PRODUCT PAGE CONTENT */
+        .page-header { background: #007bff; color: white; padding: 60px 0; text-align: center; }
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 60px 0; }
+        
+        .product-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #eee; }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        
+        .product-image { background: #eee; height: 250px; display: flex; align-items: center; justify-content: center; }
+        /* Nanti ganti <img> src dengan foto produk Prefilter Anda */
+        .product-image img { max-width: 80%; max-height: 80%; object-fit: contain; }
+
+        .product-info { padding: 20px; text-align: center; }
+        .product-info h3 { font-size: 1.2rem; margin-bottom: 10px; color: #222; }
+        .product-info p { font-size: 0.9rem; color: #666; margin-bottom: 20px; height: 45px; overflow: hidden; }
+        
+        .price { display: block; font-size: 1.1rem; font-weight: 700; color: #007bff; margin-bottom: 15px; }
+
+        .btn-buy { display: inline-block; background: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 14px; transition: 0.3s; }
+        .btn-buy:hover { background: #218838; }
+
+        footer { background: #222; color: white; padding: 40px 0; text-align: center; margin-top: 60px; }
+        footer a { color: #bbb; margin: 0 10px; text-decoration: none; }
+
+        @media (max-width: 768px) { nav ul { display: none; } }
 /* Filter Menu Styling */
 .filter-menu {
     text-align: center;
