@@ -3,148 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem RO Industri - Solusi Air Bersih</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Sistem RO Industri - Clarion</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS DASAR & KONSISTENSI MENU */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #f9f9f9; color: #333; line-height: 1.6; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+        /* HEADER & NAVIGATION (TETAP SAMA) */
+        header { background: #fff; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 65px; width: auto; display: block; }
+        nav ul { list-style: none; display: flex; align-items: center; gap: 25px; }
+        nav ul li { position: relative; padding: 15px 0; }
+        nav ul li a { text-decoration: none; color: #333; font-weight: 600; transition: 0.3s; }
+        nav ul li a:hover { color: #007bff; }
+        
+        /* DROPDOWN MENU */
+        .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-radius: 4px; padding: 10px 0; border-top: 3px solid #007bff; }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu li { padding: 0; }
+        .dropdown-menu li a { padding: 10px 20px; display: block; text-decoration: none; color: #333; font-size: 14px; font-weight: 500; }
+        .dropdown-menu li a:hover { background: #f8f9fa; color: #007bff; }
+
+        /* PAGE HEADER */
+        .page-header { background: #007bff; color: white; padding: 60px 0; text-align: center; }
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+
+        /* KATALOG PRODUK */
+        .product-section { padding: 60px 0; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .product-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; text-align: center; transition: 0.3s; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .product-img { background: #eee; height: 250px; display: flex; items-center; justify-content: center; overflow: hidden; }
+        .product-img img { width: 100%; height: 100%; object-fit: cover; }
+        .product-info { padding: 25px; }
+        .product-info h3 { margin-bottom: 10px; font-size: 1.4rem; color: #222; }
+        .price { font-size: 1.5rem; font-weight: 800; color: #007bff; margin: 15px 0; display: block; }
+        .specs { list-style: none; text-align: left; margin-bottom: 20px; font-size: 0.9rem; color: #666; }
+        .specs li { margin-bottom: 8px; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px; }
+        .specs i { color: #28a745; margin-right: 8px; }
+
+        /* LAYANAN SECTION */
+        .service-info { background: #fff; padding: 60px 0; border-top: 1px solid #eee; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center; }
+        .service-item i { font-size: 3rem; color: #007bff; margin-bottom: 20px; }
+        .service-item h4 { margin-bottom: 10px; font-size: 1.2rem; }
+        .service-item p { font-size: 0.9rem; color: #777; }
+
+        /* CTA CUSTOM */
+        .cta-custom { background: #333; color: #fff; padding: 50px 0; text-align: center; }
+        .btn-wa { background: #28a745; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; transition: 0.3s; }
+        .btn-wa:hover { background: #218838; }
+
+        @media (max-width: 768px) {
+            nav ul { display: none; } /* Perlu ditambahkan hamburger menu untuk mobile */
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body>
 
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <div class="flex-shrink-0 flex items-center">
-                    <span class="text-2xl font-bold text-blue-700 tracking-tight">CLARION</span>
-                </div>
-                <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-wider">
-                    <a href="#" class="text-blue-600 border-b-2 border-blue-600 pb-1">Beranda</a>
-                    <a href="#produk" class="hover:text-blue-600 transition">Produk</a>
-                    <a href="#layanan" class="hover:text-blue-600 transition">Layanan</a>
-                    <a href="#custom" class="hover:text-blue-600 transition">Custom Unit</a>
-                    <a href="#kontak" class="hover:text-blue-600 transition">Kontak</a>
-                </div>
-                <div class="md:hidden">
-                    <button class="text-slate-600 hover:text-blue-600 focus:outline-none">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <header class="bg-blue-900 py-16 px-6 text-center text-white">
-        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Mesin RO Kapasitas Besar</h1>
-        <p class="text-blue-100 max-w-2xl mx-auto text-lg">Solusi pemurnian air skala industri dengan teknologi filtrasi tingkat tinggi untuk hasil air yang higienis dan berkualitas.</p>
-    </header>
-
-    <section id="produk" class="py-20 max-w-7xl mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-slate-800">Katalog Unit RO Industri</h2>
-            <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100 flex flex-col">
-                <div class="h-64 bg-slate-200 flex items-center justify-center">
-                    <span class="text-slate-400 italic font-medium">[ Foto Unit 0.5 Ton ]</span>
-                </div>
-                <div class="p-8 flex-grow">
-                    <h3 class="text-2xl font-bold mb-2">RO Industri 0,5 Ton</h3>
-                    <p class="text-blue-600 font-bold text-xl mb-4 text-sm uppercase">Kapasitas: 500 LPD</p>
-                    <ul class="text-slate-600 space-y-2 mb-6 text-sm">
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Rangka Stainless Steel</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> 1 Membrane Housing</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Hemat Daya Listrik</li>
+<header>
+    <div class="container">
+        <a href="index.html" class="logo"><img src="logo.png.png" alt="Clarion Logo"></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="about.html">Tentang Kami</a></li>
+                <li class="dropdown">
+                    <a href="#">Produk ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="prefilter.html">Prefilter</a></li>
+                        <li><a href="drinking-system.html">Drinking System</a></li>
+                        <li><a href="isi-ulang.html">Isi Ulang</a></li>
+                        <li><a href="aksesoris.html">Aksesoris</a></li>
+                        <li><a href="industri.html">Industri</a></li>
                     </ul>
-                    <p class="text-2xl font-extrabold text-slate-800 mb-6 text-center bg-slate-50 py-2 rounded-lg">Rp 12.xxx.xxx</p>
-                    <button class="w-full bg-blue-700 text-white py-3 rounded-xl font-bold hover:bg-blue-800 transition">Pesan Sekarang</button>
-                </div>
-            </div>
+                </li>
+                <li><a href="customer.html">Pelanggan</a></li>
+                <li><a href="contact.html">Kontak</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-blue-100 transform md:-translate-y-4 flex flex-col">
-                <div class="bg-blue-600 text-white text-center py-2 text-xs font-bold uppercase tracking-widest">Paling Populer</div>
-                <div class="h-64 bg-slate-200 flex items-center justify-center">
-                    <span class="text-slate-400 italic font-medium">[ Foto Unit 1 Ton ]</span>
-                </div>
-                <div class="p-8 flex-grow text-center">
-                    <h3 class="text-2xl font-bold mb-2">RO Industri 1 Ton</h3>
-                    <p class="text-blue-600 font-bold text-xl mb-4 text-sm uppercase">Kapasitas: 1000 LPD</p>
-                    <ul class="text-slate-600 space-y-2 mb-6 text-sm text-left inline-block">
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Vertical Multi-Stage Pump</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Panel Indikator Tekanan</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Full Stainless Steel 304</li>
-                    </ul>
-                    <p class="text-2xl font-extrabold text-slate-800 mb-6 bg-blue-50 py-2 rounded-lg">Rp 18.xxx.xxx</p>
-                    <button class="w-full bg-blue-700 text-white py-3 rounded-xl font-bold hover:bg-blue-800 transition">Pesan Sekarang</button>
-                </div>
-            </div>
+<section class="page-header">
+    <div class="container">
+        <h1>Mesin RO Industri</h1>
+        <p>Solusi Air Bersih Kapasitas Besar 0,5 Ton - 2 Ton</p>
+    </div>
+</section>
 
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100 flex flex-col">
-                <div class="h-64 bg-slate-200 flex items-center justify-center">
-                    <span class="text-slate-400 italic font-medium">[ Foto Unit 2 Ton ]</span>
-                </div>
-                <div class="p-8 flex-grow">
-                    <h3 class="text-2xl font-bold mb-2">RO Industri 2 Ton</h3>
-                    <p class="text-blue-600 font-bold text-xl mb-4 text-sm uppercase">Kapasitas: 2000 LPD</p>
-                    <ul class="text-slate-600 space-y-2 mb-6 text-sm">
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Auto-Flush System</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> TDS Monitoring Terpasang</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Kapasitas Debit Tinggi</li>
-                    </ul>
-                    <p class="text-2xl font-extrabold text-slate-800 mb-6 text-center bg-slate-50 py-2 rounded-lg">Rp 25.xxx.xxx</p>
-                    <button class="w-full bg-blue-700 text-white py-3 rounded-xl font-bold hover:bg-blue-800 transition">Pesan Sekarang</button>
-                </div>
+<section class="product-section container">
+    <div class="product-grid">
+        <div class="product-card">
+            <div class="product-img"><img src="0,5.jpg" alt="RO 0.5 Ton"></div>
+            <div class="product-info">
+                <h3>RO Industri 0,5 Ton</h3>
+                <span class="price">Rp 12.xxx.xxx</span>
+                <ul class="specs">
+                    <li><i class="fas fa-check"></i> Kapasitas 500 Liter / Hari</li>
+                    <li><i class="fas fa-check"></i> Rangka Stainless Steel</li>
+                    <li><i class="fas fa-check"></i> Konsumsi Daya Efisien</li>
+                </ul>
+                <a href="#" class="btn-wa">Cek Detail</a>
             </div>
         </div>
-    </section>
 
-    <section id="layanan" class="bg-white py-20 px-4 border-t border-slate-100">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fa-solid fa-user-gear text-3xl"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-3">Teknisi Profesional</h4>
-                    <p class="text-slate-500 text-sm">Dikerjakan oleh tim ahli berpengalaman yang memastikan instalasi berjalan sempurna sesuai standar industri.</p>
-                </div>
-
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-green-100 text-green-700 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fa-solid fa-shield-halved text-3xl"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-3">After Sales Services</h4>
-                    <p class="text-slate-500 text-sm">Layanan purna jual kami menjamin bantuan teknis jika terjadi kendala pada unit setelah pemasangan.</p>
-                </div>
-
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-orange-100 text-orange-700 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fa-solid fa-tools text-3xl"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-3">Bantuan Maintenance</h4>
-                    <p class="text-slate-500 text-sm">Kami siap membantu jadwal perawatan rutin dan penggantian filter agar performa mesin tetap stabil.</p>
-                </div>
-
+        <div class="product-card">
+            <div class="product-img"><img src="1ton.jpg" alt="RO 1 Ton"></div>
+            <div class="product-info">
+                <h3>RO Industri 1 Ton</h3>
+                <span class="price">Rp 18.xxx.xxx</span>
+                <ul class="specs">
+                    <li><i class="fas fa-check"></i> Kapasitas 1000 Liter / Hari</li>
+                    <li><i class="fas fa-check"></i> Vertical Booster Pump</li>
+                    <li><i class="fas fa-check"></i> Panel Kontrol Semi-Otomatis</li>
+                </ul>
+                <a href="#" class="btn-wa">Cek Detail</a>
             </div>
         </div>
-    </section>
 
-    <section id="custom" class="py-20 px-4 bg-slate-900 text-white overflow-hidden relative">
-        <div class="max-w-5xl mx-auto text-center relative z-10">
-            <h2 class="text-3xl font-bold mb-6">Butuh Kapasitas Berbeda?</h2>
-            <p class="text-slate-400 text-lg mb-10 max-w-2xl mx-auto">
-                Kami melayani permintaan <strong>Custom Unit</strong> sesuai kebutuhan debit air dan spesifikasi teknis khusus di lokasi Anda (Gedung, Pabrik, atau RS).
-            </p>
-            <a href="#" class="inline-block bg-white text-slate-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-100 transition shadow-xl">
-                Ajukan Penawaran Custom
-            </a>
+        <div class="product-card">
+            <div class="product-img"><img src="2ton.jpg" alt="RO 2 Ton"></div>
+            <div class="product-info">
+                <h3>RO Industri 2 Ton</h3>
+                <span class="price">Rp 25.xxx.xxx</span>
+                <ul class="specs">
+                    <li><i class="fas fa-check"></i> Kapasitas 2000 Liter / Hari</li>
+                    <li><i class="fas fa-check"></i> Sistem Auto-Flush Membrane</li>
+                    <li><i class="fas fa-check"></i> Ideal untuk Pabrik & RS</li>
+                </ul>
+                <a href="#" class="btn-wa">Cek Detail</a>
+            </div>
         </div>
-        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-800 rounded-full blur-[100px] opacity-20 -mr-32 -mt-32"></div>
-    </section>
+    </div>
+</section>
 
-    <footer class="bg-white py-10 text-center border-t border-slate-100">
-        <p class="text-slate-400 text-sm">&copy; 2026 Clarion Water Solutions. Semua Hak Dilindungi.</p>
-    </footer>
+<section class="service-info">
+    <div class="container">
+        <div class="service-grid">
+            <div class="service-item">
+                <i class="fas fa-user-shield"></i>
+                <h4>Teknisi Profesional</h4>
+                <p>Didukung oleh tim teknisi berpengalaman untuk pemasangan standar industri yang presisi.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-headset"></i>
+                <h4>After Sales Service</h4>
+                <p>Layanan dukungan pasca pembelian untuk memastikan unit Anda selalu beroperasi optimal.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-tools"></i>
+                <h4>Maintenance Dibantu</h4>
+                <p>Kami melayani maintenance rutin dan penggantian filter berkala sesuai jadwal.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-custom">
+    <div class="container">
+        <h2>Butuh Kapasitas Khusus?</h2>
+        <p>Kami melayani pembuatan unit kustom sesuai dengan kebutuhan spesifik industri Anda.</p>
+        <a href="https://wa.me/nomorwa" class="btn-wa"><i class="fab fa-whatsapp"></i> Konsultasi Custom Sekarang</a>
+    </div>
+</section>
+
+<footer style="text-align: center; padding: 30px; background: #fff; color: #999; font-size: 13px; border-top: 1px solid #eee;">
+    &copy; 2026 Clarion Water Purifier. All Rights Reserved.
+</footer>
 
 </body>
 </html>
