@@ -12,6 +12,7 @@ body {
     line-height: 1.6; 
     color: #333; 
     background: #fff;
+    overflow-x: hidden;
 }
 
 .container { 
@@ -51,10 +52,9 @@ nav ul {
     gap: 25px; 
 }
 
-/* KUNCI PERBAIKAN: Agar dropdown menempel ke menu induk */
 nav ul li {
     position: relative;
-    padding: 15px 0; /* Memberi ruang agar hover lebih stabil */
+    padding: 15px 0;
 }
 
 nav ul li a {
@@ -65,17 +65,17 @@ nav ul li a {
     transition: 0.3s;
 }
 
-nav ul li a:hover {
+nav ul li a:hover, nav ul li a.active {
     color: #007bff;
 }
 
 /* ==========================================================================
-   3. DROPDOWN MENU (PERBAIKAN TOTAL)
+   3. DROPDOWN MENU
    ========================================================================== */
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%; /* Pas di bawah tulisan Produk */
+    top: 100%;
     left: 0;
     background: #fff;
     min-width: 200px;
@@ -83,7 +83,7 @@ nav ul li a:hover {
     border-radius: 4px;
     padding: 10px 0;
     border-top: 3px solid #007bff;
-    z-index: 2000; /* Pastikan di atas elemen lain */
+    z-index: 2000;
     list-style: none;
 }
 
@@ -92,7 +92,7 @@ nav ul li a:hover {
 }
 
 .dropdown-menu li {
-    padding: 0; /* Reset padding li di dalam dropdown */
+    padding: 0;
     width: 100%;
 }
 
@@ -102,7 +102,6 @@ nav ul li a:hover {
     font-weight: 500;
     font-size: 14px;
     color: #333;
-    width: 100%;
 }
 
 .dropdown-menu li a:hover {
@@ -111,7 +110,7 @@ nav ul li a:hover {
 }
 
 /* ==========================================================================
-   4. HERO SECTION
+   4. HERO & PAGE HEADER
    ========================================================================== */
 .hero {
     position: relative;
@@ -132,75 +131,144 @@ nav ul li a:hover {
 }
 
 .hero .container { position: relative; z-index: 2; }
-
 .hero h2 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; }
 
-.btn {
-    display: inline-block;
-    background: #007bff;
-    color: #fff;
-    padding: 15px 35px;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    transition: 0.3s;
+.page-header { 
+    background: #007bff; 
+    color: white; 
+    padding: 60px 0; 
+    text-align: center; 
 }
 
-.btn:hover { background: #0056b3; transform: scale(1.05); }
-
 /* ==========================================================================
-   5. FORM KONSULTASI & ABOUT GRID
+   5. KATALOG PRODUK (Drinking System / Prefilter)
    ========================================================================== */
-.consultation, .about-content { padding: 80px 0; background: #fff; }
+.product-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+    padding: 60px 0; 
+}
 
-#clarionForm {
-    max-width: 700px;
-    margin: 0 auto;
+.product-card { 
+    background: #fff; 
+    border-radius: 12px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+    transition: 0.3s; 
+    border: 1px solid #eee;
     display: flex;
     flex-direction: column;
-    gap: 15px;
 }
 
-.form-row, .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+.product-card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+
+.product-image { 
+    background: #fff; 
+    height: 250px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    padding: 20px;
+    position: relative;
 }
 
-.about-grid { gap: 50px; align-items: center; }
+.product-image img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
-#clarionForm input, #clarionForm select, #clarionForm textarea {
-    padding: 14px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    width: 100%;
-    outline: none;
-}
-
-#clarionForm button {
-    background: #28a745;
-    color: white;
-    border: none;
-    padding: 16px;
+.badge-new {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ffc107;
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 20px;
     font-weight: bold;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: 0.3s;
+    font-size: 11px;
 }
 
-#clarionForm button:hover { background: #218838; }
+.product-info { padding: 20px; text-align: center; flex-grow: 1; }
+.product-info h3 { font-size: 1.2rem; margin-bottom: 10px; color: #0056b3; }
 
-.about-text h2 { color: #007bff; margin-bottom: 20px; font-size: 2.5rem; }
-.about-image img { 
-    width: 100%; 
-    border-radius: 15px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+.specs { 
+    text-align: left; 
+    font-size: 0.85rem; 
+    color: #666; 
+    margin-bottom: 15px; 
+    list-style: none; 
+}
+.specs li { margin-bottom: 4px; padding-left: 15px; position: relative; }
+.specs li::before { content: "•"; color: #007bff; position: absolute; left: 0; font-weight: bold; }
+
+.price-box { margin-bottom: 15px; }
+.price-old { text-decoration: line-through; color: #999; font-size: 0.85rem; display: block; }
+.price-new { font-size: 1.2rem; font-weight: 800; color: #dc3545; }
+
+.btn-buy { 
+    display: block; 
+    background: #28a745; 
+    color: white; 
+    padding: 10px; 
+    text-decoration: none; 
+    border-radius: 6px; 
+    font-weight: bold; 
+    transition: 0.3s; 
+}
+.btn-buy:hover { background: #218838; }
+
+/* ==========================================================================
+   6. CUSTOMER SECTION & STATS
+   ========================================================================== */
+.customer-hero { padding: 80px 0; text-align: center; background: #f0f7ff; }
+.stats-section { padding: 50px 0; background: #007bff; color: white; text-align: center; }
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.stat-item h2 { font-size: 3rem; margin-bottom: 5px; }
+
+.testimonials { padding: 80px 0; }
+.testimonial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.testi-card { background: #fff; padding: 30px; border-radius: 15px; border-left: 5px solid #007bff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+.category-block { margin-bottom: 50px; }
+.image-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+.image-grid img { width: 100%; border-radius: 10px; transition: 0.3s; }
+
+/* ==========================================================================
+   7. LOGO SLIDER (SCROLLING OTOMATIS)
+   ========================================================================== */
+.logo-slider { padding: 60px 0; background: #f9f9f9; overflow: hidden; }
+.slider-container { width: 100%; overflow: hidden; white-space: nowrap; position: relative; }
+
+.logo-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 60s linear infinite; /* Kecepatan lambat agar enak dilihat */
+    gap: 60px;
+    align-items: center;
+}
+
+.logo-track img { 
+    height: 50px; 
+    width: auto; 
+    filter: grayscale(100%); 
+    opacity: 0.5; 
+    transition: 0.3s; 
+}
+
+.logo-track img:hover { 
+    filter: grayscale(0%); 
+    opacity: 1; 
+    transform: scale(1.1); 
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Berputar mulus */
 }
 
 /* ==========================================================================
-   6. FOOTER & WA FLOAT
+   8. FOOTER & WA FLOAT
    ========================================================================== */
-footer { background: #222; color: white; padding: 50px 0; text-align: center; }
+footer { background: #222; color: white; padding: 40px 0; text-align: center; }
 
 .wa-float {
     position: fixed;
@@ -214,151 +282,15 @@ footer { background: #222; color: white; padding: 50px 0; text-align: center; }
     z-index: 3000;
     font-weight: bold;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: 0.3s;
 }
 
-.wa-float:hover { transform: translateY(-5px); background: #20b858; }
-
 /* ==========================================================================
-   7. RESPONSIVE (MOBILE)
+   9. RESPONSIVE (MOBILE)
    ========================================================================== */
 @media (max-width: 768px) {
-    header .container { flex-direction: column; padding: 10px 0; }
+    header .container { flex-direction: column; }
     nav ul { gap: 10px; padding-top: 10px; flex-wrap: wrap; justify-content: center; }
-    
-    .form-row, .about-grid { grid-template-columns: 1fr; }
-    
+    .stats-grid, .testimonial-grid, .image-grid, .product-grid { grid-template-columns: 1fr; }
     .hero h2 { font-size: 2rem; }
-    
-    /* Dropdown di mobile agar tidak menutupi menu lain */
     .dropdown-menu { position: static; width: 100%; box-shadow: none; border: 1px solid #eee; }
 }
-/* ==========================================================================
-   8. HALAMAN KONTAK
-   ========================================================================== */
-.contact-section { 
-    padding: 80px 0; 
-    background: #f9f9f9; 
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 50px;
-    align-items: start;
-}
-
-.contact-info h2 { 
-    font-size: 2.5rem; 
-    color: #333; 
-    margin-bottom: 15px; 
-}
-
-.contact-info p { 
-    color: #666; 
-    margin-bottom: 30px; 
-}
-
-.info-card {
-    background: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-}
-
-.info-item {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 25px;
-}
-
-.info-item:last-child { margin-bottom: 0; }
-
-.info-item .icon {
-    font-size: 1.5rem;
-    background: #e7f3ff;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    color: #007bff;
-}
-
-.info-item h4 {
-    margin-bottom: 5px;
-    color: #333;
-    font-size: 1.1rem;
-}
-
-.info-item p {
-    margin-bottom: 0;
-    color: #666;
-    font-size: 0.95rem;
-}
-
-.contact-map iframe {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* Responsif Kontak */
-@media (max-width: 992px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-info h2 { font-size: 2rem; text-align: center; }
-    .contact-info p { text-align: center; }
-}
-/* ==========================================================================
-   9. HALAMAN CUSTOMER
-   ========================================================================== */
-.customer-hero { padding: 80px 0; text-align: center; background: #f0f7ff; }
-.customer-hero h1 { font-size: 2.5rem; color: #007bff; margin-bottom: 15px; }
-.customer-hero p { max-width: 800px; margin: 0 auto; color: #555; }
-
-.section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; }
-
-/* Stats */
-.stats-section { padding: 50px 0; background: #007bff; color: white; text-align: center; }
-.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.stat-item h2 { font-size: 3rem; margin-bottom: 5px; }
-
-/* Testimonials */
-.testimonials { padding: 80px 0; }
-.testimonial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-.testi-card { background: #fff; padding: 30px; border-radius: 15px; border-left: 5px solid #007bff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-
-/* Galeri Pemasangan */
-.pemasangan { padding: 80px 0; background: #fff; }
-.category-block { margin-bottom: 50px; }
-.category-block h3 { margin-bottom: 20px; color: #333; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-.image-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-.image-grid img { width: 100%; border-radius: 10px; transition: 0.3s; cursor: pointer; }
-.image-grid img:hover { transform: scale(1.03); }
-
-/* LOGO SLIDER (Scrolling) */
-.logo-slider { padding: 80px 0; background: #f9f9f9; overflow: hidden; }
-.slider-container { width: 100%; overflow: hidden; position: relative; }
-.logo-track {
-    display: flex;
-    width: calc(250px * 10); /* Sesuaikan jumlah logo */
-    animation: scroll 20s linear infinite;
-    gap: 50px;
-    align-items: center;
-}
-.logo-track img { width: 150px; height: auto; filter: grayscale(100%); opacity: 0.6; transition: 0.3s; }
-.logo-track img:hover { filter: grayscale(0%); opacity: 1; }
-
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-250px * 5)); }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .stats-grid, .testimonial-grid, .image-grid { grid-template-columns: 1fr; }
-    .logo-track img { width: 120px; }
-}
-
