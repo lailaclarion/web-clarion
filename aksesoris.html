@@ -3,66 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prefilter - Clarion Indonesia</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    
+    <title>Aksesoris Water Purifier - Clarion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* CSS SAMA DENGAN INDEX UNTUK KONSISTENSI */
+        /* CSS DASAR & KONSISTENSI MENU */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { line-height: 1.6; color: #333; background-color: #f9f9f9; }
+        body { background-color: #f9f9f9; color: #333; line-height: 1.6; }
         .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
-        /* HEADER */
+        /* HEADER & NAVIGATION (TETAP SAMA) */
         header { background: #fff; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         header .container { display: flex; justify-content: space-between; align-items: center; }
         .logo img { height: 65px; width: auto; display: block; }
         nav ul { list-style: none; display: flex; align-items: center; gap: 25px; }
         nav ul li { position: relative; padding: 15px 0; }
         nav ul li a { text-decoration: none; color: #333; font-weight: 600; transition: 0.3s; }
+        nav ul li a:hover { color: #007bff; }
         
-        /* DROPDOWN */
-        .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-radius: 4px; padding: 10px 0; margin-top: -5px; border-top: 3px solid #007bff; }
+        /* DROPDOWN MENU */
+        .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-radius: 4px; padding: 10px 0; border-top: 3px solid #007bff; }
         .dropdown:hover .dropdown-menu { display: block; }
         .dropdown-menu li { padding: 0; }
-        .dropdown-menu li a { padding: 10px 20px; display: block; font-weight: 400; font-size: 14px; }
+        .dropdown-menu li a { padding: 10px 20px; display: block; text-decoration: none; color: #333; font-size: 14px; font-weight: 500; }
         .dropdown-menu li a:hover { background: #f8f9fa; color: #007bff; }
 
-        /* PRODUCT PAGE CONTENT */
+        /* PAGE HEADER */
         .page-header { background: #007bff; color: white; padding: 60px 0; text-align: center; }
         .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
 
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 60px 0; }
-        
-        .product-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #eee; }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        
-        .product-image { background: #eee; height: 250px; display: flex; align-items: center; justify-content: center; }
-        /* Nanti ganti <img> src dengan foto produk Prefilter Anda */
-        .product-image img { max-width: 80%; max-height: 80%; object-fit: contain; }
+        /* AKSESORIS GRID */
+        .accessory-section { padding: 60px 0; }
+        .accessory-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .accessory-card { background: #fff; border-radius: 10px; border: 1px solid #eee; overflow: hidden; transition: 0.3s; text-align: center; }
+        .accessory-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+        .accessory-img { height: 200px; background: #f4f4f4; display: flex; align-items: center; justify-content: center; }
+        .accessory-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .accessory-info { padding: 20px; }
+        .accessory-info h3 { font-size: 1.1rem; margin-bottom: 10px; color: #222; min-height: 50px; }
+        .tag { display: inline-block; background: #e7f3ff; color: #007bff; font-size: 0.75rem; font-weight: bold; padding: 4px 12px; rounded: 20px; margin-bottom: 10px; border-radius: 20px; }
+        .btn-order { display: block; background: #007bff; color: #fff; text-decoration: none; padding: 10px; border-radius: 6px; font-weight: bold; margin-top: 15px; font-size: 0.9rem; }
+        .btn-order:hover { background: #0056b3; }
 
-        .product-info { padding: 20px; text-align: center; }
-        .product-info h3 { font-size: 1.2rem; margin-bottom: 10px; color: #222; }
-        .product-info p { font-size: 0.9rem; color: #666; margin-bottom: 20px; height: 45px; overflow: hidden; }
-        
-        .price { display: block; font-size: 1.1rem; font-weight: 700; color: #007bff; margin-bottom: 15px; }
-
-        .btn-buy { display: inline-block; background: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 14px; transition: 0.3s; }
-        .btn-buy:hover { background: #218838; }
-
-        footer { background: #222; color: white; padding: 40px 0; text-align: center; margin-top: 60px; }
-        footer a { color: #bbb; margin: 0 10px; text-decoration: none; }
-
-        @media (max-width: 768px) { nav ul { display: none; } }
+        footer { text-align: center; padding: 40px; background: #fff; border-top: 1px solid #eee; margin-top: 60px; color: #888; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
 <header>
     <div class="container">
-        <a href="index.html" class="logo">
-            <img src="logo.png.png" alt="Clarion Logo">
-        </a>
+        <a href="index.html" class="logo"><img src="logo.png.png" alt="Clarion Logo"></a>
         <nav>
             <ul>
                 <li><a href="index.html">Beranda</a></li>
@@ -73,8 +62,8 @@
                         <li><a href="prefilter.html">Prefilter</a></li>
                         <li><a href="drinking-system.html">Drinking System</a></li>
                         <li><a href="isi-ulang.html">Isi Ulang</a></li>
-                        <li><a href="isi-ulang.html">Aksesoris</a></li>
-                        <li><a href="isi-ulang.html">Industri</a></li>
+                        <li><a href="aksesoris.html">Aksesoris</a></li>
+                        <li><a href="industri.html">Industri</a></li>
                     </ul>
                 </li>
                 <li><a href="customer.html">Pelanggan</a></li>
@@ -86,57 +75,77 @@
 
 <section class="page-header">
     <div class="container">
-        <h1>Katalog Prefilter</h1>
-        <p>Solusi pertama untuk menyaring kotoran kasar, pasir, dan lumpur.</p>
+        <h1>Aksesoris & Suku Cadang</h1>
+        <p>Kelengkapan sparepart berkualitas untuk sistem pemurnian air Anda</p>
     </div>
 </section>
 
-<section class="container">
-    <div class="product-grid">
+<section class="accessory-section container">
+    <div class="accessory-grid">
+        <div class="accessory-card">
+            <div class="accessory-img"><img src="galon-refill.jpg" alt="Galon Refill"></div>
+            <div class="accessory-info">
+                <span class="tag">Kebutuhan Refill</span>
+                <h3>Galon Refill 19L</h3>
+                <p style="font-size: 0.85rem; color: #777;">Bahan food grade, kuat dan tahan lama untuk distribusi air.</p>
+                <a href="#" class="btn-order">Pesan Sekarang</a>
+            </div>
+        </div>
+
+        <div class="accessory-card">
+            <div class="accessory-img"><img src="uvc-led.jpg" alt="Lampu UVC"></div>
+            <div class="accessory-info">
+                <span class="tag">Sterilisasi</span>
+                <h3>Lampu UVC LED 5 LPM</h3>
+                <p style="font-size: 0.85rem; color: #777;">Teknologi LED mutakhir untuk membasmi kuman dan bakteri.</p>
+                <a href="#" class="btn-order">Pesan Sekarang</a>
+            </div>
+        </div>
+
+        <div class="accessory-card">
+            <div class="accessory-img"><img src="uf-membran.jpg" alt="Prefilter UF"></div>
+            <div class="accessory-info">
+                <span class="tag">Filtrasi</span>
+                <h3>Prefilter UF Membran</h3>
+                <p style="font-size: 0.85rem; color: #777;">Penyaringan ultra-halus untuk hasil air yang lebih jernih.</p>
+                <a href="#" class="btn-order">Pesan Sekarang</a>
+            </div>
+        </div>
+
+        <div class="accessory-card">
+            <div class="accessory-img"><img src="pressure-tank.jpg" alt="Pressure Tank"></div>
+            <div class="accessory-info">
+                <span class="tag">Penyimpanan</span>
+                <h3>Pressure Tank RO</h3>
+                <p style="font-size: 0.85rem; color: #777;">Tangki penampungan bertekanan untuk aliran air yang stabil.</p>
+                <a href="#" class="btn-order">Pesan Sekarang</a>
+            </div>
+        </div>
+
+        <div class="accessory-card">
+            <div class="accessory-img"><img src="water-reservoir.jpg" alt="Water Reservoir"></div>
+            <div class="accessory-info">
+                <span class="tag">Tandon</span>
+                <h3>Water Reservoir</h3>
+                <p style="font-size: 0.85rem; color: #777;">Wadah penampungan air bersih dengan berbagai kapasitas.</p>
+                <a href="#" class="btn-order">Pesan Sekarang</a>
+            </div>
+        </div>
         
-        <div class="product-card">
-            <div class="product-image">
-                <img src="prefilter-1.png" alt="Prefilter Clarion">
-            </div>
-            <div class="product-info">
-                <h3>Prefilter Housing 10"</h3>
-                <p>Menyaring sedimen, pasir, dan karat untuk penggunaan rumah tangga.</p>
-                <span class="price">Rp 250.000</span>
-                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20tertarik%20Prefilter%20Housing" class="btn-buy">Pesan via WA</a>
+        <div class="accessory-card" style="border: 2px dashed #ccc; background: #fafafa;">
+            <div class="accessory-img"><i class="fas fa-search-plus" style="font-size: 3rem; color: #ccc;"></i></div>
+            <div class="accessory-info">
+                <span class="tag" style="background: #eee; color: #888;">Permintaan Khusus</span>
+                <h3>Sparepart Lainnya</h3>
+                <p style="font-size: 0.85rem; color: #777;">Cari aksesoris spesifik? Tanyakan ketersediaan stok kepada kami.</p>
+                <a href="#" class="btn-order" style="background: #333;">Hubungi Kami</a>
             </div>
         </div>
-
-        <div class="product-card">
-            <div class="product-image">
-                <img src="prefilter-2.png" alt="Prefilter Clarion">
-            </div>
-            <div class="product-info">
-                <h3>Prefilter Stainless Steel</h3>
-                <p>Material anti karat, cocok untuk debit air besar dan tekanan tinggi.</p>
-                <span class="price">Rp 850.000</span>
-                <a href="#" class="btn-buy">Pesan via WA</a>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image">
-                <img src="prefilter-3.png" alt="Prefilter Clarion">
-            </div>
-            <div class="product-info">
-                <h3>Automatic Backwash Filter</h3>
-                <p>Sistem pembersihan otomatis tanpa harus bongkar pasang cartridge.</p>
-                <span class="price">Rp 1.500.000</span>
-                <a href="#" class="btn-buy">Pesan via WA</a>
-            </div>
-        </div>
-
     </div>
 </section>
 
 <footer>
-    <div class="container">
-        <p>© 2026 PT Harjaya Mapan Sentosa</p>
-    </div>
+    &copy; 2026 Clarion Water Solutions. Layanan After Sales & Maintenance Terjamin.
 </footer>
 
 </body>
