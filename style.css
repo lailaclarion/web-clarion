@@ -235,15 +235,13 @@ nav ul li a:hover, nav ul li a.active {
 /* ==========================================================================
    7. LOGO SLIDER (SCROLLING OTOMATIS)
    ========================================================================== */
-
-}
-.logo-slider { padding: 60px 0; background: #f9f9f9; overflow: hidden; }
+.logo-slider { padding: 80px 0; background: #f9f9f9; overflow: hidden; }
 .slider-container { width: 100%; overflow: hidden; white-space: nowrap; position: relative; }
 
 .logo-track {
     display: flex;
     width: max-content;
-    animation: scroll 60s linear infinite; /* Kecepatan lambat agar enak dilihat */
+    animation: scroll 60s linear infinite; 
     gap: 60px;
     align-items: center;
 }
@@ -251,19 +249,17 @@ nav ul li a:hover, nav ul li a.active {
 .logo-track img { 
     height: 50px; 
     width: auto; 
-    /* Filter dihapus agar berwarna terus */
     opacity: 1; 
     transition: 0.3s; 
 }
 
 .logo-track img:hover { 
-    /* Efek diperbesar sedikit saat kursor lewat agar tetap interaktif */
     transform: scale(1.1); 
 }
 
 @keyframes scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* Berputar mulus */
+    100% { transform: translateX(-50%); } 
 }
 
 /* ==========================================================================
