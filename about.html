@@ -3,19 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Kami | Clarion Indonesia</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
+    <title>Tentang Kami - Clarion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS DASAR & KONSISTENSI MENU */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #f9f9f9; color: #333; line-height: 1.6; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+        /* HEADER & NAVIGATION (KONSISTEN) */
+        header { background: #fff; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 65px; width: auto; display: block; }
+        nav ul { list-style: none; display: flex; align-items: center; gap: 25px; }
+        nav ul li { position: relative; padding: 15px 0; }
+        nav ul li a { text-decoration: none; color: #333; font-weight: 600; transition: 0.3s; }
+        nav ul li a:hover { color: #007bff; }
+        
+        /* DROPDOWN MENU */
+        .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-radius: 4px; padding: 10px 0; border-top: 3px solid #007bff; }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu li a { padding: 10px 20px; display: block; text-decoration: none; color: #333; font-size: 14px; font-weight: 500; }
+        .dropdown-menu li a:hover { background: #f8f9fa; color: #007bff; }
+
+        /* PAGE HEADER */
+        .page-header { background: #007bff; color: white; padding: 60px 0; text-align: center; }
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+
+        /* KONTEN TENTANG KAMI */
+        .about-section { padding: 80px 0; }
+        .about-flex { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-text h2 { color: #007bff; margin-bottom: 20px; font-size: 2rem; }
+        .about-text p { margin-bottom: 15px; text-align: justify; color: #555; }
+        .about-image { flex: 1; min-width: 300px; }
+        .about-image img { width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        /* SLIDER SERTIFIKAT OTOMATIS */
+        .cert-title { text-align: center; margin-top: 40px; margin-bottom: 40px; }
+        .cert-title h2 { font-size: 2rem; color: #222; }
+        
+        .slider-container {
+            width: 100%;
+            overflow: hidden;
+            background: #fff;
+            padding: 40px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .slider-track {
+            display: flex;
+            width: calc(300px * 10); /* Lebar total 10 slide */
+            animation: scroll 25s linear infinite;
+        }
+
+        .slider-track:hover { animation-play-state: paused; }
+
+        .slide {
+            width: 300px;
+            padding: 0 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #fdfdfd;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .slide p {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-300px * 5)); } /* Geser separuh dari total slide */
+        }
+
+        footer { text-align: center; padding: 40px; background: #fff; border-top: 1px solid #eee; color: #888; margin-top: 40px; }
+    </style>
 </head>
 <body>
 
 <header>
     <div class="container">
-        <a href="index.html" class="logo">
-            <img src="logo.png.png" alt="Clarion Logo">
-        </a>
+        <a href="index.html" class="logo"><img src="logo.png.png" alt="Clarion Logo"></a>
         <nav>
             <ul>
                 <li><a href="index.html">Beranda</a></li>
@@ -37,38 +120,65 @@
     </div>
 </header>
 
-<section class="about-content">
+<section class="page-header">
     <div class="container">
-        <div class="about-grid">
-            <div class="about-image">
-                <img src="ABOUT US.jpg" alt="Tentang Clarion">
-            </div>
-            <div class="about-text">
-                <h2>Clarion Indonesia</h2>
-                <p><strong>PT Harjaya Mapan Sentosa</strong> melalui brand <strong>Clarion</strong> berkomitmen untuk memberikan solusi air bersih terbaik bagi masyarakat Indonesia.</p>
-                <p>Berawal dari keprihatinan terhadap kualitas air di berbagai daerah yang keruh, berbau, dan tidak layak konsumsi, kami menghadirkan teknologi filtrasi modern yang efisien dan terjangkau.</p>
-                <p>Kami melayani pemasangan filter air mulai dari skala rumah tangga kecil, perumahan mewah, hingga sistem pengolahan air untuk industri besar.</p>
-            </div>
+        <h1>Tentang Kami</h1>
+        <p>Inovasi Pemurnian Air untuk Kualitas Hidup yang Lebih Baik</p>
+    </div>
+</section>
+
+<section class="about-section container">
+    <div class="about-flex">
+        <div class="about-text">
+            <h2>Visi & Misi Kami</h2>
+            <p>Clarion hadir sebagai solusi terpercaya dalam penyediaan teknologi pemurnian air berkualitas tinggi. Kami berkomitmen untuk menyediakan air yang aman, bersih, dan higienis bagi masyarakat, baik untuk kebutuhan rumah tangga maupun industri.</p>
+            <p>Dengan pengalaman bertahun-tahun di bidang Water Purifier, kami terus berinovasi menggunakan teknologi filtrasi terbaru seperti Reverse Osmosis (RO) dan Ultra Filtration (UF) untuk memastikan setiap tetes air yang Anda konsumsi bebas dari bakteri, virus, dan kontaminan berbahaya.</p>
+        </div>
+        <div class="about-image">
+            <img src="kantor-clarion.jpg" alt="Tentang Clarion">
         </div>
     </div>
 </section>
 
-<footer>
-    <div class="container">
-        <p>© 2026 PT Harjaya Mapan Sentosa</p>
-        <div class="footer-links">
-            <a href="https://instagram.com/clarionid">Instagram</a> | 
-            <a href="#">Shopee</a> | 
-            <a href="#">Tokopedia</a>
+<div class="cert-title">
+    <h2>Sertifikasi & Hasil Uji Lab</h2>
+    <p>Unit kami telah melalui pengujian ketat untuk menjamin keamanan konsumen.</p>
+</div>
+
+<div class="slider-container">
+    <div class="slider-track">
+        <div class="slide">
+            <img src="Hasil Uji Lab Free Bakteri dan Virus.jpeg" alt="Sertifikat 1">
+            <p>Hasil Uji Lab Bakteri & Virus</p>
         </div>
+        <div class="slide">
+            <img src="Sertifikat 2.jpg" alt="Sertifikat 2">
+            <p>Sertifikasi Kualitas Produk</p>
+        </div>
+        <div class="slide">
+            <img src="Sertifikat 3.jpg" alt="Sertifikat 3">
+            <p>Standar Mutu Industri</p>
+        </div>
+        <div class="slide">
+            <img src="Sertifikat 4.jpg" alt="Sertifikat 4">
+            <p>Izin Operasional Resmi</p>
+        </div>
+        <div class="slide">
+            <img src="Sertifikat 5.jpg" alt="Sertifikat 5">
+            <p>Pengakuan Teknologi Filtrasi</p>
+        </div>
+
+        <div class="slide"><img src="Hasil Uji Lab Free Bakteri dan Virus.jpeg" alt="Sertifikat 1"><p>Hasil Uji Lab Bakteri & Virus</p></div>
+        <div class="slide"><img src="Sertifikat 2.jpg" alt="Sertifikat 2"><p>Sertifikasi Kualitas Produk</p></div>
+        <div class="slide"><img src="Sertifikat 3.jpg" alt="Sertifikat 3"><p>Standar Mutu Industri</p></div>
+        <div class="slide"><img src="Sertifikat 4.jpg" alt="Sertifikat 4"><p>Izin Operasional Resmi</p></div>
+        <div class="slide"><img src="Sertifikat 5.jpg" alt="Sertifikat 5"><p>Pengakuan Teknologi Filtrasi</p></div>
     </div>
+</div>
+
+<footer>
+    &copy; 2026 Clarion Water Solutions. Kualitas Air Terjamin, Kesehatan Terjaga.
 </footer>
-
-<a href="https://wa.me/6281378699699" class="wa-float" target="_blank">
-    <span>Chat WhatsApp</span>
-</a>
-
-<script src="form.js"></script>
 
 </body>
 </html>
