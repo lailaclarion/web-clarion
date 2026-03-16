@@ -6,54 +6,53 @@
     <title>Prefilter - Clarion Indonesia</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* CSS SAMA DENGAN INDEX UNTUK KONSISTENSI */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { line-height: 1.6; color: #333; background-color: #f9f9f9; }
-        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+<style>
+/* Filter Menu Styling */
+.filter-menu {
+    text-align: center;
+    padding: 40px 0 10px;
+}
 
-        /* HEADER */
-        header { background: #fff; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        header .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo img { height: 65px; width: auto; display: block; }
-        nav ul { list-style: none; display: flex; align-items: center; gap: 25px; }
-        nav ul li { position: relative; padding: 15px 0; }
-        nav ul li a { text-decoration: none; color: #333; font-weight: 600; transition: 0.3s; }
-        
-        /* DROPDOWN */
-        .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-radius: 4px; padding: 10px 0; margin-top: -5px; border-top: 3px solid #007bff; }
-        .dropdown:hover .dropdown-menu { display: block; }
-        .dropdown-menu li { padding: 0; }
-        .dropdown-menu li a { padding: 10px 20px; display: block; font-weight: 400; font-size: 14px; }
-        .dropdown-menu li a:hover { background: #f8f9fa; color: #007bff; }
+.filter-btn {
+    background: white;
+    border: 2px solid #007bff;
+    color: #007bff;
+    padding: 8px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: 0.3s;
+}
 
-        /* PRODUCT PAGE CONTENT */
-        .page-header { background: #007bff; color: white; padding: 60px 0; text-align: center; }
-        .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+.filter-btn.active, .filter-btn:hover {
+    background: #007bff;
+    color: white;
+}
 
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 60px 0; }
-        
-        .product-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #eee; }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        
-        .product-image { background: #eee; height: 250px; display: flex; align-items: center; justify-content: center; }
-        /* Nanti ganti <img> src dengan foto produk Prefilter Anda */
-        .product-image img { max-width: 80%; max-height: 80%; object-fit: contain; }
+/* Sembunyikan kartu yang tidak dipilih */
+.hide { display: none !important; }
 
-        .product-info { padding: 20px; text-align: center; }
-        .product-info h3 { font-size: 1.2rem; margin-bottom: 10px; color: #222; }
-        .product-info p { font-size: 0.9rem; color: #666; margin-bottom: 20px; height: 45px; overflow: hidden; }
-        
-        .price { display: block; font-size: 1.1rem; font-weight: 700; color: #007bff; margin-bottom: 15px; }
+/* Label Kategori Kecil di atas Judul */
+.category-tag {
+    font-size: 0.7rem;
+    color: #007bff;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
 
-        .btn-buy { display: inline-block; background: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 14px; transition: 0.3s; }
-        .btn-buy:hover { background: #218838; }
-
-        footer { background: #222; color: white; padding: 40px 0; text-align: center; margin-top: 60px; }
-        footer a { color: #bbb; margin: 0 10px; text-decoration: none; }
-
-        @media (max-width: 768px) { nav ul { display: none; } }
+/* Badge khusus 10nm untuk PVDF */
+.badge-10nm {
+    background: #ffc107;
+    color: #000;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
     </style>
 </head>
 <body>
@@ -90,43 +89,58 @@
         <p>Solusi pertama untuk menyaring kotoran kasar, pasir, dan lumpur.</p>
     </div>
 </section>
-
 <section class="container">
-    <div class="product-grid">
+    <div class="filter-menu">
+        <button class="filter-btn active" onclick="filterProduct('all')">SEMUA</button>
+        <button class="filter-btn" onclick="filterProduct('frp')">TABUNG FRP</button>
+        <button class="filter-btn" onclick="filterProduct('pvdf')">PVDF 10NM</button>
+        <button class="filter-btn" onclick="filterProduct('softener')">SOFTENER & ARANG</button>
+        <button class="filter-btn" onclick="filterProduct('cartridge')">CARTRIDGE</button>
+    </div>
+
+    <div class="product-grid" id="product-container">
         
-        <div class="product-card">
-            <div class="product-image">
-                <img src="prefilter-1.png" alt="Prefilter Clarion">
-            </div>
+        <div class="product-card" data-category="frp">
+            <div class="product-image"><img src="frp-tank.png" alt="FRP"></div>
             <div class="product-info">
-                <h3>Prefilter Housing 10"</h3>
-                <p>Menyaring sedimen, pasir, dan karat untuk penggunaan rumah tangga.</p>
-                <span class="price">Rp 250.000</span>
-                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20tertarik%20Prefilter%20Housing" class="btn-buy">Pesan via WA</a>
+                <span class="category-tag">Tabung Media FRP</span>
+                <h3>Tabung FRP 1054</h3>
+                <p>Mengatasi air sumur keruh, kuning, dan berbau besi.</p>
+                <span class="price">Rp 2.000.000 - 5.000.000</span>
+                <a href="https://wa.me/6281378699699" class="btn-buy">Pesan via WA</a>
             </div>
         </div>
 
-        <div class="product-card">
-            <div class="product-image">
-                <img src="prefilter-2.png" alt="Prefilter Clarion">
-            </div>
+        <div class="product-card" data-category="pvdf">
+            <div class="product-image"><img src="pvdf-3500.png" alt="PVDF"></div>
             <div class="product-info">
-                <h3>Prefilter Stainless Steel</h3>
-                <p>Material anti karat, cocok untuk debit air besar dan tekanan tinggi.</p>
-                <span class="price">Rp 850.000</span>
-                <a href="#" class="btn-buy">Pesan via WA</a>
+                <span class="category-tag">Ultrafiltrasi <span class="badge-10nm">10nm</span></span>
+                <h3>PVDF 3500L (Standing)</h3>
+                <p>Filtrasi presisi tinggi, mengeliminasi 99% bakteri & virus.</p>
+                <span class="price">Rp 2.799.000</span>
+                <a href="https://wa.me/6281378699699" class="btn-buy">Pesan via WA</a>
             </div>
         </div>
 
-        <div class="product-card">
-            <div class="product-image">
-                <img src="prefilter-3.png" alt="Prefilter Clarion">
-            </div>
+        <div class="product-card" data-category="softener">
+            <div class="product-image"><img src="softener.png" alt="Softener"></div>
             <div class="product-info">
-                <h3>Automatic Backwash Filter</h3>
-                <p>Sistem pembersihan otomatis tanpa harus bongkar pasang cartridge.</p>
-                <span class="price">Rp 1.500.000</span>
-                <a href="#" class="btn-buy">Pesan via WA</a>
+                <span class="category-tag">Specialist Treatment</span>
+                <h3>Softener Resin Cation</h3>
+                <p>Sistem otomatis untuk mengatasi air dengan kadar kapur tinggi.</p>
+                <span class="price">Rp 7.799.000</span>
+                <a href="https://wa.me/6281378699699" class="btn-buy">Pesan via WA</a>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="cartridge">
+            <div class="product-image"><img src="housing-20.png" alt="Cartridge"></div>
+            <div class="product-info">
+                <span class="category-tag">Filter Cartridge 20"</span>
+                <h3>CTO Karbon Aktif</h3>
+                <p>Menghilangkan bau, sisa kaporit, dan memperbaiki rasa air.</p>
+                <span class="price">Rp 199.000</span>
+                <a href="https://wa.me/6281378699699" class="btn-buy">Pesan via WA</a>
             </div>
         </div>
 
@@ -138,6 +152,30 @@
         <p>© 2026 PT Harjaya Mapan Sentosa</p>
     </div>
 </footer>
+    <script>
+    function filterProduct(category) {
+        const cards = document.querySelectorAll('.product-card');
+        const buttons = document.querySelectorAll('.filter-btn');
+
+        // Update tampilan tombol aktif
+        buttons.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.getAttribute('onclick').includes(`'${category}'`)) {
+                btn.classList.add('active');
+            }
+        });
+
+        // Filter kartu produk
+        cards.forEach(card => {
+            const itemCategory = card.getAttribute('data-category');
+            if (category === 'all' || itemCategory === category) {
+                card.classList.remove('hide');
+            } else {
+                card.classList.add('hide');
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
