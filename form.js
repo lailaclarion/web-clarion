@@ -2,7 +2,6 @@ document.getElementById('clarionForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
     const scriptURL = 'https://script.google.com/macros/s/AKfycbz9qE9R2za0SOX7hxMnTmUGYbmbLOOz2bRmjk3nJK8WqkVr6FeqvSI6L--jWfnrJEw/exec';
-    const submitButton = e.target.querySelector('.btn-submit');
     
     // Ambil data
     const nama = document.getElementById('nama').value;
@@ -12,30 +11,33 @@ document.getElementById('clarionForm').addEventListener('submit', function(e) {
     const budget = document.getElementById('budget').value;
     const pesan = document.getElementById('pesan').value || "-";
 
+    // Gunakan URLSearchParams agar e.parameter di Apps Script terbaca sempurna
+    const params = new URLSearchParams();
+    params.append('nama', nama);
+    params.append('wa', wa);
+    params.append('kota', kota);
+    params.append('sumber', sumber);
+    params.append('budget', budget);
+    params.append('pesan', pesan);
+
     // Siapkan Link WA
     const nomorAdmin = "6281378699699"; 
     const teksPesan = `Halo Clarion Indonesia, saya ingin konsultasi:%0A%0A*Nama:* ${nama}%0A*WhatsApp:* ${wa}%0A*Kota:* ${kota}%0A*Sumber Air:* ${sumber}%0A*Estimasi Budget:* ${budget}%0A*Keluhan:* ${pesan}`;
     const urlWA = `https://wa.me/${nomorAdmin}?text=${teksPesan}`;
 
-    // 1. Kirim data ke Google Sheets (Asinkron / Latar Belakang)
-    // Kita gunakan navigator.sendBeacon jika tersedia (lebih stabil untuk kirim data sambil pindah halaman)
-    const formData = new FormData();
-    formData.append('nama', nama);
-    formData.append('wa', wa);
-    formData.append('kota', kota);
-    formData.append('sumber', sumber);
-    formData.append('budget', budget);
-    formData.append('pesan', pesan);
-
+    // Jalankan fetch
     fetch(scriptURL, { 
         method: 'POST', 
-        body: formData, 
+        body: params, // Ganti FormData ke params (URLSearchParams)
         mode: 'no-cors' 
-    });
-
-    // 2. EKSEKUSI PINDAH KE WA (Tanpa Jendela Baru agar tidak diblokir browser)
-    // Menggunakan timeout sangat singkat agar fetch sempat menembak
-    setTimeout(function(){
+    })
+    .then(() => {
+        // Pindah ke WA SETELAH fetch selesai (lebih aman daripada timeout)
         window.location.assign(urlWA);
-    }, 100);
+    })
+    .catch(error => {
+        console.error('Error!', error.message);
+        // Tetap pindah ke WA walau sheet gagal agar user tidak stuck
+        window.location.assign(urlWA);
+    });
 });
