@@ -2,7 +2,7 @@ document.getElementById('clarionForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
     // URL Web App dari Google Apps Script Anda
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxflRFbDbOtCYm6xTvcQHYiJ9HYtmb2LHrdAx28C1Uv8wckGBN0VeI9z-zUegDDAASWfQ/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbz4lEdGeIuzhwD9rpV2aNV-y7tlHuxjz7BXT4vk_1LlOhGa3KVsQRugD0CutYmf0UYzog/exec';
     const submitButton = e.target.querySelector('.btn-submit');
     
     // Ambil data dari elemen form
