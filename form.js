@@ -1,7 +1,7 @@
 document.getElementById('clarionForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbz4lEdGeIuzhwD9rpV2aNV-y7tlHuxjz7BXT4vk_1LlOhGa3KVsQRugD0CutYmf0UYzog/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbz9qE9R2za0SOX7hxMnTmUGYbmbLOOz2bRmjk3nJK8WqkVr6FeqvSI6L--jWfnrJEw/exec';
     const submitButton = e.target.querySelector('.btn-submit');
     
     // Ambil data
