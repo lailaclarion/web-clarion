@@ -1,11 +1,10 @@
 document.getElementById('clarionForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // URL Web App dari Google Apps Script Anda
     const scriptURL = 'https://script.google.com/macros/s/AKfycbz4lEdGeIuzhwD9rpV2aNV-y7tlHuxjz7BXT4vk_1LlOhGa3KVsQRugD0CutYmf0UYzog/exec';
     const submitButton = e.target.querySelector('.btn-submit');
     
-    // Ambil data dari elemen form
+    // 1. Ambil data dari form
     const nama = document.getElementById('nama').value;
     const wa = document.getElementById('wa').value;
     const kota = document.getElementById('kota').value;
@@ -13,12 +12,23 @@ document.getElementById('clarionForm').addEventListener('submit', function(e) {
     const budget = document.getElementById('budget').value;
     const pesan = document.getElementById('pesan').value || "-";
 
-    // Berikan feedback loading pada tombol
-    submitButton.disabled = true;
-    submitButton.innerText = "SEDANG MENGIRIM...";
+    // 2. Siapkan URL WhatsApp
+    const nomorAdmin = "6281378699699"; 
+    const teksPesan = `Halo Clarion Indonesia, saya ingin konsultasi:%0A%0A` +
+                      `*Nama:* ${nama}%0A` +
+                      `*WhatsApp:* ${wa}%0A` +
+                      `*Kota:* ${kota}%0A` +
+                      `*Sumber Air:* ${sumber}%0A` +
+                      `*Estimasi Budget:* ${budget}%0A` +
+                      `*Keluhan:* ${pesan}`;
+    const urlWA = `https://wa.me/${nomorAdmin}?text=${teksPesan}`;
 
-    // 1. Kirim data ke Google Sheets menggunakan fetch
-    const formData = new URLSearchParams();
+    // 3. Efek Loading pada tombol
+    submitButton.disabled = true;
+    submitButton.innerText = "MOHON TUNGGU...";
+
+    // 4. Siapkan data untuk dikirim ke Sheets
+    const formData = new FormData();
     formData.append('nama', nama);
     formData.append('wa', wa);
     formData.append('kota', kota);
@@ -26,39 +36,18 @@ document.getElementById('clarionForm').addEventListener('submit', function(e) {
     formData.append('budget', budget);
     formData.append('pesan', pesan);
 
-    fetch(scriptURL, { 
-        method: 'POST', 
-        body: formData,
-        mode: 'no-cors' 
-    })
-    .then(() => {
-        // 2. Setelah data terkirim ke Sheets, arahkan ke WhatsApp
-        const nomorAdmin = "6281378699699"; 
-        const teksPesan = 
-            `Halo Clarion Indonesia, saya ingin konsultasi:%0A%0A` +
-            `*Nama:* ${nama}%0A` +
-            `*WhatsApp:* ${wa}%0A` +
-            `*Kota:* ${kota}%0A` +
-            `*Sumber Air:* ${sumber}%0A` +
-            `*Estimasi Budget:* ${budget}%0A` +
-            `*Keluhan:* ${pesan}`;
+    // 5. Kirim ke Sheets TANPA menunggu balasan untuk membuka WA
+    // Kita jalankan kirim data, tapi langsung buka WA tanpa menunggu .then()
+    fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' });
 
-        const urlWA = `https://wa.me/${nomorAdmin}?text=${teksPesan}`;
-        
-        // Kembalikan status tombol
+    // Jeda 500ms (setengah detik) agar browser sempat memproses fetch, lalu paksa buka WA
+    setTimeout(() => {
         submitButton.disabled = false;
         submitButton.innerText = "KONSULTASI VIA WHATSAPP";
-
-        // Buka WhatsApp di tab baru
-        window.open(urlWA, '_blank');
         
-        // Reset isi form
+        // Menggunakan location.href jauh lebih ampuh menembus blokir browser daripada window.open
+        window.location.href = urlWA;
+        
         e.target.reset();
-    })
-    .catch(error => {
-        console.error('Error!', error.message);
-        alert('Maaf, terjadi kesalahan saat mengirim data. Silakan coba lagi.');
-        submitButton.disabled = false;
-        submitButton.innerText = "KONSULTASI VIA WHATSAPP";
-    });
+    }, 500);
 });
