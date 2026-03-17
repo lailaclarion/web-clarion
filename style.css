@@ -420,7 +420,7 @@ footer { background: #222; color: white; padding: 50px 0; text-align: center; }
     gap: 50px;
     align-items: center;
 }
-.logo-track img { width: 150px; height: auto; filter: grayscale(100%); opacity: 0.6; transition: 0.3s; }
+.logo-track img { width: 150px; height: auto; transition: 0.3s; }
 .logo-track img:hover { filter: grayscale(0%); opacity: 1; }
 
 @keyframes scroll {
