@@ -7,13 +7,65 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Tambahan CSS untuk Grid Cabang */
+        .branch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .branch-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .branch-card:hover {
+            transform: translateY(-5px);
+        }
+        .branch-city {
+            color: #007bff;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        .branch-name {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .map-container {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .btn-map {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
 
 <header>
     <div class="container">
         <a href="index.html" class="logo">
-            <img src="logo.png.png" alt="Clarion Logo">
+            <img src="logo.png" alt="Clarion Logo">
         </a>
         <nav>
             <ul>
@@ -38,65 +90,75 @@
 
 <section class="contact-section">
     <div class="container">
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h2>Hubungi Kami</h2>
-                <p>Tim ahli kami siap memberikan solusi air bersih terbaik untuk kebutuhan rumah tangga maupun industri Anda.</p>
-                
-                <div class="info-card">
-                    <div class="info-item">
-                        <span class="icon">📍</span>
-                        <div>
-                            <h4>Alamat Kantor</h4>
-                            <p>PT Harjaya Mapan Sentosa<br>Kawasan Industri dan Pergudangan SIRIE, Kawasan
-Industri Jalan Lingkar Timur No.9 Blok S, Rangkah
-Kidul, Kec. Sidoarjo, Kab.Sidarjo, Jawa Timur 61234</p>
-                        </div>
-                    </div>
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h2>Hubungi Kami</h2>
+            <p>Tim ahli kami siap memberikan solusi air bersih terbaik di seluruh cabang kami.</p>
+            <div style="margin-top: 20px;">
+                <strong>WhatsApp Pusat:</strong> +62 813-7869-9699 | <strong>Email:</strong> clarionhms@gmail.com
+            </div>
+        </div>
 
-                    <div class="info-item">
-                        <span class="icon">📞</span>
-                        <div>
-                            <h4>WhatsApp / Telp</h4>
-                            <p>+62 813-7869-9699</p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <span class="icon">✉️</span>
-                        <div>
-                            <h4>Email</h4>
-                            <p>clarionhms@gmail.com</p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <span class="icon">⏰</span>
-                        <div>
-                            <h4>Jam Operasional</h4>
-                            <p>Senin - Jumat: 08.00 - 16.00 WIB</p>
-                            <p>Sabtu - Minggu : 09.00 - 16.00 WIB</p>
-                        </div>
-                    </div>
+        <div class="branch-grid">
+            <div class="branch-card">
+                <div class="branch-city">Jawa Timur</div>
+                <h3 class="branch-name">Sidoarjo (Pusat)</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.46736466961!2d112.7441551!3d-7.4134138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMjQnNDguMyJTIDExMsKwNDQnMzkuMCJF!5e0!3m2!1sid!2sid!4v1710000000000" loading="lazy"></iframe>
                 </div>
+                <p>Kawasan Industri dan Pergudangan SIRIE, Jl. Lingkar Timur No.9 Blok S, Rangkah Kidul, Sidoarjo 61234</p>
+                <a href="https://maps.google.com/?q=Kawasan+Industri+SIRIE+Sidoarjo" target="_blank" class="btn-map">📍 Buka di Google Maps</a>
             </div>
 
-            <div class="contact-map">
+            <div class="branch-card">
+                <div class="branch-city">Banten</div>
+                <h3 class="branch-name">Tangerang</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5212!2d106.6894!3d-6.2001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuNCJTIDEwNsKwNDEnMjEuOCJF!5e0!3m2!1sid!2sid!4v1710000000000" loading="lazy"></iframe>
+                </div>
+                <p>Green Village Blok 6A No 37 JL KH. Hasyim Ashari, RT.001/RW/007, Nerogtog, Pinang, Tangerang City 15146</p>
+                <a href="https://maps.google.com/?q=Green+Village+Pinang+Tangerang" target="_blank" class="btn-map">📍 Buka di Google Maps</a>
+            </div>
 
-<iframe
-src="https://www.google.com/maps?q=-7.4546631,112.7463659&hl=id&z=17&output=embed"
-width="100%"
-height="450"
-style="border:0; border-radius:15px;"
-allowfullscreen=""
-loading="lazy">
-</iframe>
+            <div class="branch-card">
+                <div class="branch-city">Jawa Barat</div>
+                <h3 class="branch-name">Bekasi</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.123!2d107.001!3d-6.152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMDknMDcuMiJTIDEwN8KwMDAnMDMuNiJF!5e0!3m2!1sid!2sid!4v1710000000000" loading="lazy"></iframe>
+                </div>
+                <p>Perumahan Green Ara Residence Cluster Balsa SA-10 2 No. 01, Kel. Setiaasih, Kec. Tarumajaya, Bekasi</p>
+                <a href="https://maps.google.com/?q=Green+Ara+Residence+Bekasi" target="_blank" class="btn-map">📍 Buka di Google Maps</a>
+            </div>
 
-<p style="margin-top:10px;">
-<a href="https://www.google.com/maps?q=-7.4546631,112.7463659" target="_blank">
-📍 Buka di Google Maps
-</a>
-</p>
+            <div class="branch-card">
+                <div class="branch-city">Jawa Barat</div>
+                <h3 class="branch-name">Bandung</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.3!2d107.5!3d-6.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNTQnMDAuMCJTIDEwN8KwMzAnMDAuMCJF!5e0!3m2!1sid!2sid!4v1710000000000" loading="lazy"></iframe>
+                </div>
+                <p>Taman Kopo Indah V Redwood 1 No 19 Kelurahan Rahayu, Kec. Margaasih, Kabupaten Bandung 40218</p>
+                <a href="https://maps.google.com/?q=Taman+Kopo+Indah+V+Bandung" target="_blank" class="btn-map">📍 Buka di Google Maps</a>
+            </div>
+
+            <div class="branch-card">
+                <div class="branch-city">Jawa Tengah</div>
+                <h3 class="branch-name">Semarang</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.2!2d110.3!3d-7.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMDAnMDAuMCJTIDExMMKwMTgnMDAuMCJF!5e0!3m2!1sid!2sid!4v1710000000000" loading="lazy"></iframe>
+                </div>
+                <p>Jalan Elora Hill III No 5. Kel. Gondoriyo, Kecamatan Ngaliyan, Kota Semarang, Jawa Tengah</p>
+                <a href="https://maps.google.com/?q=Elora+Hill+Semarang" target="_blank" class="btn-map">📍 Buka di Google Maps</a>
+            </div>
+
+            <div class="branch-card">
+                <div class="branch-city">Sumatra Utara</div>
+                <h3 class="branch-name">Medan</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.8!2d98.6!3d3.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMzYnMDAuMCJOIDk4wrAzNicwMC4wIkU!5e0!3m2!1sid!2sid!4v1710000000000" loading="lazy"></iframe>
+                </div>
+                <p>Komplek Graha Alumunium Blok B 26 A Tanjung Mulia Medan Deli 20241</p>
+                <a href="https://maps.google.com/?q=Komplek+Graha+Alumunium+Medan" target="_blank" class="btn-map">📍 Buka di Google Maps</a>
+            </div>
+        </div>
     </div>
 </section>
 
