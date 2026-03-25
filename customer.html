@@ -29,46 +29,48 @@
         .stat-item h2 { color: #007bff; font-size: 2.5rem; }
         .section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; }
 
-        /* SCROLL MANUAL (TESTIMONI & PEMASANGAN) */
+        /* SCROLL MANUAL (TESTIMONI & PEMASANGAN) - FUNGSI GESER DI SINI */
         .manual-scroll-wrapper { 
             display: flex; 
             overflow-x: auto; 
             gap: 20px; 
             padding: 20px 0;
             scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch; /* Halus di iPhone */
+            -webkit-overflow-scrolling: touch; 
+            scrollbar-width: none; /* Menghilangkan scrollbar di Firefox */
         }
-        /* Menghilangkan scrollbar tapi fungsi geser tetap ada */
+        /* Menghilangkan scrollbar di Chrome/Safari tapi fungsi geser tetap ada */
         .manual-scroll-wrapper::-webkit-scrollbar { display: none; }
 
-        /* UKURAN TESTIMONI TETAP BESAR */
+        /* UKURAN TESTIMONI */
         .testi-card { 
             background: white; 
             padding: 40px; 
             border-radius: 15px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-            min-width: 450px; /* Ukuran besar */
+            min-width: 450px; 
             scroll-snap-align: start;
             border-bottom: 5px solid #007bff;
         }
         .testi-card p { font-size: 1.1rem; font-style: italic; margin-bottom: 20px; }
         .testi-card h4 { color: #007bff; font-size: 1.2rem; }
 
-        /* UKURAN FOTO PEMASANGAN DIUBAH MENYESUAIKAN GAMBAR CONTOH */
+        /* UKURAN FOTO PEMASANGAN - DISESUAIKAN DENGAN GAMBAR CONTOH (PORTRAIT) */
         .category-block { margin-bottom: 50px; }
         .category-block h3 { margin-bottom: 20px; font-size: 1.5rem; }
         
-        /* BERDASARKAN GAMBAR CONTOH, GAMBAR TERLIHAT SEPERTI FOTO JUALAN/PROMOSI YANG TINGGI.
-           MIN-WIDTH DIUBAH MENJADI 300PX DAN HEIGHT MENJADI 400PX UNTUK RASIO 3:4.
-           INI AKAN MEMBUAT GAMBAR TERLIHAT LEBIH TINGGI DARI LEBARNYA, MENYESUAIKAN DENGAN TATA LETAK 
-           FOTO PEMASANGAN YANG UMUM DI MEDIA SOSIAL ATAU KATALOG PRODUK, SEPERTI DI GAMBAR CONTOH.
-        */
         .image-scroll-item { 
-            min-width: 300px; /* Ukuran foto diubah */
-            height: 400px;  /* Ukuran foto diubah */
+            min-width: 320px; /* Lebar disesuaikan */
+            height: 420px;   /* Tinggi ditambah agar sesuai aspek rasio gambar contoh */
             scroll-snap-align: start;
+            flex-shrink: 0;  /* Memastikan item tidak mengecil */
         }
-        .image-scroll-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+        .image-scroll-item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            border-radius: 12px; 
+        }
 
         /* ANIMASI OTOMATIS (HANYA UNTUK LOGO BRAND) */
         .logo-slider { padding: 60px 0; overflow: hidden; }
@@ -86,7 +88,7 @@
             gap: 40px; 
             align-items: center; 
         }
-        .logo-track img { height: 70px; width: auto; object-fit: contain; } /* Logo berwarna & besar */
+        .logo-track img { height: 70px; width: auto; object-fit: contain; }
 
         /* FOOTER & WA */
         footer { background: #222; color: white; padding: 30px 0; text-align: center; margin-top: 40px; }
@@ -95,7 +97,7 @@
         @media (max-width: 768px) { 
             .stats-grid { grid-template-columns: 1fr; gap: 20px; } 
             nav ul { display: none; }
-            .testi-card, .image-scroll-item { min-width: 85vw; } /* Di HP menyesuaikan layar */
+            .testi-card, .image-scroll-item { min-width: 85vw; } 
         }
     </style>
 </head>
