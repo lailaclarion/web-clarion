@@ -5,7 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pelanggan Kami | Clarion Indonesia</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS RESET & BASE */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { line-height: 1.6; color: #333; background-color: #f9f9f9; overflow-x: hidden; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        
+        /* HEADER & NAV */
+        header { background: #fff; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 65px; width: auto; }
+        nav ul { list-style: none; display: flex; gap: 25px; }
+        nav ul li a { text-decoration: none; color: #333; font-weight: 600; }
+        .dropdown { position: relative; }
+        .dropdown-menu { display: none; position: absolute; background: #fff; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); padding: 10px 0; list-style: none; }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu li a { padding: 10px 20px; display: block; font-weight: 400; }
+
+        /* HERO & STATS */
+        .customer-hero { background: #007bff; color: white; padding: 60px 0; text-align: center; }
+        .stats-section { padding: 40px 0; background: #fff; }
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; }
+        .stat-item h2 { color: #007bff; font-size: 2.5rem; }
+
+        /* SECTIONS COMMON */
+        .section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; }
+        .testimonials, .pemasangan, .logo-slider { padding: 60px 0; }
+
+        /* SLIDER LOGIC */
+        .slider-wrapper { overflow: hidden; width: 100%; position: relative; padding: 20px 0; }
+        
+        /* Animasi Berjalan */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .slider-track { 
+            display: flex; 
+            width: max-content; 
+            animation: scroll 60s linear infinite; 
+            gap: 30px; 
+        }
+        
+        .slider-track:hover { animation-play-state: paused; }
+
+        /* TESTIMONIAL CARD STYLE */
+        .testi-card { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 15px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+            min-width: 350px; 
+            border-left: 5px solid #007bff;
+        }
+        .testi-card p { font-style: italic; margin-bottom: 15px; font-size: 0.95rem; }
+        .testi-card h4 { color: #007bff; }
+
+        /* IMAGE GRID/SLIDER STYLE */
+        .category-block { margin-bottom: 50px; }
+        .category-block h3 { margin-bottom: 20px; padding-left: 10px; border-left: 4px solid #28a745; }
+        .img-slider-track { display: flex; animation: scroll 50s linear infinite; gap: 20px; width: max-content; }
+        .img-slider-track img { width: 300px; height: 200px; object-fit: cover; border-radius: 10px; }
+
+        /* LOGO TRACK */
+        .logo-track { display: flex; animation: scroll 120s linear infinite; gap: 40px; align-items: center; width: max-content; }
+        .logo-track img { height: 60px; filter: grayscale(100%); opacity: 0.6; transition: 0.3s; }
+        .logo-track img:hover { filter: grayscale(0%); opacity: 1; }
+
+        /* FOOTER & FLOATING WA */
+        footer { background: #222; color: white; padding: 30px 0; text-align: center; }
+        .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; z-index: 999; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: 1fr; gap: 20px; }
+            nav ul { display: none; }
+        }
+    </style>
 </head>
 <body>
 
@@ -45,18 +121,9 @@
 <section class="stats-section">
     <div class="container">
         <div class="stats-grid">
-            <div class="stat-item">
-                <h2>Ribuan+</h2>
-                <p>Rumah Tangga</p>
-            </div>
-            <div class="stat-item">
-                <h2>Ratusan+</h2>
-                <p>Horeca (Hotel, Resto, Cafe)</p>
-            </div>
-            <div class="stat-item">
-                <h2>Puluhan+</h2>
-                <p>Sektor Industri</p>
-            </div>
+            <div class="stat-item"><h2>Ribuan+</h2><p>Rumah Tangga</p></div>
+            <div class="stat-item"><h2>Ratusan+</h2><p>Horeca (Hotel, Resto, Cafe)</p></div>
+            <div class="stat-item"><h2>Puluhan+</h2><p>Sektor Industri</p></div>
         </div>
     </div>
 </section>
@@ -64,14 +131,20 @@
 <section class="testimonials">
     <div class="container">
         <h2 class="section-title">Apa Kata Mereka?</h2>
-        <div class="testimonial-grid">
-            <div class="testi-card">
-                <p>"Air sumur saya yang tadinya kuning dan bau besi, sekarang jadi bening dan tidak berbau sama sekali. Pelayanan tim Clarion sangat profesional!"</p>
-                <h4>- Ibu Shanti (Sidoarjo)</h4>
-            </div>
-            <div class="testi-card">
-                <p>"Untuk kebutuhan cafe kami, filter Clarion sangat membantu menjaga cita rasa kopi tetap stabil. Maintenance-nya juga sangat mudah."</p>
-                <h4>- Bpk. Andre (Owner Cafe)</h4>
+        <div class="slider-wrapper">
+            <div class="slider-track">
+                <div class="testi-card"><p>"Air sumur saya yang tadinya kuning dan bau besi, sekarang jadi bening dan tidak berbau sama sekali. Pelayanan tim Clarion sangat profesional!"</p><h4>- Ibu Shanti (Sidoarjo)</h4></div>
+                <div class="testi-card"><p>"Untuk kebutuhan cafe kami, filter Clarion sangat membantu menjaga cita rasa kopi tetap stabil. Maintenance-nya juga sangat mudah."</p><h4>- Bpk. Andre (Owner Cafe)</h4></div>
+                <div class="testi-card"><p>"Sudah coba berbagai filter, tapi cuma Clarion yang awet dan airnya benar-benar bersih. Mantap!"</p><h4>- Bpk. Hendra (Gresik)</h4></div>
+                <div class="testi-card"><p>"Teknisi Clarion sangat paham teknis. Pemasangan rapi dan air langsung segar. Sangat rekomen!"</p><h4>- Ibu Maya (Surabaya)</h4></div>
+                <div class="testi-card"><p>"Sangat puas dengan sistem filter RO-nya. Sekarang tidak perlu beli air galon lagi, jauh lebih hemat!"</p><h4>- Kak Rina (Bali)</h4></div>
+                <div class="testi-card"><p>"Clarion solusi tepat buat restoran kami. Air bersih tanpa kuman, pelanggan pun tenang."</p><h4>- Manager Resto A</h4></div>
+                <div class="testi-card"><p>"Air di rumah jadi lembut banget buat mandi, kulit gak gampang gatal lagi. Terima kasih Clarion!"</p><h4>- Ibu Sari (Mojokerto)</h4></div>
+                <div class="testi-card"><p>"Respon tim purna jualnya cepat sekali. Kemarin ada kendala langsung dibantu sampai tuntas."</p><h4>- Bpk. Doni (Sidoarjo)</h4></div>
+                <div class="testi-card"><p>"Investasi terbaik untuk kesehatan keluarga saya. Air minum di rumah jadi berkualitas tinggi."</p><h4>- Ibu Linda (Tangerang)</h4></div>
+                <div class="testi-card"><p>"Pemasangan di industri kami berjalan lancar. Output air sesuai dengan parameter teknis yang diminta."</p><h4>- Bpk. Agus (Teknisi Pabrik)</h4></div>
+                <div class="testi-card"><p>"Air sumur saya yang tadinya kuning dan bau besi, sekarang jadi bening..."</p><h4>- Ibu Shanti (Sidoarjo)</h4></div>
+                <div class="testi-card"><p>"Untuk kebutuhan cafe kami, filter Clarion sangat membantu..."</p><h4>- Bpk. Andre (Owner Cafe)</h4></div>
             </div>
         </div>
     </div>
@@ -83,28 +156,43 @@
         
         <div class="category-block">
             <h3>Sektor Rumahan & Perumahan</h3>
-            <div class="image-grid">
-                <img src="Testi/Pemasangan 3.jpg" alt="Rumahan 1">
-                <img src="Testi/Pemasangan 6.jpg" alt="Rumahan 2">
-                <img src="Testi/Pemasangan 9.jpg" alt="Rumahan 3">
+            <div class="slider-wrapper">
+                <div class="img-slider-track">
+                    <img src="Testi/Pemasangan 3.jpg" alt="Rumahan 1">
+                    <img src="Testi/Pemasangan 6.jpg" alt="Rumahan 2">
+                    <img src="Testi/Pemasangan 9.jpg" alt="Rumahan 3">
+                    <img src="Testi/Pemasangan 3.jpg" alt="Rumahan 1">
+                    <img src="Testi/Pemasangan 6.jpg" alt="Rumahan 2">
+                    <img src="Testi/Pemasangan 9.jpg" alt="Rumahan 3">
+                </div>
             </div>
         </div>
 
         <div class="category-block">
             <h3>Komersial & Horeca</h3>
-            <div class="image-grid">
-                <img src="Testi/Pemasangan 2.jpg" alt="Cafe 1">
-                <img src="Testi/Pemasangan 13.jpg" alt="Resto 1">
-                <img src="Testi/Pemasangan 8.jpg" alt="Hotel 1">
+            <div class="slider-wrapper">
+                <div class="img-slider-track">
+                    <img src="Testi/Pemasangan 2.jpg" alt="Cafe 1">
+                    <img src="Testi/Pemasangan 13.jpg" alt="Resto 1">
+                    <img src="Testi/Pemasangan 8.jpg" alt="Hotel 1">
+                    <img src="Testi/Pemasangan 2.jpg" alt="Cafe 1">
+                    <img src="Testi/Pemasangan 13.jpg" alt="Resto 1">
+                    <img src="Testi/Pemasangan 8.jpg" alt="Hotel 1">
+                </div>
             </div>
         </div>
 
         <div class="category-block">
             <h3>Industri</h3>
-            <div class="image-grid">
-                <img src="Testi/Pemasangan 1.jpg" alt="Isi Ulang">
-                <img src="Testi/Pemasangan 1.jpg" alt="Industri 1">
-                <img src="Testi/Pemasangan 1.jpg" alt="Pabrik 1">
+            <div class="slider-wrapper">
+                <div class="img-slider-track">
+                    <img src="Testi/Pemasangan 1.jpg" alt="Isi Ulang">
+                    <img src="Testi/Pemasangan 1.jpg" alt="Industri 1">
+                    <img src="Testi/Pemasangan 1.jpg" alt="Pabrik 1">
+                    <img src="Testi/Pemasangan 1.jpg" alt="Isi Ulang">
+                    <img src="Testi/Pemasangan 1.jpg" alt="Industri 1">
+                    <img src="Testi/Pemasangan 1.jpg" alt="Pabrik 1">
+                </div>
             </div>
         </div>
     </div>
@@ -113,7 +201,7 @@
 <section class="logo-slider">
     <div class="container">
         <h2 class="section-title">Brand yang Bekerjasama</h2>
-        <div class="slider-container">
+        <div class="slider-wrapper">
             <div class="logo-track">
                 <img src="Our Customer/Al Muslim.jpg" alt="Al Muslim">
                 <img src="Our Customer/amare padel beach club bali.jpg" alt="Amare Padel Beach Club">
@@ -182,6 +270,8 @@
                 <img src="Our Customer/Tomoro-Coffee.jpg" alt="Tomoro Coffee">
                 <img src="Our Customer/ulinkcom.jpg" alt="Ulinkcom">
                 <img src="Our Customer/we drink.jpg" alt="We Drink">
+                <img src="Our Customer/Al Muslim.jpg" alt="Al Muslim">
+                <img src="Our Customer/amare padel beach club bali.jpg" alt="Amare">
             </div>
         </div>
     </div>
@@ -193,9 +283,7 @@
     </div>
 </footer>
 
-<a href="https://wa.me/6281378699699" class="wa-float" target="_blank">
-    <span>Chat WhatsApp</span>
-</a>
+<a href="https://wa.me/6281378699699" class="wa-float" target="_blank">Chat WhatsApp</a>
 
 </body>
 </html>
