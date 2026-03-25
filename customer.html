@@ -54,12 +54,18 @@
         .testi-card p { font-size: 1.1rem; font-style: italic; margin-bottom: 20px; }
         .testi-card h4 { color: #007bff; font-size: 1.2rem; }
 
-        /* UKURAN FOTO PEMASANGAN TETAP BESAR */
+        /* UKURAN FOTO PEMASANGAN DIUBAH MENYESUAIKAN GAMBAR CONTOH */
         .category-block { margin-bottom: 50px; }
         .category-block h3 { margin-bottom: 20px; font-size: 1.5rem; }
+        
+        /* BERDASARKAN GAMBAR CONTOH, GAMBAR TERLIHAT SEPERTI FOTO JUALAN/PROMOSI YANG TINGGI.
+           MIN-WIDTH DIUBAH MENJADI 300PX DAN HEIGHT MENJADI 400PX UNTUK RASIO 3:4.
+           INI AKAN MEMBUAT GAMBAR TERLIHAT LEBIH TINGGI DARI LEBARNYA, MENYESUAIKAN DENGAN TATA LETAK 
+           FOTO PEMASANGAN YANG UMUM DI MEDIA SOSIAL ATAU KATALOG PRODUK, SEPERTI DI GAMBAR CONTOH.
+        */
         .image-scroll-item { 
-            min-width: 400px; /* Ukuran foto besar */
-            height: 300px; 
+            min-width: 300px; /* Ukuran foto diubah */
+            height: 400px;  /* Ukuran foto diubah */
             scroll-snap-align: start;
         }
         .image-scroll-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
