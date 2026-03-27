@@ -6,6 +6,7 @@
     <title>Prefilter - Clarion Indonesia</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         /* CSS LAYOUT & RESET */
@@ -20,6 +21,7 @@
         nav ul { list-style: none; display: flex; align-items: center; gap: 25px; }
         nav ul li { position: relative; padding: 15px 0; }
         nav ul li a { text-decoration: none; color: #333; font-weight: 600; transition: 0.3s; }
+        nav ul li a:hover { color: #007bff; }
         
         .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-radius: 4px; padding: 10px 0; border-top: 3px solid #007bff; }
         .dropdown:hover .dropdown-menu { display: block; }
@@ -48,30 +50,37 @@
             display: flex; 
             align-items: center; 
             justify-content: center; 
+            padding: 20px;
         }
 
         .product-image img { 
-            width: 100%;      
-            height: 100%;     
-            object-fit: cover; 
+            max-width: 100%;      
+            max-height: 100%;     
+            object-fit: contain; /* Agar gambar utuh tidak terpotong */
             transition: 0.5s; 
         }
 
-        .product-card:hover .product-image img {
-            transform: scale(1.1);
-        }
-        .product-info { padding: 20px; text-align: center; flex-grow: 1; }
+        .product-card:hover .product-image img { transform: scale(1.05); }
+        
+        .product-info { padding: 20px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; }
         .category-tag { font-size: 0.7rem; color: #007bff; text-transform: uppercase; font-weight: bold; margin-bottom: 5px; display: block; }
         .badge-10nm { background: #ffc107; color: #000; font-size: 10px; padding: 2px 8px; border-radius: 10px; margin-left: 5px; vertical-align: middle; }
         .product-info h3 { font-size: 1.1rem; margin-bottom: 10px; color: #222; }
         .product-info p { font-size: 0.85rem; color: #666; margin-bottom: 15px; min-height: 40px; }
         
-        .price { display: block; font-size: 1.1rem; font-weight: 700; color: #007bff; margin-bottom: 15px; }
-        .btn-buy { display: inline-block; background: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 14px; transition: 0.3s; }
+        .price { display: block; font-size: 1.2rem; font-weight: 700; color: #007bff; margin-bottom: 15px; margin-top: auto; }
+        .btn-buy { display: inline-block; background: #28a745; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 14px; transition: 0.3s; }
         .btn-buy:hover { background: #218838; }
 
         footer { background: #222; color: white; padding: 40px 0; text-align: center; margin-top: 60px; }
-        @media (max-width: 768px) { nav ul { display: none; } }
+
+        /* RESPONSIVITAS */
+        @media (max-width: 768px) { 
+            nav ul { display: none; } 
+            .page-header h1 { font-size: 1.8rem; }
+            .product-grid { grid-template-columns: 1fr; padding: 20px 0; }
+            .product-image { height: 250px; }
+        }
     </style>
 </head>
 <body>
@@ -118,82 +127,203 @@
         <button class="filter-btn" onclick="filterProduct('20-inch')">FILTER 20 INCH</button>
     </div>
 
- <div class="product-grid" id="product-container">
+    <div class="product-grid" id="product-container">
         
-        <div class="product-card" data-category="pvdf frp 10-inch 20-inch">
+        <div class="product-card" data-category="pvdf">
             <div class="product-image"><img src="Prefilter/PVDF 3500.png" alt="PVDF 3500"></div>
             <div class="product-info">
                 <span class="category-tag">Ultrafiltrasi <span class="badge-10nm">10nm</span></span>
                 <h3>PVDF 3500L (Standing)</h3>
                 <p>Filter efektif untuk air keruh, pasir, kotoran, serta bakteri & virus hingga 99%.</p>
                 <span class="price">Rp 2.999.000</span>
-                <a href="https://wa.me/6281378699699" class="btn-buy">Pesan via WA</a>
+                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20ingin%20pesan%20PVDF%203500L" class="btn-buy">Pesan via WA</a>
             </div>
         </div>
 
-        <div class="product-card" data-category="pvdf frp 10-inch 20-inch">
+        <div class="product-card" data-category="pvdf">
             <div class="product-image"><img src="Prefilter/PVDF 5000.png" alt="PVDF 5000"></div>
             <div class="product-info">
                 <span class="category-tag">Ultrafiltrasi <span class="badge-10nm">10nm</span></span>
                 <h3>PVDF 5000L (Standing)</h3>
                 <p>Filter efektif untuk air keruh, pasir, kotoran, serta bakteri & virus hingga 99%.</p>
                 <span class="price">Rp 4.599.000</span>
-                <a href="https://wa.me/6281378699699" class="btn-buy">Pesan via WA</a>
+                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20ingin%20pesan%20PVDF%205000L" class="btn-buy">Pesan via WA</a>
             </div>
         </div>
 
-        <div class="product-card" data-category="pvdf frp 10-inch 20-inch">
+        <div class="product-card" data-category="pvdf">
             <div class="product-image"><img src="Prefilter/PVDF 6000.png" alt="PVDF 6000"></div>
             <div class="product-info">
                 <span class="category-tag">Ultrafiltrasi <span class="badge-10nm">10nm</span></span>
                 <h3>PVDF 6000L (Standing)</h3>
                 <p>Filter efektif untuk air keruh, pasir, kotoran, serta bakteri & virus hingga 99%.</p>
                 <span class="price">Rp 5.199.000</span>
-                <a href="https://wa.me/6281378699699" class="btn-buy">Pesan via WA</a>
+                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20ingin%20pesan%20PVDF%206000L" class="btn-buy">Pesan via WA</a>
             </div>
         </div>
 
-        <div class="product-card" data-category="pvdf frp 10-inch 20-inch">
+        <div class="product-card" data-category="pvdf">
             <div class="product-image"><img src="Prefilter/PVDF 8000.png" alt="PVDF 8000"></div>
             <div class="product-info">
                 <span class="category-tag">Ultrafiltrasi <span class="badge-10nm">10nm</span></span>
                 <h3>PVDF 8000L (Standing)</h3>
                 <p>Filter efektif untuk air keruh, pasir, kotoran, serta bakteri & virus hingga 99%.</p>
                 <span class="price">Rp 6.799.000</span>
-                <a href="https://wa.me/6281378699699" class="btn-buy">Pesan via WA</a>
+                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20ingin%20pesan%20PVDF%208000L" class="btn-buy">Pesan via WA</a>
             </div>
         </div>
 
-        <div class="product-card" data-category="pvdf frp 10-inch 20-inch">
+        <div class="product-card" data-category="pvdf">
             <div class="product-image"><img src="Prefilter/PVDF 10000.png" alt="PVDF 10000"></div>
             <div class="product-info">
                 <span class="category-tag">Ultrafiltrasi <span class="badge-10nm">10nm</span></span>
                 <h3>PVDF 10.000L (Standing)</h3>
                 <p>Filter efektif untuk air keruh, pasir, kotoran, serta bakteri & virus hingga 99%.</p>
                 <span class="price">Rp 8.299.000</span>
-                <a href="https://wa.me/6281378699699" class="btn-buy">Pesan via WA</a>
+                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20ingin%20pesan%20PVDF%2010000L" class="btn-buy">Pesan via WA</a>
             </div>
         </div>
 
-        <div class="product-card" data-category="pvdf frp 10-inch 20-inch">
+        <div class="product-card" data-category="pvdf">
             <div class="product-image"><img src="Prefilter/PVDF 13000.png" alt="PVDF 13000"></div>
             <div class="product-info">
                 <span class="category-tag">Ultrafiltrasi <span class="badge-10nm">10nm</span></span>
                 <h3>PVDF 13.000L (Standing)</h3>
                 <p>Filter efektif untuk air keruh, pasir, kotoran, serta bakteri & virus hingga 99%.</p>
                 <span class="price">Rp 10.599.000</span>
-                <a href="https://wa.me/6281378699699" class="btn-buy">Pesan via WA</a>
+                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20ingin%20pesan%20PVDF%2013000L" class="btn-buy">Pesan via WA</a>
             </div>
         </div>
 
-        <div class="product-card" data-category="pvdf frp 10-inch 20-inch">
+        <div class="product-card" data-category="pvdf">
             <div class="product-image"><img src="Prefilter/PVDF 18000.png" alt="PVDF 18000"></div>
             <div class="product-info">
                 <span class="category-tag">Ultrafiltrasi <span class="badge-10nm">10nm</span></span>
                 <h3>PVDF 18.000L (Standing)</h3>
                 <p>Filter efektif untuk air keruh, pasir, kotoran, serta bakteri & virus hingga 99%.</p>
                 <span class="price">Rp 12.999.000</span>
-                <a href="https://wa.me/6281378699699" class="btn-buy">Pesan via WA</a>
+                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20ingin%20pesan%20PVDF%2018000L" class="btn-buy">Pesan via WA</a>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="frp">
+            <div class="product-image"><img src="Prefilter/frp1054.jpg" alt="Tabung FRP 1054"></div>
+            <div class="product-info">
+                <span class="category-tag">Tabung Media</span>
+                <h3>Tabung FRP 1054</h3>
+                <p>Tabung filter serat fiber untuk berbagai media filtrasi air skala rumah tangga.</p>
+                <span class="price">Hubungi Kami</span>
+                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20tanya%20harga%20Tabung%20FRP%201054" class="btn-buy">Tanya Harga</a>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="frp">
+            <div class="product-image"><img src="Prefilter/frp1252.jpg" alt="Tabung FRP 1252"></div>
+            <div class="product-info">
+                <span class="category-tag">Tabung Media</span>
+                <h3>Tabung FRP 1252</h3>
+                <p>Kapasitas lebih besar untuk penyaringan air bersih yang lebih optimal.</p>
+                <span class="price">Hubungi Kami</span>
+                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20tanya%20harga%20Tabung%20FRP%201252" class="btn-buy">Tanya Harga</a>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="frp">
+            <div class="product-image"><img src="Prefilter/frp.jpg" alt="Tabung FRP 1344"></div>
+            <div class="product-info">
+                <span class="category-tag">Tabung Media</span>
+                <h3>Tabung FRP 1344</h3>
+                <p>Solusi filter air tahan tekanan tinggi dengan material fiber berkualitas.</p>
+                <span class="price">Hubungi Kami</span>
+                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20tanya%20harga%20Tabung%20FRP%201344" class="btn-buy">Tanya Harga</a>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="frp">
+            <div class="product-image"><img src="Prefilter/frp.jpg" alt="Tabung FRP 1354"></div>
+            <div class="product-info">
+                <span class="category-tag">Tabung Media</span>
+                <h3>Tabung FRP 1354</h3>
+                <p>Dimensi tinggi untuk volume media filter yang lebih banyak.</p>
+                <span class="price">Hubungi Kami</span>
+                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20tanya%20harga%20Tabung%20FRP%201354" class="btn-buy">Tanya Harga</a>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="frp">
+            <div class="product-image"><img src="Prefilter/frp.jpg" alt="Tabung FRP 1652"></div>
+            <div class="product-info">
+                <span class="category-tag">Tabung Media</span>
+                <h3>Tabung FRP 1652</h3>
+                <p>Ideal untuk kebutuhan komersial menengah dan perkantoran.</p>
+                <span class="price">Hubungi Kami</span>
+                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20tanya%20harga%20Tabung%20FRP%201652" class="btn-buy">Tanya Harga</a>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="frp">
+            <div class="product-image"><img src="Prefilter/frp.jpg" alt="Tabung FRP 1665"></div>
+            <div class="product-info">
+                <span class="category-tag">Tabung Media</span>
+                <h3>Tabung FRP 1665</h3>
+                <p>Kapasitas tinggi untuk debit air yang lebih besar setiap jamnya.</p>
+                <span class="price">Hubungi Kami</span>
+                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20tanya%20harga%20Tabung%20FRP%201665" class="btn-buy">Tanya Harga</a>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="frp">
+            <div class="product-image"><img src="Prefilter/frp.jpg" alt="Tabung FRP 1865"></div>
+            <div class="product-info">
+                <span class="category-tag">Tabung Media</span>
+                <h3>Tabung FRP 1865</h3>
+                <p>Tabung media skala industri kecil hingga menengah.</p>
+                <span class="price">Hubungi Kami</span>
+                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20tanya%20harga%20Tabung%20FRP%201865" class="btn-buy">Tanya Harga</a>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="frp">
+            <div class="product-image"><img src="Prefilter/frp.jpg" alt="Tabung FRP 2165"></div>
+            <div class="product-info">
+                <span class="category-tag">Tabung Media</span>
+                <h3>Tabung FRP 2165</h3>
+                <p>Varian tabung lebar untuk proses filtrasi yang lebih cepat.</p>
+                <span class="price">Hubungi Kami</span>
+                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20tanya%20harga%20Tabung%20FRP%202165" class="btn-buy">Tanya Harga</a>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="frp">
+            <div class="product-image"><img src="Prefilter/frp.jpg" alt="Tabung FRP 2474"></div>
+            <div class="product-info">
+                <span class="category-tag">Tabung Media</span>
+                <h3>Tabung FRP 2474</h3>
+                <p>Kapasitas besar untuk kebutuhan industri dan gedung besar.</p>
+                <span class="price">Hubungi Kami</span>
+                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20tanya%20harga%20Tabung%20FRP%202474" class="btn-buy">Tanya Harga</a>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="frp">
+            <div class="product-image"><img src="Prefilter/frp.jpg" alt="Tabung FRP 3072"></div>
+            <div class="product-info">
+                <span class="category-tag">Tabung Media</span>
+                <h3>Tabung FRP 3072</h3>
+                <p>Tabung filter raksasa untuk pengolahan air volume tinggi.</p>
+                <span class="price">Hubungi Kami</span>
+                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20tanya%20harga%20Tabung%20FRP%203072" class="btn-buy">Tanya Harga</a>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="frp">
+            <div class="product-image"><img src="Prefilter/frp.jpg" alt="Tabung FRP 3672"></div>
+            <div class="product-info">
+                <span class="category-tag">Tabung Media</span>
+                <h3>Tabung FRP 3672</h3>
+                <p>Spesifikasi tertinggi untuk proyek pemurnian air skala besar.</p>
+                <span class="price">Hubungi Kami</span>
+                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20tanya%20harga%20Tabung%20FRP%203672" class="btn-buy">Tanya Harga</a>
             </div>
         </div>
 
@@ -202,7 +332,7 @@
 
 <footer>
     <div class="container">
-        <p>© 2026 PT Harjaya Mapan Sentosa</p>
+        <p>© 2026 PT Harjaya Mapan Sentosa - Clarion Water Systems</p>
     </div>
 </footer>
 
@@ -214,14 +344,15 @@
         // Mengatur status aktif pada tombol
         buttons.forEach(btn => {
             btn.classList.remove('active');
-            if (btn.getAttribute('onclick').includes(`'${category}'`)) {
+            // Menyesuaikan pemilihan tombol aktif
+            if (btn.getAttribute('onclick') === `filterProduct('${category}')`) {
                 btn.classList.add('active');
             }
         });
 
-        // Melakukan filtering produk berdasarkan class category
+        // Melakukan filtering produk
         cards.forEach(card => {
-            const itemCategories = card.getAttribute('data-category').split(' '); // Ambil semua kategori di kartu
+            const itemCategories = card.getAttribute('data-category').split(' ');
             if (category === 'all' || itemCategories.includes(category)) {
                 card.classList.remove('hide');
             } else {
