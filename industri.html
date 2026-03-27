@@ -11,56 +11,115 @@
         body { background-color: #f9f9f9; color: #333; line-height: 1.6; }
         .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
-        /* HEADER & NAVIGATION (TETAP SAMA) */
+        /* HEADER & NAVIGATION */
         header { background: #fff; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         header .container { display: flex; justify-content: space-between; align-items: center; }
         .logo img { height: 65px; width: auto; display: block; }
-        nav ul { list-style: none; display: flex; align-items: center; gap: 25px; }
-        nav ul li { position: relative; padding: 15px 0; }
-        nav ul li a { text-decoration: none; color: #333; font-weight: 600; transition: 0.3s; }
+        nav ul { list-style: none; display: flex; align-items: center; gap: 20px; }
+        nav ul li { position: relative; }
+        nav ul li a { text-decoration: none; color: #333; font-weight: 600; transition: 0.3s; padding: 10px 5px; display: block; }
         nav ul li a:hover { color: #007bff; }
         
         /* DROPDOWN MENU */
         .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-radius: 4px; padding: 10px 0; border-top: 3px solid #007bff; }
         .dropdown:hover .dropdown-menu { display: block; }
-        .dropdown-menu li { padding: 0; }
+        .dropdown-menu li { padding: 0; width: 100%; }
         .dropdown-menu li a { padding: 10px 20px; display: block; text-decoration: none; color: #333; font-size: 14px; font-weight: 500; }
         .dropdown-menu li a:hover { background: #f8f9fa; color: #007bff; }
 
         /* PAGE HEADER */
         .page-header { background: #007bff; color: white; padding: 60px 0; text-align: center; }
-        .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .page-header h1 { font-size: 2.2rem; margin-bottom: 10px; padding: 0 15px; }
+        .page-header p { font-size: 1.1rem; opacity: 0.9; padding: 0 15px; }
 
         /* KATALOG PRODUK */
-        .product-section { padding: 60px 0; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .product-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; text-align: center; transition: 0.3s; }
+        .product-section { padding: 40px 0; }
+        /* Grid responsif: 1 kolom di HP, 2 di Tablet, 3 di Desktop */
+        .product-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
+            margin-top: 20px; 
+        }
+        
+        .product-card { 
+            background: #fff; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+            border: 1px solid #eee; 
+            text-align: center; 
+            transition: 0.3s; 
+            display: flex;
+            flex-direction: column;
+        }
         .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
-        .product-img { background: #eee; height: 250px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .product-img img { width: 100%; height: 100%; object-fit: cover; }
-        .product-info { padding: 25px; }
-        .product-info h3 { margin-bottom: 10px; font-size: 1.4rem; color: #222; }
-        .price { font-size: 1.5rem; font-weight: 800; color: #007bff; margin: 15px 0; display: block; }
-        .specs { list-style: none; text-align: left; margin-bottom: 20px; font-size: 0.9rem; color: #666; }
-        .specs li { margin-bottom: 8px; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px; }
-        .specs i { color: #28a745; margin-right: 8px; }
+        
+        /* Perbaikan agar gambar tidak zoom & tetap proporsional */
+        .product-img { 
+            background: #fff; 
+            height: 280px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            overflow: hidden;
+            padding: 15px; 
+        }
+        .product-img img { 
+            max-width: 100%; 
+            max-height: 100%; 
+            object-fit: contain; /* Gambar akan menyesuaikan tanpa terpotong/zoom */
+            transition: 0.3s;
+        }
+
+        .product-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .product-info h3 { margin-bottom: 10px; font-size: 1.3rem; color: #222; }
+        .price { font-size: 1.4rem; font-weight: 800; color: #007bff; margin: 10px 0; display: block; }
+        
+        .specs { list-style: none; text-align: left; margin-bottom: 20px; font-size: 0.85rem; color: #555; }
+        .specs li { margin-bottom: 8px; border-bottom: 1px solid #f5f5f5; padding-bottom: 5px; display: flex; align-items: baseline; }
+        .specs i { color: #28a745; margin-right: 10px; font-size: 0.8rem; }
 
         /* LAYANAN SECTION */
         .service-info { background: #fff; padding: 60px 0; border-top: 1px solid #eee; }
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center; }
-        .service-item i { font-size: 3rem; color: #007bff; margin-bottom: 20px; }
-        .service-item h4 { margin-bottom: 10px; font-size: 1.2rem; }
-        .service-item p { font-size: 0.9rem; color: #777; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center; }
+        .service-item { padding: 15px; }
+        .service-item i { font-size: 2.5rem; color: #007bff; margin-bottom: 15px; }
+        .service-item h4 { margin-bottom: 10px; font-size: 1.1rem; }
+        .service-item p { font-size: 0.85rem; color: #777; }
 
         /* CTA CUSTOM */
-        .cta-custom { background: #333; color: #fff; padding: 50px 0; text-align: center; }
-        .btn-wa { background: #28a745; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; transition: 0.3s; }
-        .btn-wa:hover { background: #218838; }
+        .cta-custom { background: #333; color: #fff; padding: 60px 20px; text-align: center; }
+        .cta-custom h2 { font-size: 1.8rem; margin-bottom: 10px; }
+        .btn-wa { 
+            background: #28a745; 
+            color: white; 
+            padding: 14px 28px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            display: inline-block; 
+            margin-top: 20px; 
+            transition: 0.3s; 
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+        }
+        .btn-wa:hover { background: #218838; transform: scale(1.05); }
+
+        /* RESPONSIVITAS MOBILE & TABLET */
+        @media (max-width: 992px) {
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+        }
 
         @media (max-width: 768px) {
-            nav ul { display: none; }
+            header .container { flex-direction: column; gap: 10px; }
+            nav ul { gap: 10px; flex-wrap: wrap; justify-content: center; }
+            nav ul li a { font-size: 14px; }
+            .product-grid { grid-template-columns: 1fr; } /* 1 kolom di HP */
+            .page-header h1 { font-size: 1.8rem; }
+            .product-img { height: 240px; }
         }
-        footer { background: #222; color: white; padding: 40px 0; text-align: center; margin-top: 60px; }
+
+        footer { background: #222; color: #aaa; padding: 30px 0; text-align: center; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -73,7 +132,7 @@
                 <li><a href="index.html">Beranda</a></li>
                 <li><a href="about.html">Tentang Kami</a></li>
                 <li class="dropdown">
-                    <a href="#">Produk ▾</a>
+                    <a href="#">Produk <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="prefilter.html">Prefilter</a></li>
                         <li><a href="drinking-system.html">Drinking System</a></li>
@@ -104,11 +163,13 @@
                 <h3>RO Industri 0,5 Ton</h3>
                 <span class="price">Rp34.999.000</span>
                 <ul class="specs">
-                    <li><i class="fas fa-check"></i> Kapasitas 500 Liter / Jam </li>
-                    <li><i class="fas fa-check"></i> Rangka Bahan Stainless Steel 304, Pipa PPR  </li>
-                    <li><i class="fas fa-check"></i> Voltase 220 Power 2Kw Frequency 50Hz </li>
+                    <li><i class="fas fa-check-circle"></i> Kapasitas 500 Liter / Jam </li>
+                    <li><i class="fas fa-check-circle"></i> Rangka Stainless Steel 304, Pipa PPR </li>
+                    <li><i class="fas fa-check-circle"></i> Voltase 220V | 2Kw | 50Hz </li>
                 </ul>
-                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20tertarik%20dengan%20produk%20RO%20Industri%200,5%20Ton" class="btn-wa"><i class="fab fa-whatsapp"></i> Pesan via WA</a>
+                <div style="margin-top:auto;">
+                    <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20tertarik%20dengan%20produk%20RO%20Industri%200,5%20Ton" class="btn-wa"><i class="fab fa-whatsapp"></i> Pesan via WA</a>
+                </div>
             </div>
         </div>
 
@@ -118,11 +179,13 @@
                 <h3>RO Industri 1 Ton</h3>
                 <span class="price">Rp42.999.000</span>
                 <ul class="specs">
-                    <li><i class="fas fa-check"></i> Kapasitas 1000 Liter / Jam</li>
-                    <li><i class="fas fa-check"></i> Rangka Bahan Stainless Steel 304, Pipa PPR </li>
-                    <li><i class="fas fa-check"></i> Voltase 220 Power 2.2Kw Frequency 50Hz </li>
+                    <li><i class="fas fa-check-circle"></i> Kapasitas 1000 Liter / Jam</li>
+                    <li><i class="fas fa-check-circle"></i> Rangka Stainless Steel 304, Pipa PPR </li>
+                    <li><i class="fas fa-check-circle"></i> Voltase 220V | 2.2Kw | 50Hz </li>
                 </ul>
-                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20tertarik%20dengan%20produk%20RO%20Industri%201%20Ton" class="btn-wa"><i class="fab fa-whatsapp"></i> Pesan via WA</a>
+                <div style="margin-top:auto;">
+                    <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20tertarik%20dengan%20produk%20RO%20Industri%201%20Ton" class="btn-wa"><i class="fab fa-whatsapp"></i> Pesan via WA</a>
+                </div>
             </div>
         </div>
 
@@ -132,11 +195,13 @@
                 <h3>RO Industri 2 Ton</h3>
                 <span class="price">Rp64.999.000</span>
                 <ul class="specs">
-                    <li><i class="fas fa-check"></i> Kapasitas 2000 Liter / Jam </li>
-                    <li><i class="fas fa-check"></i> Rangka Bahan Stainless Steel 304, Pipa PPR </li>
-                    <li><i class="fas fa-check"></i> Voltase 220 Power 2.5Kw Frequency 50Hz </li>
+                    <li><i class="fas fa-check-circle"></i> Kapasitas 2000 Liter / Jam </li>
+                    <li><i class="fas fa-check-circle"></i> Rangka Stainless Steel 304, Pipa PPR </li>
+                    <li><i class="fas fa-check-circle"></i> Voltase 220V | 2.5Kw | 50Hz </li>
                 </ul>
-                <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20tertarik%20dengan%20produk%20RO%20Industri%202%20Ton" class="btn-wa"><i class="fab fa-whatsapp"></i> Pesan via WA</a>
+                <div style="margin-top:auto;">
+                    <a href="https://wa.me/6281378699699?text=Halo%20Clarion,%20saya%20tertarik%20dengan%20produk%20RO%20Industri%202%20Ton" class="btn-wa"><i class="fab fa-whatsapp"></i> Pesan via WA</a>
+                </div>
             </div>
         </div>
     </div>
@@ -174,7 +239,7 @@
 
 <footer>
     <div class="container">
-        <p>© 2026 PT Harjaya Mapan Sentosa</p>
+        <p>© 2026 PT Harjaya Mapan Sentosa - Clarion Water Systems</p>
     </div>
 </footer>
 
