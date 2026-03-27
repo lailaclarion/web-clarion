@@ -14,7 +14,7 @@
         body { line-height: 1.6; color: #333; background-color: #f9f9f9; overflow-x: hidden; }
         .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
-        /* --- HEADER & NAVIGATION (Sama dengan Prefilter) --- */
+        /* --- HEADER & NAVIGATION --- */
         header { background: #fff; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         header .container { display: flex; justify-content: space-between; align-items: center; }
         .logo img { height: 65px; width: auto; display: block; }
@@ -45,11 +45,9 @@
             padding: 20px 5px;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch; 
-            cursor: grab; /* Indikator bisa digeser mouse */
+            cursor: grab;
         }
         .manual-scroll-wrapper:active { cursor: grabbing; }
-        
-        /* Scrollbar Styling untuk Laptop */
         .manual-scroll-wrapper::-webkit-scrollbar { height: 8px; }
         .manual-scroll-wrapper::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
         .manual-scroll-wrapper::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
@@ -57,42 +55,26 @@
 
         /* --- TESTIMONI CARDS --- */
         .testi-card { 
-            background: white; 
-            padding: 35px; 
-            border-radius: 15px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-            min-width: 400px; 
-            scroll-snap-align: start;
-            border-bottom: 5px solid #007bff;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            background: white; padding: 35px; border-radius: 15px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); min-width: 400px; 
+            scroll-snap-align: start; border-bottom: 5px solid #007bff;
+            display: flex; flex-direction: column; justify-content: space-between;
         }
         .testi-card p { font-size: 1rem; font-style: italic; color: #444; margin-bottom: 20px; line-height: 1.8; }
-        .testi-card h4 { color: #007bff; font-weight: 700; border-top: 1px solid #eee; pt: 15px; }
+        .testi-card h4 { color: #007bff; font-weight: 700; border-top: 1px solid #eee; padding-top: 15px; }
 
         /* --- FOTO PEMASANGAN --- */
         .category-block { margin-bottom: 60px; }
-        .category-block h3 { margin-bottom: 20px; font-size: 1.4rem; color: #444; padding-left: 5px; border-left: 4px solid #007bff; padding-left: 15px; }
+        .category-block h3 { margin-bottom: 20px; font-size: 1.4rem; color: #444; border-left: 4px solid #007bff; padding-left: 15px; }
         
         .image-scroll-item { 
-            min-width: 300px; 
-            height: 400px; 
-            scroll-snap-align: start;
-            flex-shrink: 0;
-            background: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            min-width: 300px; height: 400px; scroll-snap-align: start;
+            flex-shrink: 0; background: #fff; border-radius: 12px;
+            overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
-        .image-scroll-item img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; /* Gunakan cover agar rapi, atau contain jika ingin gambar utuh */
-            display: block;
-        }
+        .image-scroll-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        /* --- LOGO SLIDER (Customer Logos) --- */
+        /* --- LOGO SLIDER (BERWARNA) --- */
         .logo-slider { padding: 60px 0; background: #fff; overflow: hidden; }
         .logo-container { width: 100%; overflow: hidden; position: relative; }
         
@@ -101,14 +83,11 @@
             100% { transform: translateX(-50%); }
         }
         .logo-track { 
-            display: flex; 
-            width: max-content; 
-            animation: scrollLogo 60s linear infinite; 
-            gap: 50px; 
-            align-items: center; 
+            display: flex; width: max-content; animation: scrollLogo 120s linear infinite; 
+            gap: 50px; align-items: center; 
         }
-        .logo-track img { height: 60px; width: auto; filter: grayscale(100%); transition: 0.3s; opacity: 0.7; }
-        .logo-track img:hover { filter: grayscale(0%); opacity: 1; }
+        .logo-track img { height: 60px; width: auto; filter: none; opacity: 1; transition: 0.3s; }
+        .logo-track img:hover { transform: scale(1.1); }
 
         /* --- FOOTER & WA --- */
         footer { background: #222; color: white; padding: 40px 0; text-align: center; }
@@ -117,7 +96,7 @@
         /* --- RESPONSIVE MOBILE --- */
         @media (max-width: 768px) { 
             .stats-grid { grid-template-columns: 1fr; gap: 30px; } 
-            nav ul { display: none; } /* Gunakan menu hamburger jika perlu nanti */
+            nav ul { display: none; } 
             .customer-hero h1 { font-size: 1.8rem; }
             .testi-card { min-width: 85vw; padding: 25px; }
             .image-scroll-item { min-width: 260px; height: 350px; }
@@ -129,9 +108,7 @@
 
 <header>
     <div class="container">
-        <a href="index.html" class="logo">
-            <img src="logo.png.png" alt="Clarion Logo">
-        </a>
+        <a href="index.html" class="logo"><img src="logo.png.png" alt="Clarion Logo"></a>
         <nav>
             <ul>
                 <li><a href="index.html">Beranda</a></li>
@@ -187,21 +164,27 @@
     <div class="category-block">
         <h3>Sektor Rumahan</h3>
         <div class="manual-scroll-wrapper">
-            <div class="image-scroll-item"><img src="Testi/Pemasangan 3.jpg" alt="Pemasangan Clarion"></div>
-            <div class="image-scroll-item"><img src="Testi/Pemasangan 6.jpg" alt="Pemasangan Clarion"></div>
-            <div class="image-scroll-item"><img src="Testi/Pemasangan 9.jpg" alt="Pemasangan Clarion"></div>
-            <div class="image-scroll-item"><img src="Testi/Pemasangan 10.jpg" alt="Pemasangan Clarion"></div>
+            <div class="image-scroll-item"><img src="Testi/Pemasangan 3.jpg" alt="Pemasangan Rumah"></div>
+            <div class="image-scroll-item"><img src="Testi/Pemasangan 6.jpg" alt="Pemasangan Rumah"></div>
+            <div class="image-scroll-item"><img src="Testi/Pemasangan 9.jpg" alt="Pemasangan Rumah"></div>
+            <div class="image-scroll-item"><img src="Testi/Pemasangan 10.jpg" alt="Pemasangan Rumah"></div>
         </div>
     </div>
 
     <div class="category-block">
-        <h3>Komersial & Industri</h3>
+        <h3>Komersial (Hotel, Resto, Cafe)</h3>
         <div class="manual-scroll-wrapper">
-            <div class="image-scroll-item"><img src="Testi/Pemasangan 1.jpg" alt="Industri Clarion"></div>
             <div class="image-scroll-item"><img src="Testi/Pemasangan 2.jpg" alt="Cafe Clarion"></div>
             <div class="image-scroll-item"><img src="Testi/Pemasangan 5.jpg" alt="Hotel Clarion"></div>
             <div class="image-scroll-item"><img src="Testi/Pemasangan 13.jpg" alt="Resto Clarion"></div>
         </div>
+    </div>
+
+    <div class="category-block">
+        <h3>Sektor Industri</h3>
+        <div class="manual-scroll-wrapper">
+            <div class="image-scroll-item"><img src="Testi/Pemasangan 1.jpg" alt="Industri Clarion"></div>
+            </div>
     </div>
 </section>
 
@@ -210,144 +193,75 @@
         <h2 class="section-title">Partner & Customer Kami</h2>
         <div class="logo-container">
             <div class="logo-track">
-                 <img src="Our Customer/Al Muslim.jpg" alt="Al Muslim">
-
-                <img src="Our Customer/amare padel beach club bali.jpg" alt="Amare Padel Beach Club">
-
-                <img src="Our Customer/Back door.png" alt="Back Door">
-
-                <img src="Our Customer/Banjar Budewi.jpg" alt="Banjar Budewi">
-
-                <img src="Our Customer/bb panda.jpg" alt="BB Panda">
-
-                <img src="Our Customer/Beauty In The pot.jpg" alt="Beauty In The Pot">
-
-                <img src="Our Customer/Brasa Rodizio Brazilian Sedayu.jpg" alt="Brasa Rodizio">
-
-                <img src="Our Customer/Brize bean coffee.jpg" alt="Brize Bean Coffee">
-
-                <img src="Our Customer/Cafe Orock bandung.jpeg" alt="Cafe Orock">
-
-                <img src="Our Customer/Chavelle.jpeg" alt="Chavelle">
-
-                <img src="Our Customer/Ciccias.png" alt="Ciccias">
-
-                <img src="Our Customer/De Javu.png" alt="De Javu">
-
-                <img src="Our Customer/de mier eat & stay.jpg" alt="De Mier Eat & Stay">
-
-                <img src="Our Customer/Delifore.jpeg" alt="Delifore">
-
-                <img src="Our Customer/edelwest tea.jpeg" alt="Edelwest Tea">
-
-                <img src="Our Customer/Gomachi Butadon.jpg" alt="Gomachi Butadon">
-
-                <img src="Our Customer/Halo Hongkong.jpg" alt="Halo Hongkong">
-
-                <img src="Our Customer/Hei Hei Boba.jpg" alt="Hei Hei Boba">
-
-                <img src="Our Customer/hidilau.png" alt="Haidilao">
-
-                <img src="Our Customer/jin yu pik.png" alt="Jin Yu PIK">
-
-                <img src="Our Customer/Jokopi.png" alt="Jokopi">
-
-                <img src="Our Customer/K3 Mart.jpg" alt="K3 Mart">
-
-                <img src="Our Customer/kampoeng roti.jpg" alt="Kampoeng Roti">
-
-                <img src="Our Customer/Kantor Pos.jpg" alt="Kantor Pos">
-
-                <img src="Our Customer/Karina Shine Cake.jpeg" alt="Karina Shine Cake">
-
-                <img src="Our Customer/Karura Logistik.jpg" alt="Karura Logistik">
-
-                <img src="Our Customer/Kedai Sinyol.jpg" alt="Kedai Sinyol">
-
-                <img src="Our Customer/Kirri Billi.jpeg" alt="Kirri Billi">
-
-                <img src="Our Customer/KPGA Golf Driving.jpg" alt="KPGA Golf">
-
-                <img src="Our Customer/Lacostila.jpg" alt="Lacostila">
-
-                <img src="Our Customer/laritta bakery.jpg" alt="Laritta Bakery">
-
-                <img src="Our Customer/Little A.png" alt="Little A">
-
-                <img src="Our Customer/Loving Hut.jpg" alt="Loving Hut">
-
-                <img src="Our Customer/Mayaza.jpg" alt="Mayaza">
-
-                <img src="Our Customer/Michael TJ Gelato.png" alt="Michael TJ Gelato">
-
-                <img src="Our Customer/MIxsue.jpg" alt="Mixue">
-
-                <img src="Our Customer/monolog cafe.png" alt="Monolog Cafe">
-
-                <img src="Our Customer/Monopole.jpeg" alt="Monopole">
-
-                <img src="Our Customer/My Kopi O.png" alt="My Kopi O">
-
-                <img src="Our Customer/Namaaz.png" alt="Namaaz">
-
-                <img src="Our Customer/Oleh Oleh Nusantara.jpeg" alt="Oleh Oleh Nusantara">
-
-                <img src="Our Customer/oseng sambel leren timur.png" alt="Oseng Sambel Leren Timur">
-
-                <img src="Our Customer/Pak ci Abim.jpeg" alt="Pak Ci Abim">
-
-                <img src="Our Customer/Paper Cup.jpg" alt="Paper Cup">
-
-                <img src="Our Customer/Percetakan Polaris.jpg" alt="Percetakan Polaris">
-
-                <img src="Our Customer/Porta Branding.jpeg" alt="Porta Branding">
-
-                <img src="Our Customer/PT Boga Group.png" alt="PT Boga Group">
-
-                <img src="Our Customer/PT Budi Jaya Amties.jpg" alt="PT Budi Jaya Amties">
-
-                <img src="Our Customer/Pt Es Teh Indonesia.png" alt="Es Teh Indonesia">
-
-                <img src="Our Customer/pt esr karawang.png" alt="PT ESR Karawang">
-
-                <img src="Our Customer/PT Hokkan.png" alt="PT Hokkan">
-
-                <img src="Our Customer/pt horizon internusa persada.png" alt="PT Horizon Internusa">
-
-                <img src="Our Customer/pt ikeuchi.jpg" alt="PT Ikeuchi">
-
-                <img src="Our Customer/PT Nikta.jpg" alt="PT Nikta">
-
-                <img src="Our Customer/PT Padi Hijau.jpg" alt="PT Padi Hijau">
-
-                <img src="Our Customer/pt pelsar tambang kencana.jpg" alt="PT Pelsar">
-
-                <img src="Our Customer/PT Sahabat Sakina.png" alt="PT Sahabat Sakina">
-
-                <img src="Our Customer/PT Samudra Coco.jpeg" alt="PT Samudra Coco">
-
-                <img src="Our Customer/selai sweet nice malang.jpg" alt="Selai Sweet Nice">
-
-                <img src="Our Customer/STjernie.jpeg" alt="STjernie">
-
-                <img src="Our Customer/Sushi Tea.png" alt="Sushi Tei">
-
-                <img src="Our Customer/Tebat anjam.jpg" alt="Tebat Anjam">
-
-                <img src="Our Customer/The Bistro.jpg" alt="The Bistro">
-
-                <img src="Our Customer/The oak Tree.jpeg" alt="The Oak Tree">
-
-                <img src="Our Customer/Tomoro-Coffee.jpg" alt="Tomoro Coffee">
-
-                <img src="Our Customer/ulinkcom.jpg" alt="Ulinkcom">
-
-                <img src="Our Customer/we drink.jpg" alt="We Drink">
-
                 <img src="Our Customer/Al Muslim.jpg" alt="Al Muslim">
-
+                <img src="Our Customer/amare padel beach club bali.jpg" alt="Amare Padel">
+                <img src="Our Customer/Back door.png" alt="Back Door">
+                <img src="Our Customer/Banjar Budewi.jpg" alt="Banjar Budewi">
+                <img src="Our Customer/bb panda.jpg" alt="BB Panda">
+                <img src="Our Customer/Beauty In The pot.jpg" alt="Beauty In The Pot">
+                <img src="Our Customer/Brasa Rodizio Brazilian Sedayu.jpg" alt="Brasa Rodizio">
+                <img src="Our Customer/Brize bean coffee.jpg" alt="Brize Bean Coffee">
+                <img src="Our Customer/Cafe Orock bandung.jpeg" alt="Cafe Orock">
+                <img src="Our Customer/Chavelle.jpeg" alt="Chavelle">
+                <img src="Our Customer/Ciccias.png" alt="Ciccias">
+                <img src="Our Customer/De Javu.png" alt="De Javu">
+                <img src="Our Customer/de mier eat & stay.jpg" alt="De Mier">
+                <img src="Our Customer/Delifore.jpeg" alt="Delifore">
+                <img src="Our Customer/edelwest tea.jpeg" alt="Edelwest Tea">
+                <img src="Our Customer/Gomachi Butadon.jpg" alt="Gomachi Butadon">
+                <img src="Our Customer/Halo Hongkong.jpg" alt="Halo Hongkong">
+                <img src="Our Customer/Hei Hei Boba.jpg" alt="Hei Hei Boba">
+                <img src="Our Customer/hidilau.png" alt="Haidilao">
+                <img src="Our Customer/jin yu pik.png" alt="Jin Yu PIK">
+                <img src="Our Customer/Jokopi.png" alt="Jokopi">
+                <img src="Our Customer/K3 Mart.jpg" alt="K3 Mart">
+                <img src="Our Customer/kampoeng roti.jpg" alt="Kampoeng Roti">
+                <img src="Our Customer/Kantor Pos.jpg" alt="Kantor Pos">
+                <img src="Our Customer/Karina Shine Cake.jpeg" alt="Karina Shine Cake">
+                <img src="Our Customer/Karura Logistik.jpg" alt="Karura Logistik">
+                <img src="Our Customer/Kedai Sinyol.jpg" alt="Kedai Sinyol">
+                <img src="Our Customer/Kirri Billi.jpeg" alt="Kirri Billi">
+                <img src="Our Customer/KPGA Golf Driving.jpg" alt="KPGA Golf">
+                <img src="Our Customer/Lacostila.jpg" alt="Lacostila">
+                <img src="Our Customer/laritta bakery.jpg" alt="Laritta Bakery">
+                <img src="Our Customer/Little A.png" alt="Little A">
+                <img src="Our Customer/Loving Hut.jpg" alt="Loving Hut">
+                <img src="Our Customer/Mayaza.jpg" alt="Mayaza">
+                <img src="Our Customer/Michael TJ Gelato.png" alt="Michael TJ Gelato">
+                <img src="Our Customer/MIxsue.jpg" alt="Mixue">
+                <img src="Our Customer/monolog cafe.png" alt="Monolog Cafe">
+                <img src="Our Customer/Monopole.jpeg" alt="Monopole">
+                <img src="Our Customer/My Kopi O.png" alt="My Kopi O">
+                <img src="Our Customer/Namaaz.png" alt="Namaaz">
+                <img src="Our Customer/Oleh Oleh Nusantara.jpeg" alt="Oleh Oleh Nusantara">
+                <img src="Our Customer/oseng sambel leren timur.png" alt="Oseng Sambel">
+                <img src="Our Customer/Pak ci Abim.jpeg" alt="Pak Ci Abim">
+                <img src="Our Customer/Paper Cup.jpg" alt="Paper Cup">
+                <img src="Our Customer/Percetakan Polaris.jpg" alt="Percetakan Polaris">
+                <img src="Our Customer/Porta Branding.jpeg" alt="Porta Branding">
+                <img src="Our Customer/PT Boga Group.png" alt="PT Boga Group">
+                <img src="Our Customer/PT Budi Jaya Amties.jpg" alt="PT Budi Jaya Amties">
+                <img src="Our Customer/Pt Es Teh Indonesia.png" alt="Es Teh Indonesia">
+                <img src="Our Customer/pt esr karawang.png" alt="PT ESR Karawang">
+                <img src="Our Customer/PT Hokkan.png" alt="PT Hokkan">
+                <img src="Our Customer/pt horizon internusa persada.png" alt="PT Horizon">
+                <img src="Our Customer/pt ikeuchi.jpg" alt="PT Ikeuchi">
+                <img src="Our Customer/PT Nikta.jpg" alt="PT Nikta">
+                <img src="Our Customer/PT Padi Hijau.jpg" alt="PT Padi Hijau">
+                <img src="Our Customer/pt pelsar tambang kencana.jpg" alt="PT Pelsar">
+                <img src="Our Customer/PT Sahabat Sakina.png" alt="PT Sahabat Sakina">
+                <img src="Our Customer/PT Samudra Coco.jpeg" alt="PT Samudra Coco">
+                <img src="Our Customer/selai sweet nice malang.jpg" alt="Selai Sweet Nice">
+                <img src="Our Customer/STjernie.jpeg" alt="STjernie">
+                <img src="Our Customer/Sushi Tea.png" alt="Sushi Tei">
+                <img src="Our Customer/Tebat anjam.jpg" alt="Tebat Anjam">
+                <img src="Our Customer/The Bistro.jpg" alt="The Bistro">
+                <img src="Our Customer/The oak Tree.jpeg" alt="The Oak Tree">
+                <img src="Our Customer/Tomoro-Coffee.jpg" alt="Tomoro Coffee">
+                <img src="Our Customer/ulinkcom.jpg" alt="Ulinkcom">
+                <img src="Our Customer/we drink.jpg" alt="We Drink">
+                <img src="Our Customer/Al Muslim.jpg" alt="Al Muslim">
                 <img src="Our Customer/amare padel beach club bali.jpg" alt="Amare">
-
                 <img src="Our Customer/Back door.png" alt="Back Door">
             </div>
         </div>
@@ -366,21 +280,17 @@
 
 <script>
     const sliders = document.querySelectorAll('.manual-scroll-wrapper');
-    
     sliders.forEach(slider => {
         let isDown = false;
         let startX;
         let scrollLeft;
-
         slider.addEventListener('mousedown', (e) => {
             isDown = true;
             startX = e.pageX - slider.offsetLeft;
             scrollLeft = slider.scrollLeft;
         });
-        
         slider.addEventListener('mouseleave', () => { isDown = false; });
         slider.addEventListener('mouseup', () => { isDown = false; });
-        
         slider.addEventListener('mousemove', (e) => {
             if (!isDown) return;
             e.preventDefault();
