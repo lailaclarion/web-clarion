@@ -47,12 +47,12 @@
         .btn-wa { background: #28a745; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; }
 
         /* 2. LOKASI CABANG (Maps & Foto) */
-        .location-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 30px; }
+        .location-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
         .location-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
-        .location-image { height: 250px; overflow: hidden; }
+        .location-image { height: 200px; overflow: hidden; }
         .location-image img { width: 100%; height: 100%; object-fit: cover; }
-        .location-map { height: 250px; border: none; }
-        .location-info { padding: 20px; }
+        .location-map { height: 200px; border: none; }
+        .location-info { padding: 20px; flex-grow: 1; }
 
         /* 3. SISTEM KERJASAMA */
         .partnership-box { background: #fff; padding: 40px; border-radius: 15px; border-left: 8px solid #007bff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
@@ -62,7 +62,15 @@
         .contact-special a { color: #007bff; font-weight: 800; font-size: 1.2rem; text-decoration: none; }
 
         footer { background: #222; color: white; padding: 40px 0; text-align: center; margin-top: 60px; }
-        @media (max-width: 768px) { nav ul { display: none; } .location-grid { grid-template-columns: 1fr; } }
+
+        /* RESPONSIVE MOBILE OPTIMIZED */
+        @media (max-width: 768px) { 
+            header .container { flex-direction: column; gap: 10px; }
+            nav ul { gap: 15px; font-size: 14px; flex-wrap: wrap; justify-content: center; }
+            nav ul li { padding: 5px 0; }
+            .location-grid { grid-template-columns: 1fr; } 
+            .page-header h1 { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
@@ -106,7 +114,7 @@
             <div class="product-info">
                 <h3>ISI ULANG RO 2 KRAN</h3>
                  <p>Sistem filtrasi 8 tahap dengan kapasitas produksi Besar dan Berkualitas Metode Pembayaran QRIS,Kartu,Koin) Sistem Monitoring online 24/7. Bisa Self Service</p>
-                <span class="price">Pembelian Rp79.000.0000 Kerjasama DP RP3.000.000</span>
+                <span class="price">Pembelian Rp79.000.000 Kerjasama DP RP3.000.000</span>
                 <a href="https://wa.me/6281378699699" class="btn-wa">Konsultasi WA</a>
             </div>
         </div>
@@ -115,7 +123,7 @@
             <div class="product-info">
                 <h3>ISI ULANG RO 1 KRAN (Bisa Koin)</h3>
                 <p>Sistem filtrasi 8 tahap dengan kapasitas produksi Besar dan Berkualitas Metode Pembayaran QRIS,Kartu,Koin) Sistem Monitoring online 24/7. Bisa Self Service</p>
-                <span class="price">Pembelian Rp52.000.0000 Kerjasama DP RP3.000.000</span>
+                <span class="price">Pembelian Rp52.000.000 Kerjasama DP RP3.000.000</span>
                 <a href="https://wa.me/6281378699699" class="btn-wa">Konsultasi WA</a>
             </div>
         </div>
@@ -124,7 +132,7 @@
             <div class="product-info">
                 <h3>ISI ULANG RO 1 KRAN (Tidak Bisa Koin)</h3>
                 <p>Sistem filtrasi 8 tahap dengan kapasitas produksi Besar dan Berkualitas Metode Pembayaran QRIS,Kartu) Sistem Monitoring online 24/7. Bisa Self Service</p>
-                <span class="price">Pembelian Rp49.000.0000 Kerjasama DP RP3.000.000</span>
+                <span class="price">Pembelian Rp49.000.000 Kerjasama DP RP3.000.000</span>
                 <a href="https://wa.me/6281378699699" class="btn-wa">Konsultasi WA</a>
             </div>
         </div>
@@ -135,20 +143,57 @@
     <div class="section-title"><h2>Cabang Terpasang</h2></div>
     <div class="location-grid">
         <div class="location-card">
-            <div class="location-image"><img src="Isi Ulang/Bojonegoro.png" alt="Clarion Kediri"></div>
+            <div class="location-image"><img src="Isi Ulang/Larangan.png" alt="Clarion Larangan"></div>
             <div class="location-info">
-                <h3>Clarion Balowerti, Kediri</h3>
-                <p>Jalan Singosari No. 8A, Balowerti, Kediri. Melayani isi ulang air RO 8 tahap.</p>
+                <h3>Clarion Larangan, Sidoarjo</h3>
+                <p>Pusat isi ulang air RO modern melayani kebutuhan warga Larangan dan sekitarnya.</p>
             </div>
-            <iframe class="location-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.973434629631!2d112.0152!3d-7.8139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNDgnNTAuMCJTIDExMsKwMDAnNTQuNyJF!5e0!3m2!1sid!2sid!4v1710500000000" allowfullscreen="" loading="lazy"></iframe>
+            <iframe class="location-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.273!2d112.719!3d-7.447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMjYnNDkuMiJTIDExMsKwNDMnMDguNCJF!5e0!3m2!1sid!2sid!4v1600000000000" allowfullscreen="" loading="lazy"></iframe>
         </div>
+
         <div class="location-card">
-            <div class="location-image"><img src="Isi Ulang/Larangan.png" alt="Clarion Sidoarjo"></div>
+            <div class="location-image"><img src="https://via.placeholder.com/400x250?text=Clarion+Tulangan" alt="Clarion Tulangan"></div>
             <div class="location-info">
-                <h3>Clarion Sidoarjo</h3>
-                <p>Area Sidoarjo dan sekitarnya. Unit terpasang dengan sistem Ultrafiltrasi.</p>
+                <h3>Clarion Tulangan, Sidoarjo</h3>
+                <p>Layanan air minum sehat dengan teknologi RO 8 tahap di wilayah Tulangan.</p>
             </div>
-            <iframe class="location-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.2!2d112.7!3d-7.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMjQnMDAuMCJTIDExMsKwNDInMDAuMCJF!5e0!3m2!1sid!2sid!4v1710500000000" allowfullscreen="" loading="lazy"></iframe>
+            <iframe class="location-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.9!2d112.64!3d-7.46!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMjcnMzYuMCJTIDExMsKwMzgnMjQuMCJF!5e0!3m2!1sid!2sid!4v1600000000001" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <div class="location-card">
+            <div class="location-image"><img src="https://via.placeholder.com/400x250?text=Clarion+Candi" alt="Clarion Candi"></div>
+            <div class="location-info">
+                <h3>Clarion Candi, Sidoarjo</h3>
+                <p>Gerai Isi Ulang higienis untuk masyarakat Candi dan perumahan sekitarnya.</p>
+            </div>
+            <iframe class="location-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.1!2d112.71!3d-7.48!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMjgnNDguMCJTIDExMsKwNDInMzYuMCJF!5e0!3m2!1sid!2sid!4v1600000000002" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <div class="location-card">
+            <div class="location-image"><img src="Isi Ulang/Bojonegoro.png" alt="Clarion Bojonegoro"></div>
+            <div class="location-info">
+                <h3>Clarion Bojonegoro</h3>
+                <p>Hadir melayani kebutuhan air bersih berkualitas di jantung kota Bojonegoro.</p>
+            </div>
+            <iframe class="location-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.0!2d111.88!3d-7.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMDknMDAuMCJTIDExMcKwNTInNDguMCJF!5e0!3m2!1sid!2sid!4v1600000000003" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <div class="location-card">
+            <div class="location-image"><img src="https://via.placeholder.com/400x250?text=Clarion+Surabaya" alt="Clarion Surabaya"></div>
+            <div class="location-info">
+                <h3>Clarion Surabaya</h3>
+                <p>Distribusi dan layanan unit isi ulang RO otomatis untuk wilayah Surabaya Timur & Selatan.</p>
+            </div>
+            <iframe class="location-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.7!2d112.75!3d-7.25!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMTUnMDAuMCJTIDExMsKwNDUnMDAuMCJF!5e0!3m2!1sid!2sid!4v1600000000004" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <div class="location-card">
+            <div class="location-image"><img src="https://via.placeholder.com/400x250?text=Clarion+Jakarta" alt="Clarion Jakarta"></div>
+            <div class="location-info">
+                <h3>Clarion Jakarta</h3>
+                <p>Kantor perwakilan dan unit demo sistem kerjasama isi ulang untuk area Jabodetabek.</p>
+            </div>
+            <iframe class="location-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4!2d106.82!3d-6.17!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTAnMTIuMCJTIDEwNsKwNDknMTIuMCJF!5e0!3m2!1sid!2sid!4v1600000000005" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </div>
 </section>
