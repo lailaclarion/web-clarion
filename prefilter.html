@@ -62,11 +62,71 @@
 
         .product-card:hover .product-image img { transform: scale(1.05); }
         
-        .product-info { padding: 20px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; }
-        .category-tag { font-size: 0.7rem; color: #007bff; text-transform: uppercase; font-weight: bold; margin-bottom: 5px; display: block; }
-        .badge-10nm { background: #ffc107; color: #000; font-size: 10px; padding: 2px 8px; border-radius: 10px; margin-left: 5px; vertical-align: middle; }
-        .product-info h3 { font-size: 1.1rem; margin-bottom: 10px; color: #222; }
-        .product-info p { font-size: 0.85rem; color: #666; margin-bottom: 15px; min-height: 40px; }
+      /* --- PERBAIKAN PADA GRID --- */
+.product-grid { 
+    display: grid; 
+    /* Menggunakan auto-fill agar kartu tidak melebar berlebihan di layar besar */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 25px; 
+    padding: 40px 0; 
+}
+
+/* --- PERBAIKAN PADA INFO PRODUK --- */
+.product-info { 
+    padding: 20px; 
+    text-align: center; 
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; /* Konten mulai dari atas */
+}
+
+/* Memaksa Judul memiliki tinggi yang sama (maksimal 2 baris) */
+.product-info h3 { 
+    font-size: 1.1rem; 
+    margin-bottom: 10px; 
+    color: #222; 
+    min-height: 2.4em; /* Memberi ruang setara 2 baris teks */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Memaksa Deskripsi memiliki ruang minimal agar tombol tetap sejajar */
+.product-info p { 
+    font-size: 0.85rem; 
+    color: #666; 
+    margin-bottom: 20px; 
+    min-height: 3.6em; /* Memberi ruang setara 3 baris teks */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1; /* Ini kunci utama agar area teks mengambil sisa ruang */
+}
+
+/* --- HARGA & TOMBOL --- */
+.price { 
+    display: block; 
+    font-size: 1.1rem; 
+    font-weight: 700; 
+    color: #007bff; 
+    margin-bottom: 15px;
+    margin-top: auto; /* Memastikan harga & tombol terdorong ke dasar kartu */
+}
+
+.btn-buy { 
+    display: block; /* Mengubah jadi block agar lebar tombol seragam */
+    background: #28a745; 
+    color: white; 
+    padding: 12px 20px; 
+    text-decoration: none; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    font-size: 14px; 
+    transition: 0.3s; 
+    margin: 0 auto;
+    width: 100%; /* Tombol memenuhi lebar card agar terlihat kokoh */
+}
         
         .price { display: block; font-size: 1.2rem; font-weight: 700; color: #007bff; margin-bottom: 15px; margin-top: auto; }
         .btn-buy { display: inline-block; background: #28a745; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 14px; transition: 0.3s; }
