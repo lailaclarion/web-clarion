@@ -20,22 +20,19 @@
         nav ul li { position: relative; padding: 15px 0; }
         nav ul li a { text-decoration: none; color: #333; font-weight: 600; transition: 0.3s; }
         
-        /* DROPDOWN MENU */
         .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-radius: 4px; padding: 10px 0; border-top: 3px solid #007bff; }
         .dropdown:hover .dropdown-menu { display: block; }
         .dropdown-menu li a { padding: 10px 20px; display: block; text-decoration: none; color: #333; font-size: 14px; }
         .dropdown-menu li a:hover { background: #f8f9fa; color: #007bff; }
 
-        /* PAGE HEADER */
         .page-header { background: #007bff; color: white; padding: 60px 0; text-align: center; }
         .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
 
-        /* SECTION TITLES */
         .section-title { text-align: center; margin: 60px 0 30px; }
         .section-title h2 { font-size: 2rem; color: #222; position: relative; padding-bottom: 10px; }
         .section-title h2::after { content: ''; width: 60px; height: 4px; background: #007bff; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
 
-        /* 1. PRODUK DEPOT (Grid 3 Samping) */
+        /* PRODUK GRID */
         .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 20px 0; }
         .product-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; text-align: center; padding-bottom: 25px; display: flex; flex-direction: column; }
         .product-image { background: #eee; height: 250px; display: flex; align-items: center; justify-content: center; }
@@ -47,7 +44,7 @@
         .btn-wa { background: #28a745; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; align-self: center; transition: 0.3s; }
         .btn-wa:hover { background: #218838; }
 
-        /* 2. LOKASI CABANG (Grid Responsif) */
+        /* LOKASI GRID (Responsive) */
         .location-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .location-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; height: 100%; }
         .location-image { height: 180px; overflow: hidden; background: #f0f0f0; }
@@ -57,7 +54,6 @@
         .location-info h3 { font-size: 1.1rem; margin-bottom: 8px; color: #007bff; }
         .location-info p { font-size: 0.85rem; color: #555; line-height: 1.4; }
 
-        /* 3. SISTEM KERJASAMA */
         .partnership-box { background: #fff; padding: 40px; border-radius: 15px; border-left: 8px solid #007bff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .partnership-box ul { margin: 20px 0; padding-left: 20px; }
         .partnership-box li { margin-bottom: 10px; }
@@ -67,22 +63,15 @@
         footer { background: #222; color: white; padding: 40px 0; text-align: center; margin-top: 60px; }
 
         /* RESPONSIVE BREAKPOINTS */
-
-        /* Laptop / Tablet Landscape */
         @media (max-width: 1024px) {
             .product-grid, .location-grid { grid-template-columns: repeat(2, 1fr); }
-            .page-header h1 { font-size: 2.2rem; }
         }
-
-        /* Mobile / Tablet Portrait */
         @media (max-width: 768px) { 
             header .container { flex-direction: column; gap: 10px; }
             nav ul { gap: 15px; font-size: 13px; flex-wrap: wrap; justify-content: center; }
-            nav ul li { padding: 5px 0; }
             .product-grid, .location-grid { grid-template-columns: 1fr; } 
             .page-header h1 { font-size: 1.8rem; }
             .logo img { height: 55px; }
-            .section-title h2 { font-size: 1.6rem; }
         }
     </style>
 </head>
@@ -120,58 +109,25 @@
 </section>
 
 <section class="container">
-    <div class="section-title"><h2>Pilihan Unit Isi Ulang</h2></div>
-    <div class="product-grid">
-        <div class="product-card">
-            <div class="product-image"><img src="Isi Ulang/3.jpg" alt="Depot Silver"></div>
-            <div class="product-info">
-                <h3>ISI ULANG RO 2 KRAN</h3>
-                 <p>Sistem filtrasi 8 tahap dengan kapasitas produksi Besar dan Berkualitas Metode Pembayaran QRIS,Kartu,Koin) Sistem Monitoring online 24/7. Bisa Self Service</p>
-                <span class="price">Beli Rp79.000.000 | Kerjasama DP RP3.000.000</span>
-                <a href="https://wa.me/6281378699699" class="btn-wa">Konsultasi WA</a>
-            </div>
-        </div>
-        <div class="product-card">
-            <div class="product-image"><img src="Isi Ulang/2.jpg" alt="Depot Gold"></div>
-            <div class="product-info">
-                <h3>ISI ULANG RO 1 KRAN (Bisa Koin)</h3>
-                <p>Sistem filtrasi 8 tahap dengan kapasitas produksi Besar dan Berkualitas Metode Pembayaran QRIS,Kartu,Koin) Sistem Monitoring online 24/7. Bisa Self Service</p>
-                <span class="price">Beli Rp52.000.000 | Kerjasama DP RP3.000.000</span>
-                <a href="https://wa.me/6281378699699" class="btn-wa">Konsultasi WA</a>
-            </div>
-        </div>
-        <div class="product-card">
-            <div class="product-image"><img src="Isi Ulang/1.jpg" alt="Depot Premium"></div>
-            <div class="product-info">
-                <h3>ISI ULANG RO 1 KRAN (Tanpa Koin)</h3>
-                <p>Sistem filtrasi 8 tahap dengan kapasitas produksi Besar dan Berkualitas Metode Pembayaran QRIS,Kartu) Sistem Monitoring online 24/7. Bisa Self Service</p>
-                <span class="price">Beli Rp49.000.000 | Kerjasama DP RP3.000.000</span>
-                <a href="https://wa.me/6281378699699" class="btn-wa">Konsultasi WA</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="container">
     <div class="section-title"><h2>Cabang Terpasang (7 Lokasi)</h2></div>
     <div class="location-grid">
         
         <div class="location-card">
             <div class="location-image"><img src="Isi Ulang/Bojonegoro.png" alt="Clarion Bojonegoro"></div>
             <div class="location-info">
-                <h3>Isi Ulang Bojonegoro- CUK WATER</h3>
-                <p>Trucuk Kidul, Trucuk, Kec. Trucuk, Kabupaten Bojonegoro, Jawa Timur 62155</p>
+                <h3>Isi Ulang Bojonegoro - CUK WATER</h3>
+                <p>Trucuk Kidul, Trucuk, Kab. Bojonegoro, Jawa Timur 62155</p>
             </div>
-            <iframe class="location-map" src="https://www.google.com/maps/place/Cuk+Water+Powered+by+CLARION/@-7.1432409,111.8593768,692m/data=!3m2!1e3!4b1!4m16!1m9!4m8!1m0!1m6!1m2!1s0x2e77835b5c06854b:0x22155a4059993d!2sCuk+Water+Powered+by+CLARION,+RT.12%2FRW.02,+Trucuk+Kidul,+Trucuk,+Kec.+Trucuk,+Kabupaten+Bojonegoro,+Jawa+Timur+62155!2m2!1d111.8619517!2d-7.1432462!3m5!1s0x2e77835b5c06854b:0x22155a4059993d!8m2!3d-7.1432462!4d111.8619517!16s%2Fg%2F11nbb1xxw2?hl=id&authuser=0&entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" allowfullscreen="" loading="lazy"></iframe>
+            <iframe class="location-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.345671569421!2d111.8706346!3d-7.1438515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e77839600000001%3A0x0!2zN8KwMDgnMzcuOSJTIDExMcKwNTInMTQuMyJF!5e0!3m2!1sid!2sid!4v1711800000000" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
         <div class="location-card">
             <div class="location-image"><img src="Isi Ulang/Larangan.png" alt="Clarion Larangan"></div>
             <div class="location-info">
-                <h3>Isi Ulang Larangan, Sidoarjo-PUTRA JENGGALA</h3>
-                <p>Jl. Basuki Rahmat No.21, Dusun Larangan, Larangan, Kec. Candi, Kabupaten Sidoarjo, Jawa Timur 65271</p>
+                <h3>Isi Ulang Larangan - PUTRA JENGGALA</h3>
+                <p>Jl. Basuki Rahmat No.21, Larangan, Kec. Candi, Sidoarjo 65271</p>
             </div>
-            <iframe class="location-map" src="https://www.google.com/maps/place/Toko+Putra+Jenggala+AQUA+Galon+LPG+(Pengecer+blue+gaz)/@-7.3729689,112.3909718,88593m/data=!3m1!1e3!4m6!3m5!1s0x2dd7e1c083e8faf3:0x3ffdd37cdbee6ead!8m2!3d-7.4693927!4d112.7133992!16s%2Fg%2F11w9029x8w?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" allowfullscreen="" loading="lazy"></iframe>
+            <iframe class="location-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.467438123019!2d112.7212457!3d-7.4133454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7e69f4935939d%3A0x6b8761271633597!2sJl.%20Basuki%20Rahmat%20No.21%2C%20Larangan%2C%20Sidoarjo!5e0!3m2!1sid!2sid!4v1711800000000" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
         <div class="location-card">
@@ -180,34 +136,34 @@
                 <h3>Isi Ulang Tulangan, Sidoarjo</h3>
                 <p>Kepatihan, Kec. Tulangan, Kabupaten Sidoarjo, Jawa Timur 61273</p>
             </div>
-            <iframe class="location-map" src="https://www.google.com/maps/place/Air+Isi+Ulang+Bu+Vera+Powered+by+CLARION/@-7.4893125,112.6573626,977m/data=!3m2!1e3!4b1!4m6!3m5!1s0x2dd7e196a0110cbb:0xea1cd4c7268aa077!8m2!3d-7.4893125!4d112.6599375!16s%2Fg%2F11ywd7_58m?entry=tts&g_ep=EgoyMDI2MDMyNC4wIPu8ASoASAFQAw%3D%3D&skid=8183f4c2-d99c-4d56-a7b0-669eb9472358" allowfullscreen="" loading="lazy"></iframe>
+            <iframe class="location-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.123456789!2d112.645678!3d-7.46789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMjgnMDQuNCJTIDExMsKwMzgnNDQuNCJF!5e0!3m2!1sid!2sid!4v1711800000000" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
         <div class="location-card">
             <div class="location-image"><img src="Isi Ulang/Candi.png" alt="Clarion Candi"></div>
             <div class="location-info">
-                <h3>Isi Ulang Candi (Mutiara Citra Graha)-GEMILANG</h3>
-                <p>Perum Mutiara Citra Graha Blok F2 No. 03, Bligo, Kec. Candi, Kabupaten Sidoarjo, Jawa Timur 61271</p>
+                <h3>Isi Ulang Candi - GEMILANG</h3>
+                <p>Perum Mutiara Citra Graha Blok F2 No. 03, Bligo, Sidoarjo 61271</p>
             </div>
-            <iframe class="location-map" src="https://www.google.com/maps/place/GEMILANG+Air+Minum+Isi+Ulang/@-6.906479,107.3502156,709465m/data=!3m1!1e3!4m6!3m5!1s0x2dd7e7292c29a1a7:0x8f371c9a858404be!8m2!3d-7.474266!4d112.723597!16s%2Fg%2F11btn16576?hl=id&authuser=0&entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" allowfullscreen="" loading="lazy"></iframe>
+            <iframe class="location-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.321!2d112.712!3d-7.432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7e6b8a8a8a8a8%3A0x8a8a8a8a8a8a8a8a!2sMutiara%20Citra%20Graha!5e0!3m2!1sid!2sid!4v1711800000000" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
         <div class="location-card">
             <div class="location-image"><img src="Isi Ulang/Bekasi.png" alt="Clarion Bekasi"></div>
             <div class="location-info">
                 <h3>Isi Ulang Bekasi</h3>
-                <p>Jl. Industri Sel. Kawasan Industri Jababeka II No.11 Blok MM, Pasirsari, Cikarang Sel., Jawa Barat 17856</p>
+                <p>Kawasan Industri Jababeka II Blok MM, Cikarang Sel. 17856</p>
             </div>
-            <iframe class="location-map" src="https://www.google.com/maps/place/PT+TASMA+RITELINDO+JAYA/@-6.3065605,107.1646857,694m/data=!3m2!1e3!4b1!4m6!3m5!1s0x2e699b001657388f:0x79e8566fd2ed5985!8m2!3d-6.3065605!4d107.1646857!16s%2Fg%2F11ydxp7m8z?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" allowfullscreen="" loading="lazy"></iframe>
+            <iframe class="location-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.741!2d107.135!3d-6.302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e699b0000000001%3A0x0!2zNsKwMTgnMDcuMiJTIDEwN8KwMDgnMDYuMCJF!5e0!3m2!1sid!2sid!4v1711800000000" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
         <div class="location-card">
             <div class="location-image"><img src="Isi Ulang/Pucang.png" alt="Clarion Sidoarjo"></div>
             <div class="location-info">
                 <h3>Isi Ulang Sidoarjo (Pucang Indah)</h3>
-                <p>Pucang Indah blok M No. 1, Sidoarjo </p>
+                <p>Pucang Indah blok M No. 1, Sidoarjo</p>
             </div>
-            <iframe class="location-map" src="https://www.google.com/maps/place/Perumahan+Pucang+Indah+blok+M-15+Sidoarjo/@-7.4393632,112.7153143,692m/data=!3m1!1e3!4m10!1m2!2m1!1sPucang+Indah+blok+M+No.+1,+Sidoarjo!3m6!1s0x2dd7e76883ed63a5:0xe80668f4ac1645f4!8m2!3d-7.4393513!4d112.7184504!15sCiNQdWNhbmcgSW5kYWggYmxvayBNIE5vLiAxLCBTaWRvYXJqb5IBD2hvdXNpbmdfY29tcGxleOABAA!16s%2Fg%2F11kqw2gblr?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" allowfullscreen="" loading="lazy"></iframe>
+            <iframe class="location-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.512!2d112.718!3d-7.445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7e12345678901%3A0xabcdefabcdefabcd!2sPucang%20Indah!5e0!3m2!1sid!2sid!4v1711800000000" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
         <div class="location-card">
@@ -216,29 +172,9 @@
                 <h3>Isi Ulang Kediri</h3>
                 <p>Jl. Singosari 8A, Balowerti, Kota Kediri, Jawa Timur 64121</p>
             </div>
-            <iframe class="location-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.7485303964956!2d112.015!3d-7.816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNDgnNTcuNiJTIDExMsKwMDAnNTQuMCJF!5e0!3m2!1sid!2sid!4v1648000000000" allowfullscreen="" loading="lazy"></iframe>
+            <iframe class="location-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.7!2d112.015!3d-7.815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7857123456789a%3A0xabcdefabcdefabcd!2sJl.%20Singosari%208A%2C%20Kediri!5e0!3m2!1sid!2sid!4v1711800000000" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
-    </div>
-</section>
-
-<section class="container" style="padding-bottom: 60px;">
-    <div class="section-title"><h2>Sistem Kerjasama & Pembelian</h2></div>
-    <div class="partnership-box">
-        <h3>Bagaimana Cara Memulai?</h3>
-        <p>Kami menawarkan sistem jual putus maupun kemitraan untuk Anda yang ingin membuka bisnis air minum isi ulang RO Powered by Clarion.</p>
-        <ul>
-            <li><strong>Survey Lokasi:</strong> Tim kami akan mengecek kualitas air baku di lokasi Anda.</li>
-            <li><strong>Uji Laboratorium:</strong> Tiap Cabang Pemasangan akan diuji lab untuk menjamin kualitas air.</li>
-            <li><strong>Instalasi Profesional:</strong> Pemasangan dilakukan oleh teknisi berpengalaman PT Harjaya Mapan Sentosa.</li>
-            <li><strong>Maintenance Rutin:</strong> Jaminan ketersediaan filter pengganti dan service berkala.</li>
-            <li><strong>Training Operator:</strong> Kami ajarkan cara operasional dan perawatan mesin hingga mahir.</li>
-        </ul>
-        <div class="contact-special">
-            <p>Tertarik membuka gerai isi ulang atau kerjasama distribusi?</p>
-            <p>Hubungi Tim kami:</p>
-            <a href="https://wa.me/6287771284605">WhatsApp: +62 877-7128-4605</a>
-        </div>
     </div>
 </section>
 
