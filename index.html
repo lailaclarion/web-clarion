@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clarion Indonesia | Solusi Filter Air Rumah & Industri</title>
+    <meta name="description" content="Solusi air bersih untuk keluarga Indonesia. Teknologi penyaringan air modern dari Clarion.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+    <link rel="preload" as="image" href="logo.png.png">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,14 +19,14 @@
 <header>
     <div class="container">
         <a href="index.html" class="logo">
-            <img src="logo.png.png" alt="Clarion Logo">
+            <img src="logo.png.png" alt="Clarion Logo" width="150" height="50">
         </a>
         <nav>
-            <ul>
+            <ul class="nav-menu">
                 <li><a href="index.html">Beranda</a></li>
                 <li><a href="about.html">Tentang Kami</a></li>
                 <li class="dropdown">
-                    <a href="#">Produk ▾</a>
+                    <a href="#" aria-haspopup="true">Produk ▾</a>
                     <ul class="dropdown-menu">
                         <li><a href="prefilter.html">Prefilter</a></li>
                         <li><a href="drinking-system.html">Drinking System</a></li>
@@ -37,86 +42,89 @@
     </div>
 </header>
 
-<section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="container">
-        <h2>Solusi Air Bersih & Sehat untuk Keluarga Indonesia</h2>
-        <p>Teknologi penyaringan air modern untuk rumah tangga, komersial, dan industri.</p>
-    </div>
-</section>
-<section class="consultation">
-    <div class="container">
-        <div class="section-header">
-            <h3>Konsultasi Masalah Air</h3>
-            <p>Lengkapi data di bawah agar kami bisa memberikan solusi yang tepat.</p>
+<main>
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <h1>Solusi Air Bersih & Sehat untuk Keluarga Indonesia</h1>
+            <p>Teknologi penyaringan air modern untuk rumah tangga, komersial, dan industri.</p>
         </div>
-        
-        <form id="clarionForm">
-            <div class="form-row">
-                <div class="input-group">
-                    <label for="nama">Nama Lengkap</label>
-                    <input type="text" id="nama" placeholder="Contoh: Budi Santoso" required>
-                </div>
-                <div class="input-group">
-                    <label for="wa">Nomor WhatsApp</label>
-                    <input type="tel" id="wa" placeholder="0812xxxx" required>
-                </div>
-            </div>
+    </section>
 
-            <div class="form-row">
-                <div class="input-group">
-                    <label for="kota">Asal Daerah</label>
-                    <input type="text" id="kota" placeholder="Kota/Kabupaten" required>
-                </div>
-                <div class="input-group">
-                    <label for="sumber">Sumber Air</label>
-                    <select id="sumber" required>
-                        <option value="">-- Pilih Sumber Air --</option>
-                        <option value="Air Sumur/Tanah">Air Sumur/Tanah</option>
-                        <option value="PDAM">PDAM</option>
-                        <option value="WTP (Air Developer)">WTP (Air Developer)</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="input-group full-width" style="margin-bottom: 20px;">
-                <label for="budget">Estimasi Budget</label>
-                <select id="budget" required>
-                    <option value="">-- Pilih Estimasi Budget --</option>
-                    <option value="Rp 1.000.000 - Rp 3.000.000">Rp 1.000.000 - Rp 3.000.000</option>
-                    <option value="Rp 3.000.000 - Rp 7.000.000">Rp 3.000.000 - Rp 7.000.000</option>
-                    <option value="Rp 7.000.000 - Rp 15.000.000">Rp 7.000.000 - Rp 15.000.000</option>
-                    <option value="Di atas Rp 15.000.000">Di atas Rp 15.000.000</option>
-                    <option value="Belum Menentukan Budget">Belum Menentukan Budget</option>
-                </select>
-            </div>
-
-            <div class="input-group full-width" style="margin-bottom: 20px;">
-                <label for="pesan">Masalah Air</label>
-                <textarea id="pesan" placeholder="Ceritakan masalah air Anda (Keruh, bau, kuning, berminyak, dll)..." rows="4"></textarea>
+    <section class="consultation">
+        <div class="container">
+            <div class="section-header">
+                <h2>Konsultasi Masalah Air</h2>
+                <p>Lengkapi data di bawah agar kami bisa memberikan solusi yang tepat.</p>
             </div>
             
-            <button type="submit" class="btn-submit">KONSULTASI VIA WHATSAPP</button>
-        </form>
-    </div>
-</section>
+            <form id="clarionForm">
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" placeholder="Contoh: Budi Santoso" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="wa">Nomor WhatsApp</label>
+                        <input type="tel" id="wa" name="wa" placeholder="0812xxxx" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="kota">Asal Daerah</label>
+                        <input type="text" id="kota" name="kota" placeholder="Kota/Kabupaten" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="sumber">Sumber Air</label>
+                        <select id="sumber" name="sumber" required>
+                            <option value="">-- Pilih Sumber Air --</option>
+                            <option value="Air Sumur/Tanah">Air Sumur/Tanah</option>
+                            <option value="PDAM">PDAM</option>
+                            <option value="WTP (Air Developer)">WTP (Air Developer)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="budget">Estimasi Budget</label>
+                    <select id="budget" name="budget" required>
+                        <option value="">-- Pilih Estimasi Budget --</option>
+                        <option value="Rp 1.000.000 - Rp 3.000.000">Rp 1.000.000 - Rp 3.000.000</option>
+                        <option value="Rp 3.000.000 - Rp 7.000.000">Rp 3.000.000 - Rp 7.000.000</option>
+                        <option value="Rp 7.000.000 - Rp 15.000.000">Rp 7.000.000 - Rp 15.000.000</option>
+                        <option value="Di atas Rp 15.000.000">Di atas Rp 15.000.000</option>
+                        <option value="Belum Menentukan Budget">Belum Menentukan Budget</option>
+                    </select>
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="pesan">Masalah Air</label>
+                    <textarea id="pesan" name="pesan" placeholder="Ceritakan masalah air Anda (Keruh, bau, kuning, berminyak, dll)..." rows="4"></textarea>
+                </div>
+                
+                <button type="submit" class="btn-submit">KONSULTASI VIA WHATSAPP</button>
+            </form>
+        </div>
+    </section>
+</main>
 
 <footer>
     <div class="container">
         <p>© 2026 PT Harjaya Mapan Sentosa</p>
         <div class="footer-links">
-            <a href="https://instagram.com/clarionid">Instagram</a> | 
-            <a href="https://shopee.co.id/harjayamapansentosa">Shopee</a> | 
-            <a href="https://www.tiktok.com/@clarionid">TikTok</a>
+            <a href="https://instagram.com/clarionid" rel="noopener">Instagram</a> | 
+            <a href="https://shopee.co.id/harjayamapansentosa" rel="noopener">Shopee</a> | 
+            <a href="https://www.tiktok.com/@clarionid" rel="noopener">TikTok</a>
         </div>
     </div>
 </footer>
 
-<a href="https://wa.me/6281378699699" class="wa-float" target="_blank">
+<a href="https://wa.me/6281378699699" class="wa-float" target="_blank" rel="noopener">
     <span>Chat WhatsApp</span>
 </a>
 
-<script src="form.js"></script>
+<script src="form.js" defer></script>
 
 </body>
 </html>
