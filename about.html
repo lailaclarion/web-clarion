@@ -11,7 +11,7 @@
         body { background-color: #f9f9f9; color: #333; line-height: 1.6; }
         .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
-        /* HEADER & NAVIGATION (KONSISTEN) */
+        /* HEADER & NAVIGATION */
         header { background: #fff; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         header .container { display: flex; justify-content: space-between; align-items: center; }
         .logo img { height: 65px; width: auto; display: block; }
@@ -39,7 +39,7 @@
         .about-image { flex: 1; min-width: 300px; }
         .about-image img { width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
-        /* SLIDER SERTIFIKAT OTOMATIS */
+        /* SLIDER SERTIFIKAT */
         .cert-title { text-align: center; margin-top: 40px; margin-bottom: 40px; }
         .cert-title h2 { font-size: 2rem; color: #222; }
         
@@ -54,7 +54,7 @@
 
         .slider-track {
             display: flex;
-            width: calc(300px * 10); /* Lebar total 10 slide */
+            width: calc(300px * 12); 
             animation: scroll 25s linear infinite;
         }
 
@@ -88,28 +88,77 @@
 
         @keyframes scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-300px * 5)); } /* Geser separuh dari total slide */
+            100% { transform: translateX(calc(-300px * 6)); }
         }
-footer { background: #222; color: white; padding: 50px 0; text-align: center; }
 
-.wa-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: #25d366;
-    color: #fff;
-    padding: 15px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    z-index: 3000;
-    font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: 0.3s;
-}
+        /* ==========================================================================
+           REVISI FOOTER (PROFESIONAL & KONTRAS TINGGI)
+           ========================================================================== */
+        footer { 
+            background: #222; 
+            color: #ffffff; 
+            padding: 50px 0; 
+            text-align: center; 
+            border-top: 5px solid #007bff;
+        }
 
-.wa-float:hover { transform: translateY(-5px); background: #20b858; }
+        footer p {
+            font-size: 15px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
 
-      
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: #ffffff; 
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        footer a:hover {
+            color: #007bff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* ==========================================================================
+           REVISI TOMBOL WHATSAPP (ESTETIK & KONTRAS)
+           ========================================================================== */
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            color: #fff !important;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            z-index: 3000;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .wa-float:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+            filter: brightness(1.1);
+        }
+
+        .wa-float i {
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
@@ -149,14 +198,14 @@ footer { background: #222; color: white; padding: 50px 0; text-align: center; }
     <div class="about-flex">
         <div class="about-text">
             <h2>Visi & Misi Kami</h2>
-            <p>Perkenalkan kami dari PT. Harjaya Mapan Sentosa, perusahaan yang bergerak dibidang Water & Air Purifier dengan merk CLARION. </p>
+            <p>Perkenalkan kami dari PT. Harjaya Mapan Sentosa, perusahaan yang bergerak dibidang Water & Air Purifier dengan merk CLARION.</p>
             <p>Dengan garansi unit 2 Tahun yang kami berikan untuk customer. Kami bermaksud untuk mengajukan penawaran harga untuk pemasangan Water Purifier & Prefilter di perusahaan Bapak / Ibu.</p>
             <p>Sebelumnya kami mengucapkan terimakasih atas kesempatan yang diberikan kepada kami untuk menawarkan produk kami.</p>
-            <p>Produk water purifier CLARION dapat digunakan untuk merubah air pdam/sumur menjadi air murni (Reverse Osmosis) yang mempunyai kualitas tinggi dibandingkan air mineral pada umumnya. </p>
+            <p>Produk water purifier CLARION dapat digunakan untuk merubah air pdam/sumur menjadi air murni (Reverse Osmosis) yang mempunyai kualitas tinggi dibandingkan air mineral pada umumnya.</p>
             <p>Alat kami tidak memerlukan banyak ruang untuk penyimpanan, harga terjangkau, dan teknisi yang berpengalaman.</p>
-<p>Alat kami biasa digunakan di Rumah, Apartemen, Café, Restoran, Hotel, Rumah Sakit, Industri, dan tempat lainnya yang memerlukan proses water purifier. Menghasilkan hasil air berkualitas terbaik sehingga aman untuk alat kopi menjadi tidak mudah berkarat dan rasa kopi yang dihasilkan lebih nikmat, untuk pencucian buah dan sayur membuatnya tidak mudah layu dan busuk, membantu menghilangkan polutan, pestisida pada sayur dan buah, bahkan untuk pencucian daging atau ikan membuat lebih fresh dan tidak cepat busuk. </p>
-<p>Kami sangat memperhatikan komponen filter dalam unit CLARION agar air yang dikonsumsi dapat membantu kesehatan dan tidak merusak benda yang digunakan. Dengan kualitas terbaik tetapi dengan harga yang jauh lebih hemat.</p>
-            Prodak prefilter dimana alat ini adalah solusi untuk masalah air baku yang keruh dan kuning, dapat sebagai penambah filter pertama unit Water Purifier, dapat menghilangkan bau, bakteri. Unit ber capacity besar, dapat membantu menyaring bakteri dan virus, menghilangkan microorganisme, dan Alga. Prodak prefilter ini menjadi yang Pertama di Indonesia sebagai Filter Air yang dapat dibuka dan cuci sendiri dengan mudah, dengan masa penggantian Filter dalam 2-3 Tahun lamanya.</p>
+            <p>Alat kami biasa digunakan di Rumah, Apartemen, Café, Restoran, Hotel, Rumah Sakit, Industri, dan tempat lainnya yang memerlukan proses water purifier. Menghasilkan hasil air berkualitas terbaik sehingga aman untuk alat kopi menjadi tidak mudah berkarat dan rasa kopi yang dihasilkan lebih nikmat, untuk pencucian buah dan sayur membuatnya tidak mudah layu dan busuk, membantu menghilangkan polutan, pestisida pada sayur dan buah, bahkan untuk pencucian daging atau ikan membuat lebih fresh dan tidak cepat busuk.</p>
+            <p>Kami sangat memperhatikan komponen filter dalam unit CLARION agar air yang dikonsumsi dapat membantu kesehatan dan tidak merusak benda yang digunakan. Dengan kualitas terbaik tetapi dengan harga yang jauh lebih hemat.</p>
+            <p>Produk prefilter dimana alat ini adalah solusi untuk masalah air baku yang keruh dan kuning, dapat sebagai penambah filter pertama unit Water Purifier, dapat menghilangkan bau, bakteri. Unit ber capacity besar, dapat membantu menyaring bakteri dan virus, menghilangkan microorganisme, dan Alga. Produk prefilter ini menjadi yang Pertama di Indonesia sebagai Filter Air yang dapat dibuka dan cuci sendiri dengan mudah, dengan masa penggantian Filter dalam 2-3 Tahun lamanya.</p>
         </div>
         <div class="about-image">
             <img src="About US.jpg" alt="Tentang Clarion">
@@ -173,7 +222,7 @@ footer { background: #222; color: white; padding: 50px 0; text-align: center; }
     <div class="slider-track">
         <div class="slide">
             <img src="Sertifikat/Sertifikat 1.jpeg" alt="Sertifikat 1">
-            <p> Lab Result Agains Infection Bacterial</p>
+            <p>Lab Result Agains Infection Bacterial</p>
         </div>
         <div class="slide">
             <img src="Sertifikat/Sertifikat 2.jpeg" alt="Sertifikat 2">
@@ -185,37 +234,40 @@ footer { background: #222; color: white; padding: 50px 0; text-align: center; }
         </div>
         <div class="slide">
             <img src="Sertifikat/Sertifikat 4.jpeg" alt="Sertifikat 4">
-            <p>Hasil Uji Lab Free Bakteri dan Virus (unit waterpurifier)</p>
+            <p>Hasil Uji Lab Free Bakteri dan Virus</p>
         </div>
         <div class="slide">
             <img src="Sertifikat/Sertifikat 5.jpeg" alt="Sertifikat 5">
-            <p>Hasil Uji Lab Free Bakteri dan Virus (unit waterpurifier)</p>
+            <p>Hasil Uji Lab Free Bakteri dan Virus</p>
         </div>
-         <div class="slide">
+        <div class="slide">
             <img src="Sertifikat/Sertifikat 6.jpeg" alt="Sertifikat 6">
-            <p>Hasil Uji Lab Free Bakteri dan Virus (unit waterpurifier)</p>
-               </div>
-
-        <div class="slide"><img src="Sertifikat/Sertifikat 1.jpeg" alt="Sertifikat 1"><p> Lab Result Agains Infection Bacterials</p></div>
+            <p>Hasil Uji Lab Free Bakteri dan Virus</p>
+        </div>
+        <div class="slide"><img src="Sertifikat/Sertifikat 1.jpeg" alt="Sertifikat 1"><p>Lab Result Agains Infection Bacterial</p></div>
         <div class="slide"><img src="Sertifikat/Sertifikat 2.jpeg" alt="Sertifikat 2"><p>2 Lab Result Flu Virus</p></div>
         <div class="slide"><img src="Sertifikat/Sertifikat 3.jpeg" alt="Sertifikat 3"><p>Lab Result SARS - Covid Virus</p></div>
-        <div class="slide"><img src="Sertifikat/Sertifikat 4.jpeg" alt="Sertifikat 4"><p>Hasil Uji Lab Free Bakteri dan Virus (unit waterpurifier)</p></div>
-        <div class="slide"><img src="Sertifikat/Sertifikat 5.jpeg" alt="Sertifikat 5"><p>Hasil Uji Lab Free Bakteri dan Virus (unit waterpurifier)</p></div>
+        <div class="slide"><img src="Sertifikat/Sertifikat 4.jpeg" alt="Sertifikat 4"><p>Hasil Uji Lab Free Bakteri dan Virus</p></div>
+        <div class="slide"><img src="Sertifikat/Sertifikat 5.jpeg" alt="Sertifikat 5"><p>Hasil Uji Lab Free Bakteri dan Virus</p></div>
+        <div class="slide"><img src="Sertifikat/Sertifikat 6.jpeg" alt="Sertifikat 6"><p>Hasil Uji Lab Free Bakteri dan Virus</p></div>
     </div>
 </div>
 
 <footer>
     <div class="container">
-        <p>© 2026 PT Harjaya Mapan Sentosa</p>
+        <p>© 2026 PT Harjaya Mapan Sentosa | Solusi Air Bersih Terpercaya</p>
         <div class="footer-links">
-            <a href="https://instagram.com/clarionid">Instagram</a> | 
-            <a href="https://shopee.co.id/harjayamapansentosa">Shopee</a> | 
-            <a href="https://www.tiktok.com/@clarionid">TikTok</a>
+            <a href="https://instagram.com/clarionid" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://shopee.co.id/harjayamapansentosa" target="_blank"><i class="fas fa-shopping-bag"></i> Shopee</a>
+            <a href="https://www.tiktok.com/@clarionid" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
         </div>
     </div>
 </footer>
-    <a href="https://wa.me/6281378699699" class="wa-float" target="_blank">
+
+<a href="https://wa.me/6281378699699" class="wa-float" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i>
     <span>Chat WhatsApp</span>
+</a>
 
 </body>
 </html>
