@@ -51,10 +51,9 @@ nav ul {
     gap: 25px; 
 }
 
-/* KUNCI PERBAIKAN: Agar dropdown menempel ke menu induk */
 nav ul li {
     position: relative;
-    padding: 15px 0; /* Memberi ruang agar hover lebih stabil */
+    padding: 15px 0;
 }
 
 nav ul li a {
@@ -70,12 +69,12 @@ nav ul li a:hover {
 }
 
 /* ==========================================================================
-   3. DROPDOWN MENU (PERBAIKAN TOTAL)
+   3. DROPDOWN MENU
    ========================================================================== */
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%; /* Pas di bawah tulisan Produk */
+    top: 100%;
     left: 0;
     background: #fff;
     min-width: 200px;
@@ -83,7 +82,7 @@ nav ul li a:hover {
     border-radius: 4px;
     padding: 10px 0;
     border-top: 3px solid #007bff;
-    z-index: 2000; /* Pastikan di atas elemen lain */
+    z-index: 2000;
     list-style: none;
 }
 
@@ -92,7 +91,7 @@ nav ul li a:hover {
 }
 
 .dropdown-menu li {
-    padding: 0; /* Reset padding li di dalam dropdown */
+    padding: 0;
     width: 100%;
 }
 
@@ -121,6 +120,7 @@ nav ul li a:hover {
     justify-content: center;
     text-align: center;
     color: white;
+    /* Pastikan gambar sudah dalam format .webp untuk performa maksimal */
     background: #222 url('banner-bg.webp') no-repeat center center/cover;
 }
 
@@ -149,18 +149,16 @@ nav ul li a:hover {
 .btn:hover { background: #0056b3; transform: scale(1.05); }
 
 /* ==========================================================================
-   5. FORM KONSULTASI (REVISI TIMBUL & CENTER)
+   5. FORM KONSULTASI
    ========================================================================== */
-
 .consultation {
     padding: 80px 20px;
-    background-color: #f4f7fa; /* Warna latar agak kontras agar kotak putih menonjol */
+    background-color: #f4f7fa;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Judul & Deskripsi di Tengah */
 .section-header {
     text-align: center;
     margin-bottom: 40px;
@@ -178,23 +176,18 @@ nav ul li a:hover {
     font-size: 16px;
 }
 
-/* KOTAKAN TIMBUL (Card Look) */
 #clarionForm {
     max-width: 800px;
     width: 100%;
     background: #ffffff;
     padding: 45px;
-    border-radius: 25px; /* Sudut membulat modern */
-    
-    /* Efek Bayangan Timbul */
+    border-radius: 25px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 
                 0 5px 15px rgba(0, 0, 0, 0.04);
-    
     border: 1px solid rgba(0, 0, 0, 0.02);
     margin: 0 auto;
 }
 
-/* Baris Input */
 .form-row {
     display: flex;
     gap: 25px;
@@ -214,7 +207,6 @@ nav ul li a:hover {
     font-size: 14px;
 }
 
-/* Styling Input & Select */
 .input-group input, 
 .input-group select, 
 .input-group textarea {
@@ -235,7 +227,6 @@ nav ul li a:hover {
     box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
 }
 
-/* Tombol WhatsApp Premium */
 .btn-submit {
     width: 100%;
     padding: 18px;
@@ -258,28 +249,35 @@ nav ul li a:hover {
     filter: brightness(1.1);
 }
 
-/* Perbaikan Mobile Form */
-@media (max-width: 600px) {
-    .form-row {
-        flex-direction: column;
-        gap: 20px;
-    }
-    #clarionForm {
-        padding: 25px;
-    }
+/* ==========================================================================
+   6. FOOTER & WA FLOAT (PERBAIKAN KONTRAS)
+   ========================================================================== */
+footer { 
+    background: #222; 
+    color: #ffffff; /* Putih bersih */
+    padding: 50px 0; 
+    text-align: center; 
 }
 
-/* ==========================================================================
-   6. FOOTER & WA FLOAT
-   ========================================================================== */
-footer { background: #222; color: white; padding: 50px 0; text-align: center; }
+/* KUNCI: Membuat link di footer sangat kontras (Lulus Sensor 100) */
+footer a {
+    color: #ffffff; 
+    text-decoration: underline;
+    transition: 0.3s;
+    opacity: 0.9;
+}
+
+footer a:hover {
+    opacity: 1;
+    color: #007bff;
+}
 
 .wa-float {
     position: fixed;
     bottom: 30px;
     right: 30px;
     background: #25d366;
-    color: #fff;
+    color: #ffffff !important; /* Wajib putih bersih untuk kontras AA */
     padding: 15px 25px;
     border-radius: 50px;
     text-decoration: none;
@@ -287,9 +285,16 @@ footer { background: #222; color: white; padding: 50px 0; text-align: center; }
     font-weight: bold;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.wa-float:hover { transform: translateY(-5px); background: #20b858; }
+.wa-float:hover { 
+    transform: translateY(-5px); 
+    background: #20b858; 
+    color: #ffffff !important;
+}
 
 /* ==========================================================================
    7. RESPONSIVE (MOBILE)
@@ -297,14 +302,15 @@ footer { background: #222; color: white; padding: 50px 0; text-align: center; }
 @media (max-width: 768px) {
     header .container { flex-direction: column; padding: 10px 0; }
     nav ul { gap: 10px; padding-top: 10px; flex-wrap: wrap; justify-content: center; }
-    
-    .form-row, .about-grid { grid-template-columns: 1fr; }
-    
     .hero h2 { font-size: 2rem; }
-    
-    /* Dropdown di mobile agar tidak menutupi menu lain */
     .dropdown-menu { position: static; width: 100%; box-shadow: none; border: 1px solid #eee; }
 }
+
+@media (max-width: 600px) {
+    .form-row { flex-direction: column; gap: 20px; }
+    #clarionForm { padding: 25px; }
+}
+
 /* ==========================================================================
    8. HALAMAN KONTAK
    ========================================================================== */
@@ -320,16 +326,8 @@ footer { background: #222; color: white; padding: 50px 0; text-align: center; }
     align-items: start;
 }
 
-.contact-info h2 { 
-    font-size: 2.5rem; 
-    color: #333; 
-    margin-bottom: 15px; 
-}
-
-.contact-info p { 
-    color: #666; 
-    margin-bottom: 30px; 
-}
+.contact-info h2 { font-size: 2.5rem; color: #333; margin-bottom: 15px; }
+.contact-info p { color: #666; margin-bottom: 30px; }
 
 .info-card {
     background: #fff;
@@ -344,8 +342,6 @@ footer { background: #222; color: white; padding: 50px 0; text-align: center; }
     margin-bottom: 25px;
 }
 
-.info-item:last-child { margin-bottom: 0; }
-
 .info-item .icon {
     font-size: 1.5rem;
     background: #e7f3ff;
@@ -358,31 +354,9 @@ footer { background: #222; color: white; padding: 50px 0; text-align: center; }
     color: #007bff;
 }
 
-.info-item h4 {
-    margin-bottom: 5px;
-    color: #333;
-    font-size: 1.1rem;
-}
+.info-item h4 { margin-bottom: 5px; color: #333; font-size: 1.1rem; }
+.info-item p { margin-bottom: 0; color: #666; font-size: 0.95rem; }
 
-.info-item p {
-    margin-bottom: 0;
-    color: #666;
-    font-size: 0.95rem;
-}
-
-.contact-map iframe {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* Responsif Kontak */
-@media (max-width: 992px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-info h2 { font-size: 2rem; text-align: center; }
-    .contact-info p { text-align: center; }
-}
 /* ==========================================================================
    9. HALAMAN CUSTOMER
    ========================================================================== */
@@ -390,46 +364,36 @@ footer { background: #222; color: white; padding: 50px 0; text-align: center; }
 .customer-hero h1 { font-size: 2.5rem; color: #007bff; margin-bottom: 15px; }
 .customer-hero p { max-width: 800px; margin: 0 auto; color: #555; }
 
-.section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; }
-
-/* Stats */
 .stats-section { padding: 50px 0; background: #007bff; color: white; text-align: center; }
 .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .stat-item h2 { font-size: 3rem; margin-bottom: 5px; }
 
-/* Testimonials */
-.testimonials { padding: 80px 0; }
 .testimonial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
 .testi-card { background: #fff; padding: 30px; border-radius: 15px; border-left: 5px solid #007bff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
 
-/* Galeri Pemasangan */
-.pemasangan { padding: 80px 0; background: #fff; }
-.category-block { margin-bottom: 50px; }
-.category-block h3 { margin-bottom: 20px; color: #333; border-bottom: 2px solid #eee; padding-bottom: 10px; }
 .image-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
 .image-grid img { width: 100%; border-radius: 10px; transition: 0.3s; cursor: pointer; }
 .image-grid img:hover { transform: scale(1.03); }
 
-/* LOGO SLIDER (Scrolling) */
+/* LOGO SLIDER */
 .logo-slider { padding: 80px 0; background: #f9f9f9; overflow: hidden; }
-.slider-container { width: 100%; overflow: hidden; position: relative; }
 .logo-track {
     display: flex;
-    width: calc(250px * 10); /* Sesuaikan jumlah logo */
+    width: calc(250px * 10);
     animation: scroll 20s linear infinite;
     gap: 50px;
     align-items: center;
 }
-.logo-track img { width: 150px; height: auto; transition: 0.3s; }
-.logo-track img:hover { filter: grayscale(0%); opacity: 1; }
 
 @keyframes scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(calc(-250px * 5)); }
 }
 
-/* Responsive */
+@media (max-width: 992px) {
+    .contact-grid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 768px) {
     .stats-grid, .testimonial-grid, .image-grid { grid-template-columns: 1fr; }
-    .logo-track img { width: 120px; }
 }
