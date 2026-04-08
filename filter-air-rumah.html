@@ -362,11 +362,32 @@ button:hover {
    8. FOOTER & FLOATING WA
    ========================================================================== */
 footer {
-    background: var(--primary-color);
-    color: white;
-    padding: 30px 0;
+    background: #000000; /* Warna Hitam Pekat */
+    color: #ffffff;
+    padding: 40px 0;
     text-align: center;
     font-size: 14px;
+}
+
+.footer-socials {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-socials a {
+    color: #bbbbbb; /* Warna abu-abu agar tidak terlalu mencolok tapi tetap terbaca */
+    text-decoration: none;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-socials a:hover {
+    color: var(--secondary-color); /* Berubah jadi biru saat diarahkan kursor */
 }
 
 .wa-float {
@@ -386,9 +407,6 @@ footer {
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     transition: var(--transition);
 }
-
-.wa-float:hover { transform: translateY(-5px) scale(1.05); }
-.wa-float i { font-size: 24px; }
 
 @media (max-width: 992px) {
     .hero h1 { font-size: 2.8rem; }
