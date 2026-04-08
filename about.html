@@ -32,11 +32,17 @@
 
         /* KONTEN TENTANG KAMI */
         .about-section { padding: 80px 0; }
-        .about-flex { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
+        .about-flex { display: flex; gap: 50px; align-items: flex-start; flex-wrap: wrap; }
         .about-text { flex: 1; min-width: 300px; }
-        .about-text h2 { color: #007bff; margin-bottom: 20px; font-size: 2rem; }
+        .about-text h2 { color: #007bff; margin-bottom: 25px; font-size: 2.2rem; }
+        .about-text h3 { color: #222; margin: 20px 0 10px 0; font-size: 1.3rem; border-left: 4px solid #007bff; padding-left: 10px; }
         .about-text p { margin-bottom: 15px; text-align: justify; color: #555; }
-        .about-image { flex: 1; min-width: 300px; }
+        
+        /* STYLE KHUSUS LIST MISI */
+        .about-text ul { margin-bottom: 20px; padding-left: 20px; color: #555; }
+        .about-text ul li { margin-bottom: 8px; text-align: justify; }
+
+        .about-image { flex: 1; min-width: 300px; position: sticky; top: 120px; }
         .about-image img { width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
         /* SLIDER SERTIFIKAT */
@@ -91,9 +97,7 @@
             100% { transform: translateX(calc(-300px * 6)); }
         }
 
-        /* ==========================================================================
-           REVISI FOOTER (PROFESIONAL & KONTRAS TINGGI)
-           ========================================================================== */
+        /* FOOTER */
         footer { 
             background: #222; 
             color: #ffffff; 
@@ -129,9 +133,7 @@
             background: rgba(255, 255, 255, 0.05);
         }
 
-        /* ==========================================================================
-           REVISI TOMBOL WHATSAPP (ESTETIK & KONTRAS)
-           ========================================================================== */
+        /* TOMBOL WHATSAPP */
         .wa-float {
             position: fixed;
             bottom: 30px;
@@ -198,14 +200,30 @@
     <div class="about-flex">
         <div class="about-text">
             <h2>Visi & Misi Kami</h2>
-            <p>Perkenalkan kami dari PT. Harjaya Mapan Sentosa, perusahaan yang bergerak dibidang Water & Air Purifier dengan merk CLARION.</p>
-            <p>Dengan garansi unit 2 Tahun yang kami berikan untuk customer. Kami bermaksud untuk mengajukan penawaran harga untuk pemasangan Water Purifier & Prefilter di perusahaan Bapak / Ibu.</p>
-            <p>Sebelumnya kami mengucapkan terimakasih atas kesempatan yang diberikan kepada kami untuk menawarkan produk kami.</p>
-            <p>Produk water purifier CLARION dapat digunakan untuk merubah air pdam/sumur menjadi air murni (Reverse Osmosis) yang mempunyai kualitas tinggi dibandingkan air mineral pada umumnya.</p>
-            <p>Alat kami tidak memerlukan banyak ruang untuk penyimpanan, harga terjangkau, dan teknisi yang berpengalaman.</p>
-            <p>Alat kami biasa digunakan di Rumah, Apartemen, Café, Restoran, Hotel, Rumah Sakit, Industri, dan tempat lainnya yang memerlukan proses water purifier. Menghasilkan hasil air berkualitas terbaik sehingga aman untuk alat kopi menjadi tidak mudah berkarat dan rasa kopi yang dihasilkan lebih nikmat, untuk pencucian buah dan sayur membuatnya tidak mudah layu dan busuk, membantu menghilangkan polutan, pestisida pada sayur dan buah, bahkan untuk pencucian daging atau ikan membuat lebih fresh dan tidak cepat busuk.</p>
-            <p>Kami sangat memperhatikan komponen filter dalam unit CLARION agar air yang dikonsumsi dapat membantu kesehatan dan tidak merusak benda yang digunakan. Dengan kualitas terbaik tetapi dengan harga yang jauh lebih hemat.</p>
-            <p>Produk prefilter dimana alat ini adalah solusi untuk masalah air baku yang keruh dan kuning, dapat sebagai penambah filter pertama unit Water Purifier, dapat menghilangkan bau, bakteri. Unit ber capacity besar, dapat membantu menyaring bakteri dan virus, menghilangkan microorganisme, dan Alga. Produk prefilter ini menjadi yang Pertama di Indonesia sebagai Filter Air yang dapat dibuka dan cuci sendiri dengan mudah, dengan masa penggantian Filter dalam 2-3 Tahun lamanya.</p>
+            
+            <h3>VISI</h3>
+            <p>Menjadi perusahaan penyedia solusi permasalahan air paling terpercaya dan inovatif untuk meningkatkan kualitas air bersih bagi rumah tangga, komersial, lembaga, hingga industri di seluruh Indonesia.</p>
+
+            <h3>MISI</h3>
+            <ul>
+                <li>Menyediakan produk pre-filter dan water purifier berkualitas tinggi yang efektif menyaring kontaminan awal pada air;</li>
+                <li>Memberikan pelayanan profesional mulai dari konsultasi, penjualan, hingga layanan purna jual (after sales);</li>
+                <li>Mengembangkan kerjasama yang berkelanjutan dengan customer dan UMKM;</li>
+                <li>Meningkatkan kesadaran masyarakat akan pentingnya kualitas air melalui edukasi dan layanan informasi;</li>
+                <li>Mendorong inovasi berkelanjutan dalam teknologi filtrasi guna memenuhi kebutuhan yang terus berkembang, untuk meningkatkan kualitas hidup masyarakat Indonesia;</li>
+                <li>Mendukung pengelolaan lingkungan (produk eco-friendly) melalui solusi penyaringan air yang ramah lingkungan serta efisien.</li>
+            </ul>
+
+            <hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;">
+
+            <h3>Mengenal CLARION</h3>
+            <p>Perkenalkan kami dari <strong>PT. Harjaya Mapan Sentosa</strong>, perusahaan yang bergerak dibidang Water & Air Purifier dengan merk <strong>CLARION</strong>. Kami hadir memberikan solusi air murni melalui teknologi <em>Reverse Osmosis</em> (RO) yang mampu merubah air PDAM atau sumur menjadi air berkualitas tinggi yang lebih baik dari air mineral pada umumnya.</p>
+            
+            <p>Unit kami dirancang efisien, tidak memerlukan banyak ruang, harga terjangkau, dan didukung oleh teknisi berpengalaman. Dengan <strong>garansi unit 2 tahun</strong>, kami berkomitmen memberikan rasa aman dan layanan terbaik bagi setiap pelanggan kami.</p>
+            
+            <p>Produk CLARION sangat ideal digunakan di Rumah, Apartemen, Café, Restoran, Hotel, hingga Rumah Sakit. Keunggulan air hasil filtrasi kami memastikan mesin kopi Anda tidak mudah berkarat, rasa kopi lebih nikmat, serta menjaga sayur, buah, dan daging tetap segar dan bebas polutan lebih lama.</p>
+            
+            <p>Selain itu, produk <strong>Prefilter</strong> kami menjadi yang pertama di Indonesia dengan keunggulan filter yang dapat dibuka dan dicuci sendiri secara mandiri. Dengan masa penggantian filter 2-3 tahun, alat ini adalah solusi paling hemat untuk mengatasi air baku yang keruh, kuning, dan berbau.</p>
         </div>
         <div class="about-image">
             <img src="About US.jpg" alt="Tentang Clarion">
