@@ -4,59 +4,217 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontak Kami | Clarion Indonesia</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Hubungi cabang Clarion Indonesia di Sidoarjo, Tangerang, Bekasi, Bandung, Semarang, dan Medan untuk solusi air bersih.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
-        /* Tambahan CSS untuk Grid Cabang */
+        /* ==========================================================================
+           1. RESET & DASAR (SAMA DENGAN INDEX)
+           ========================================================================== */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        
+        :root {
+            --primary-color: #0b3d91;
+            --secondary-color: #007bff;
+            --accent-color: #25D366;
+            --bg-light: #f4f7fa;
+            --text-dark: #2d3436;
+            --text-muted: #636e72;
+            --transition: all 0.3s ease;
+        }
+
+        body { background: #ffffff; color: var(--text-dark); line-height: 1.7; }
+        .container { width: 90%; max-width: 1100px; margin: 0 auto; position: relative; }
+
+        /* ==========================================================================
+           2. HEADER & NAVIGATION (HAMBURGER MENU)
+           ========================================================================== */
+        header {
+            background: #ffffff;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img { height: 40px; width: auto; }
+
+        /* Desktop Nav */
+        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
+        nav a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 15px; transition: var(--transition); }
+        nav a:hover, nav a.active { color: var(--secondary-color); }
+
+        /* Dropdown */
+        .dropdown { position: relative; }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 10px 0;
+            min-width: 180px;
+            display: none;
+            list-style: none;
+        }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu li a { padding: 10px 20px; display: block; font-size: 14px; }
+
+        /* Hamburger Icon */
+        .menu-toggle { display: none; font-size: 24px; cursor: pointer; color: var(--primary-color); }
+
+        /* ==========================================================================
+           3. CONTACT CONTENT & BRANCH GRID
+           ========================================================================== */
+        section { padding: 80px 0; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 2.5rem; color: var(--primary-color); font-weight: 800; margin-bottom: 15px; }
+        
+        .contact-info-top {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
         .branch-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
+
         .branch-card {
             background: #fff;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
         }
-        .branch-card:hover {
-            transform: translateY(-5px);
-        }
+
+        .branch-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+
         .branch-city {
-            color: #007bff;
+            color: var(--secondary-color);
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
             margin-bottom: 5px;
         }
-        .branch-name {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: #333;
-        }
+
+        .branch-name { font-size: 1.4rem; color: var(--primary-color); margin-bottom: 15px; font-weight: 800; }
+
         .map-container {
             width: 100%;
             height: 200px;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
             margin-bottom: 15px;
-            border: 1px solid #eee;
+            background: #eee;
         }
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
+        .map-container iframe { width: 100%; height: 100%; border: 0; }
+
+        .branch-address { font-size: 14px; color: var(--text-muted); flex-grow: 1; margin-bottom: 15px; }
+
         .btn-map {
-            display: inline-block;
-            margin-top: 10px;
-            color: #007bff;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
+            color: var(--secondary-color);
+            font-weight: 700;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* ==========================================================================
+           4. FOOTER & WA (DISAMAKAN DENGAN HALAMAN LAIN)
+           ========================================================================== */
+        footer {
+            background: #000000;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer-socials {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-socials a {
+            color: #bbbbbb;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-socials a:hover { color: var(--secondary-color); }
+
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50px;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        /* ==========================================================================
+           5. RESPONSIVE MOBILE
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .menu-toggle { display: block; }
+            nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background: white;
+                height: calc(100vh - 70px);
+                transition: 0.4s;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            nav.active { left: 0; }
+            nav ul { flex-direction: column; padding: 40px 20px; gap: 20px; align-items: flex-start; }
+            .dropdown-menu { position: static; display: block; box-shadow: none; padding-left: 20px; }
+        }
+
+        @media (max-width: 768px) {
+            .section-header h2 { font-size: 2rem; }
+            .wa-float span { display: none; }
+            .wa-float { padding: 15px; border-radius: 50%; }
         }
     </style>
 </head>
@@ -65,14 +223,19 @@
 <header>
     <div class="container">
         <a href="index.html" class="logo">
-            <img src="logo.png.png" alt="Clarion Logo">
+            <img src="logo.png.png" alt="Clarion Indonesia Logo">
         </a>
-        <nav>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <nav id="nav-menu">
             <ul>
                 <li><a href="index.html">Beranda</a></li>
                 <li><a href="about.html">Tentang Kami</a></li>
                 <li class="dropdown">
-                    <a href="#">Produk ▾</a>
+                    <a href="#">Produk <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="prefilter.html">Prefilter</a></li>
                         <li><a href="drinking-system.html">Drinking System</a></li>
@@ -82,19 +245,21 @@
                     </ul>
                 </li>
                 <li><a href="customer.html">Pelanggan</a></li>
-                <li><a href="contact.html" style="color: #007bff;">Kontak</a></li>
+                <li><a href="contact.html" class="active">Kontak</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
-<section class="contact-section">
+<section>
     <div class="container">
-        <div style="text-align: center; margin-bottom: 50px;">
+        <div class="section-header">
             <h2>Hubungi Kami</h2>
             <p>Tim ahli kami siap memberikan solusi air bersih terbaik di seluruh cabang kami.</p>
-            <div style="margin-top: 20px;">
-                <strong>WhatsApp Pusat:</strong> +62 813-7869-9699 | <strong>Email:</strong> clarionhms@gmail.com
+            
+            <div class="contact-info-top">
+                <p><strong><i class="fab fa-whatsapp"></i> WhatsApp Pusat:</strong> +62 813-7869-9699</p>
+                <p><strong><i class="far fa-envelope"></i> Email:</strong> clarionhms@gmail.com</p>
             </div>
         </div>
 
@@ -103,60 +268,60 @@
                 <div class="branch-city">Jawa Timur</div>
                 <h3 class="branch-name">Sidoarjo (Pusat)</h3>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.46736466961!2d112.7441551!3d-7.4134138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMjQnNDguMyJTIDExMsKwNDQnMzkuMCJF!5e0!3m2!1sid!2sid!4v1710000000000" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.2733471026414!2d112.7408753747622!3d-7.434988492575775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7e42426372f5d%3A0xc6226c8913916b9d!2sSIRIE%20Industrial%20Estate!5e0!3m2!1sen!2sid!4v1712580000000!5m2!1sen!2sid" loading="lazy"></iframe>
                 </div>
-                <p>Kawasan Industri dan Pergudangan SIRIE, Jl. Lingkar Timur No.9 Blok S, Rangkah Kidul, Sidoarjo 61234</p>
-                <a href="https://maps.google.com/?q=Kawasan+Industri+SIRIE+Sidoarjo" target="_blank" class="btn-map">📍 Buka di Google Maps</a>
+                <p class="branch-address">Kawasan Industri dan Pergudangan SIRIE, Jl. Lingkar Timur No.9 Blok S, Rangkah Kidul, Sidoarjo 61234</p>
+                <a href="https://maps.google.com/?q=SIRIE+Industrial+Estate+Sidoarjo" target="_blank" class="btn-map"><i class="fas fa-location-dot"></i> Buka di Google Maps</a>
             </div>
 
             <div class="branch-card">
                 <div class="branch-city">Banten</div>
                 <h3 class="branch-name">Tangerang</h3>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5212!2d106.6894!3d-6.2001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuNCJTIDEwNsKwNDEnMjEuOCJF!5e0!3m2!1sid!2sid!4v1710000000000" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.444743285642!2d106.69176317475!3d-6.204911393783061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f99723023021%3A0xf6366050b1c2b53f!2sGreen%20Village%20Cipondoh!5e0!3m2!1sen!2sid!4v1712581000000!5m2!1sen!2sid" loading="lazy"></iframe>
                 </div>
-                <p>Green Village Blok 6A No 37 JL KH. Hasyim Ashari, RT.001/RW/007, Nerogtog, Pinang, Tangerang City 15146</p>
-                <a href="https://maps.google.com/?q=Green+Village+Pinang+Tangerang" target="_blank" class="btn-map">📍 Buka di Google Maps</a>
+                <p class="branch-address">Green Village Blok 6A No 37 JL KH. Hasyim Ashari, RT.001/RW/007, Nerogtog, Pinang, Tangerang City 15146</p>
+                <a href="https://maps.google.com/?q=Green+Village+Tangerang" target="_blank" class="btn-map"><i class="fas fa-location-dot"></i> Buka di Google Maps</a>
             </div>
 
             <div class="branch-card">
                 <div class="branch-city">Jawa Barat</div>
                 <h3 class="branch-name">Bekasi</h3>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.123!2d107.001!3d-6.152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMDknMDcuMiJTIDEwN8KwMDAnMDMuNiJF!5e0!3m2!1sid!2sid!4v1710000000000" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.098807804473!2d106.9934780747482!3d-6.117362093869376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1f8933939f6b%3A0x6b87642636f34e62!2sGreen%20Ara%20Residence!5e0!3m2!1sen!2sid!4v1712582000000!5m2!1sen!2sid" loading="lazy"></iframe>
                 </div>
-                <p>Perumahan Green Ara Residence Cluster Balsa SA-10 2 No. 01, Kel. Setiaasih, Kec. Tarumajaya, Bekasi</p>
-                <a href="https://maps.google.com/?q=Green+Ara+Residence+Bekasi" target="_blank" class="btn-map">📍 Buka di Google Maps</a>
+                <p class="branch-address">Perumahan Green Ara Residence Cluster Balsa SA-10 2 No. 01, Kel. Setiaasih, Kec. Tarumajaya, Bekasi</p>
+                <a href="https://maps.google.com/?q=Green+Ara+Residence+Bekasi" target="_blank" class="btn-map"><i class="fas fa-location-dot"></i> Buka di Google Maps</a>
             </div>
 
             <div class="branch-card">
                 <div class="branch-city">Jawa Barat</div>
                 <h3 class="branch-name">Bandung</h3>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.3!2d107.5!3d-6.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNTQnMDAuMCJTIDEwN8KwMzAnMDAuMCJF!5e0!3m2!1sid!2sid!4v1710000000000" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.5517173874314!2d107.54593927475713!3d-6.944062193056157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68ee69528d29b3%3A0xc4703a830957242d!2sTaman%20Kopo%20Indah%205!5e0!3m2!1sen!2sid!4v1712583000000!5m2!1sen!2sid" loading="lazy"></iframe>
                 </div>
-                <p>Taman Kopo Indah V Redwood 1 No 19 Kelurahan Rahayu, Kec. Margaasih, Kabupaten Bandung 40218</p>
-                <a href="https://maps.google.com/?q=Taman+Kopo+Indah+V+Bandung" target="_blank" class="btn-map">📍 Buka di Google Maps</a>
+                <p class="branch-address">Taman Kopo Indah V Redwood 1 No 19 Kelurahan Rahayu, Kec. Margaasih, Kabupaten Bandung 40218</p>
+                <a href="https://maps.google.com/?q=Taman+Kopo+Indah+5+Bandung" target="_blank" class="btn-map"><i class="fas fa-location-dot"></i> Buka di Google Maps</a>
             </div>
 
             <div class="branch-card">
                 <div class="branch-city">Jawa Tengah</div>
                 <h3 class="branch-name">Semarang</h3>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.2!2d110.3!3d-7.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMDAnMDAuMCJTIDExMMKwMTgnMDAuMCJF!5e0!3m2!1sid!2sid!4v1710000000000" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.1873138808575!2d110.3235653747576!3d-7.000192892999451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708af2d2f782c5%3A0x62c9063738096f64!2sNgaliyan%2C%20Semarang%20City!5e0!3m2!1sen!2sid!4v1712584000000!5m2!1sen!2sid" loading="lazy"></iframe>
                 </div>
-                <p>Jalan Elora Hill III No 5. Kel. Gondoriyo, Kecamatan Ngaliyan, Kota Semarang, Jawa Tengah</p>
-                <a href="https://maps.google.com/?q=Elora+Hill+Semarang" target="_blank" class="btn-map">📍 Buka di Google Maps</a>
+                <p class="branch-address">Jalan Elora Hill III No 5. Kel. Gondoriyo, Kecamatan Ngaliyan, Kota Semarang, Jawa Tengah</p>
+                <a href="https://maps.google.com/?q=Gondoriyo+Ngaliyan+Semarang" target="_blank" class="btn-map"><i class="fas fa-location-dot"></i> Buka di Google Maps</a>
             </div>
 
             <div class="branch-card">
                 <div class="branch-city">Sumatra Utara</div>
                 <h3 class="branch-name">Medan</h3>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.8!2d98.6!3d3.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMzYnMDAuMCJOIDk4wrAzNicwMC4wIkU!5e0!3m2!1sid!2sid!4v1710000000000" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.824855734107!2d98.67562007473068!3d3.6274485963467664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3031326be15e9663%3A0x1d6a9780004f14!2sTanjung%20Mulia%2C%20Medan%20Deli!5e0!3m2!1sen!2sid!4v1712585000000!5m2!1sen!2sid" loading="lazy"></iframe>
                 </div>
-                <p>Komplek Graha Alumunium Blok B 26 A Tanjung Mulia Medan Deli 20241</p>
-                <a href="https://maps.google.com/?q=Komplek+Graha+Alumunium+Medan" target="_blank" class="btn-map">📍 Buka di Google Maps</a>
+                <p class="branch-address">Komplek Graha Alumunium Blok B 26 A Tanjung Mulia Medan Deli 20241</p>
+                <a href="https://maps.google.com/?q=Tanjung+Mulia+Medan+Deli" target="_blank" class="btn-map"><i class="fas fa-location-dot"></i> Buka di Google Maps</a>
             </div>
         </div>
     </div>
@@ -165,17 +330,42 @@
 <footer>
     <div class="container">
         <p>© 2026 PT Harjaya Mapan Sentosa</p>
-        <div class="footer-links">
-            <a href="https://instagram.com/clarionid">Instagram</a> | 
-            <a href="https://shopee.co.id/harjayamapansentosa">Shopee</a> | 
-            <a href="https://www.tiktok.com/@clarionid">TikTok</a>
+        <div class="footer-socials">
+            <a href="https://shopee.co.id/harjayamapansentosa" target="_blank"><i class="fa-solid fa-bag-shopping"></i> Shopee</a>
+            <a href="https://www.tiktok.com/@clarionid" target="_blank"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+            <a href="https://instagram.com/clarionid" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
         </div>
     </div>
 </footer>
 
 <a href="https://wa.me/6281378699699" class="wa-float" target="_blank">
-    <span>Chat WhatsApp</span>
+    <i class="fab fa-whatsapp"></i>
+    <span>Tanya via WA</span>
 </a>
+
+<script>
+    // Script untuk Hamburger Menu
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.getElementById('nav-menu');
+
+    mobileMenu.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        const icon = mobileMenu.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
+
+    // Menutup menu saat link diklik (opsional)
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            const icon = mobileMenu.querySelector('i');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-times');
+        });
+    });
+</script>
 
 </body>
 </html>
