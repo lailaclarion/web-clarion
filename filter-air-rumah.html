@@ -65,6 +65,62 @@
     <p>"Mesin kopi lebih awet setelah pakai Clarion"</p>
     <p>"Recommended banget untuk rumah!"</p>
 </section>
+      <section class="consultation">
+        <div class="container">
+            <div class="section-header">
+                <h2>Konsultasi Masalah Air</h2>
+                <p>Lengkapi data di bawah agar kami bisa memberikan solusi yang tepat.</p>
+            </div>
+            
+            <form id="clarionForm">
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" placeholder="Contoh: Budi Santoso" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="wa">Nomor WhatsApp</label>
+                        <input type="tel" id="wa" name="wa" placeholder="0812xxxx" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="kota">Asal Daerah</label>
+                        <input type="text" id="kota" name="kota" placeholder="Kota/Kabupaten" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="sumber">Sumber Air</label>
+                        <select id="sumber" name="sumber" required>
+                            <option value="">-- Pilih Sumber Air --</option>
+                            <option value="Air Sumur/Tanah">Air Sumur/Tanah</option>
+                            <option value="PDAM">PDAM</option>
+                            <option value="WTP (Air Developer)">WTP (Air Developer)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="budget">Estimasi Budget</label>
+                    <select id="budget" name="budget" required>
+                        <option value="">-- Pilih Estimasi Budget --</option>
+                        <option value="Rp 1.000.000 - Rp 3.000.000">Rp 1.000.000 - Rp 3.000.000</option>
+                        <option value="Rp 3.000.000 - Rp 7.000.000">Rp 3.000.000 - Rp 7.000.000</option>
+                        <option value="Rp 7.000.000 - Rp 15.000.000">Rp 7.000.000 - Rp 15.000.000</option>
+                        <option value="Di atas Rp 15.000.000">Di atas Rp 15.000.000</option>
+                        <option value="Belum Menentukan Budget">Belum Menentukan Budget</option>
+                    </select>
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="pesan">Masalah Air</label>
+                    <textarea id="pesan" name="pesan" placeholder="Ceritakan masalah air Anda..." rows="4"></textarea>
+                </div>
+                
+                <button type="submit" class="btn-submit">KONSULTASI VIA WHATSAPP</button>
+            </form>
+        </div>
+    </section>
 
 <!-- CTA -->
 <section style="padding:40px; text-align:center;">
