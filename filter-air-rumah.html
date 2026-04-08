@@ -3,253 +3,631 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Filter Air Sumur & PDAM Terbaik | Clarion</title>
+<title>Clarion Indonesia | Solusi Filter Air Sumur & PDAM Terbaik</title>
+<meta name="description" content="Atasi air keruh, kuning, bau & berkapur dengan sistem filtrasi modern dari Clarion. Garansi resmi dan gratis konsultasi.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
-/* RESET */
-* {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Inter', Arial, sans-serif;
+/* ==========================================================================
+   1. RESET & DASAR
+   ========================================================================== */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Inter', sans-serif; 
 }
 
-body {
-    background:#f8fafc;
-    color:#333;
-    line-height:1.6;
+:root {
+    --primary-color: #0b3d91; /* Biru Gelap Profesional */
+    --secondary-color: #007bff; /* Biru Terang Accent */
+    --accent-color: #25D366; /* Hijau WhatsApp */
+    --bg-light: #f4f7fa; /* Abu-abu sangat muda */
+    --text-dark: #2d3436;
+    --text-muted: #636e72;
+    --shadow-subtle: 0 10px 30px rgba(0,0,0,0.05);
+    --shadow-hover: 0 15px 35px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
 }
 
-/* CONTAINER */
-.container {
-    max-width:900px;
-    margin:auto;
+html {
+    scroll-behavior: smooth; /* Efek scroll halus */
 }
 
-/* HERO */
-.hero {
-    background: linear-gradient(135deg, #0b3d91, #0056d2);
-    color:white;
-    text-align:center;
-    padding:70px 20px;
+body { 
+    background: #ffffff; 
+    color: var(--text-dark); 
+    line-height: 1.7; 
 }
 
-.hero h1 {
-    font-size:32px;
-    font-weight:700;
+.container { 
+    width: 90%; 
+    max-width: 1100px; 
+    margin: 0 auto; 
+    position: relative;
 }
 
-.hero p {
-    margin-top:10px;
+/* ==========================================================================
+   2. TYPOGRAPHY & HEADER
+   ========================================================================== */
+h1, h2, h3 { 
+    font-weight: 800; 
+    letter-spacing: -1px; 
+    margin-bottom: 15px;
+    color: var(--primary-color);
 }
 
-.highlight {
-    margin-top:15px;
-    font-size:14px;
+header {
+    background: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* BUTTON */
-.btn {
-    display:inline-block;
-    margin-top:15px;
-    padding:14px 24px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:600;
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.btn-primary {
-    background:#25D366;
-    color:white;
+.logo img { 
+    height: 40px; /* Sesuaikan tinggi logo */
+    width: auto;
 }
 
-.btn-secondary {
-    background:white;
-    color:#0b3d91;
+/* ==========================================================================
+   3. HERO SECTION
+   ========================================================================== */
+.hero { 
+    position: relative;
+    min-height: 100vh; /* Full screen di desktop */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+    color: white; 
+    /* GANTI 'banner-bg.webp' DENGAN GAMBAR ANDA */
+    background: #091e42 url('banner-bg.webp') no-repeat center center/cover;
+    padding: 100px 20px;
 }
 
-/* SECTION */
-section {
-    padding:50px 20px;
+/* Overlay agar teks mudah dibaca */
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Hitam transparan */
+    z-index: 1;
 }
 
-h2 {
-    margin-bottom:15px;
-    font-size:24px;
+.hero .container { z-index: 2; }
+
+.hero h1 { 
+    font-size: 3.5rem; 
+    color: white; 
+    line-height: 1.1;
+    margin-bottom: 25px;
 }
 
-/* CARD */
-.card {
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.05);
+.hero p { 
+    font-size: 1.25rem; 
+    margin-bottom: 20px; 
+    opacity: 0.9;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* LIST */
-ul {
-    padding-left:20px;
+.highlight-group {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-/* FORM */
-input, select, textarea {
-    width:100%;
-    padding:12px;
-    margin:8px 0;
-    border-radius:8px;
-    border:1px solid #ddd;
+.highlight-item {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-input:focus, select:focus, textarea:focus {
-    outline:none;
-    border-color:#0b3d91;
+.highlight-item i { color: var(--accent-color); }
+
+/* ==========================================================================
+   4. BUTTONS
+   ========================================================================== */
+.btn-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
 }
 
-button {
-    background:#25D366;
-    color:white;
-    padding:15px;
-    border:none;
-    width:100%;
-    border-radius:8px;
-    font-weight:bold;
-    cursor:pointer;
+.btn { 
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 30px; 
+    border-radius: 50px; 
+    text-decoration: none; 
+    font-weight: 700; 
+    font-size: 16px;
+    transition: var(--transition);
 }
 
-/* TESTIMONI */
-.testimoni p {
-    background:white;
-    padding:15px;
-    border-radius:10px;
-    margin:10px 0;
-    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+.btn-primary { 
+    background: var(--accent-color); 
+    color: white; 
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
 }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-    .hero h1 {
-        font-size:24px;
-    }
+.btn-primary:hover { 
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
+}
+
+.btn-secondary { 
+    background: #ffffff; 
+    color: var(--primary-color); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn-secondary:hover { 
+    background: #f1f5f9;
+    transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   5. SECTIONS & CARDS
+   ========================================================================== */
+section { 
+    padding: 100px 0; 
+}
+
+.bg-light { background: var(--bg-light); }
+
+.section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 60px auto;
+}
+
+.section-header h2 { font-size: 2.5rem; }
+.section-header p { color: var(--text-muted); font-size: 1.1rem; }
+
+/* Flex Grid */
+.flex-grid {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.col-image, .col-text { flex: 1; }
+
+.col-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: var(--shadow-hover);
+}
+
+/* List with Icons */
+.feature-list { list-style: none; }
+.feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-subtle);
+    transition: var(--transition);
+}
+
+.feature-list li:hover { transform: translateX(5px); box-shadow: var(--shadow-hover); }
+
+.feature-list i {
+    font-size: 24px;
+    margin-top: 3px;
+}
+
+.icon-bad { color: #e74c3c; /* Merah untuk masalah */ }
+.icon-good { color: var(--secondary-color); /* Biru untuk solusi */ }
+
+.feature-list h4 { font-weight: 700; color: var(--primary-color); margin-bottom: 2px;}
+.feature-list p { color: var(--text-muted); font-size: 14px; line-height: 1.5; }
+
+/* ==========================================================================
+   6. TESTIMONI (Modern Cards)
+   ========================================================================== */
+.testimoni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.testi-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-subtle);
+    position: relative;
+    transition: var(--transition);
+}
+
+.testi-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+
+.testi-card i.quote {
+    font-size: 40px;
+    color: rgba(0, 123, 255, 0.1);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.testi-card p { color: var(--text-dark); font-style: italic; margin-bottom: 20px; position: relative; z-index: 1; }
+
+.client-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.client-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.client-info h5 { font-weight: 700; color: var(--primary-color); }
+.client-info span { font-size: 12px; color: var(--text-muted); }
+
+/* ==========================================================================
+   7. FORMULIR KONSULTASI (Premium Look)
+   ========================================================================== */
+#form {
+    background: var(--bg-light);
+    border-radius: 30px;
+    padding: 80px 50px;
+}
+
+#clarionForm { 
+    max-width: 700px; 
+    margin: 0 auto; 
+}
+
+.form-group { margin-bottom: 15px; }
+
+input, select, textarea { 
+    width: 100%; 
+    padding: 16px; 
+    border-radius: 12px; 
+    border: 2px solid #e1e8ef; 
+    font-size: 15px;
+    background: #ffffff;
+    transition: var(--transition);
+}
+
+input:focus, select:focus, textarea:focus { 
+    outline: none; 
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+}
+
+textarea { height: 120px; resize: none; }
+
+button { 
+    background: linear-gradient(135deg, #25D366, #1ebe57);
+    color: white; 
+    padding: 18px; 
+    border: none; 
+    width: 100%; 
+    border-radius: 12px; 
+    font-weight: 700; 
+    font-size: 16px;
+    cursor: pointer; 
+    margin-top: 15px;
+    transition: var(--transition);
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+}
+
+button:hover { 
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   8. FOOTER & FLOATING WA
+   ========================================================================== */
+footer {
+    background: var(--primary-color);
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.wa-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 50px;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    z-index: 1000;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.wa-float:hover { transform: translateY(-5px) scale(1.05); }
+.wa-float i { font-size: 24px; }
+
+/* ==========================================================================
+   9. RESPONSIVE MOBILE
+   ========================================================================== */
+@media (max-width: 992px) {
+    .hero h1 { font-size: 2.8rem; }
+    .flex-grid { flex-direction: column; gap: 30px; }
+    #form { padding: 50px 20px; }
+}
+
+@media (max-width: 768px) {
+    section { padding: 60px 0; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 1rem; }
+    .btn-group { flex-direction: column; gap: 10px; }
+    .btn { width: 100%; justify-content: center; }
+    .section-header h2 { font-size: 2rem; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
+<header>
+    <div class="container">
+        <a href="#" class="logo">
+            <img src="logo.png" alt="Clarion Indonesia Logo">
+        </a>
+    </div>
+</header>
+
 <section class="hero">
+    <div class="hero-overlay"></div>
     <div class="container">
-        <h1>Filter Air Sumur & PDAM Terbaik</h1>
-        <p>Atasi air keruh, kuning, bau & berkapur dengan sistem filtrasi Clarion</p>
+        <h1>Solusi Air Bersih & Sehat untuk Keluarga Anda</h1>
+        <p>Atasi masalah air keruh, kuning, bau, dan berkapur dengan teknologi filtrasi modern dari Clarion Indonesia.</p>
 
-        <p class="highlight">
-            ✔ Air lebih jernih • ✔ Tahan 2–3 tahun • ✔ Gratis konsultasi
-        </p>
+        <div class="highlight-group">
+            <div class="highlight-item"><i class="fas fa-check-circle"></i> Air Lebih Jernih</div>
+            <div class="highlight-item"><i class="fas fa-history"></i> Tahan 2-3 Tahun</div>
+            <div class="highlight-item"><i class="fas fa-comments"></i> Gratis Konsultasi</div>
+        </div>
 
-        <p class="highlight">
-            ✔ 1000+ pelanggan • ✔ 50+ Café • ✔ Garansi Resmi
-        </p>
+        <div class="highlight-group">
+            <div class="highlight-item"><i class="fas fa-users"></i> 1000+ Pelanggan</div>
+            <div class="highlight-item"><i class="fas fa-coffee"></i> 50+ Café/Bisnis</div>
+            <div class="highlight-item"><i class="fas fa-award"></i> Garansi Resmi</div>
+        </div>
 
-        <a href="#form" class="btn btn-secondary">Isi Form Konsultasi</a>
-        <a href="https://wa.me/6281378699699" class="btn btn-primary">Chat WhatsApp</a>
+        <div class="btn-group">
+            <a href="#form" class="btn btn-secondary"><i class="fas fa-wpforms"></i> Isi Form Konsultasi</a>
+            <a href="https://wa.me/6281378699699" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
+        </div>
     </div>
 </section>
 
-<!-- PROBLEM -->
-<section>
-    <div class="container">
-        <div class="card">
+<section class="bg-light">
+    <div class="container flex-grid">
+        <div class="col-image">
+            <img src="water-problem.webp" alt="Ilustrasi Masalah Air Keruh">
+        </div>
+        <div class="col-text">
             <h2>Masalah Air yang Sering Terjadi</h2>
-            <ul>
-                <li>Air keruh atau kuning</li>
-                <li>Bau tidak sedap</li>
-                <li>Air terasa licin / berminyak</li>
-                <li>Banyak kerak di kamar mandi</li>
-                <li>Air tidak layak digunakan</li>
+            <p style="color:var(--text-muted); margin-bottom:20px;">Jangan remehkan kualitas air di rumah Anda. Air yang bermasalah dapat mengganggu kesehatan dan merusak peralatan rumah tangga.</p>
+            <ul class="feature-list">
+                <li>
+                    <i class="fas fa-tint-slash icon-bad"></i>
+                    <div>
+                        <h4>Air Keruh & Kuning</h4>
+                        <p>Mengandung zat besi tinggi, mengotori bak mandi dan pakaian.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-smog icon-bad"></i>
+                    <div>
+                        <h4>Bau Tidak Sedap</h4>
+                        <p>Aroma besi, kaporit, atau bau got yang mengganggu kenyamanan.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-hand-holding-water icon-bad"></i>
+                    <div>
+                        <h4>Licin / Berminyak</h4>
+                        <p>Terasa tidak bersih saat bilas, meninggalkan lapisan di permukaan air.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-soap icon-bad"></i>
+                    <div>
+                        <h4>Kerak Putih (Kapur)</h4>
+                        <p>Meninggalkan noda putih membandel di kran, shower, dan ubin.</p>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
 </section>
 
-<!-- SOLUSI -->
-<section style="background:#f1f5f9;">
-    <div class="container">
-        <div class="card">
-            <h2>Solusi Filter Air Clarion</h2>
-            <p>
-                Sistem filtrasi modern untuk menyaring kotoran, bau, dan zat berbahaya,
-                sehingga menghasilkan air yang lebih bersih, sehat, dan aman.
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- KEUNGGULAN -->
 <section>
-    <div class="container">
-        <div class="card">
-            <h2>Kenapa Pilih Clarion?</h2>
-            <ul>
-                <li>✔ Teknologi filtrasi modern</li>
-                <li>✔ Cocok untuk air sumur & PDAM</li>
-                <li>✔ Hemat biaya jangka panjang</li>
-                <li>✔ Instalasi cepat & profesional</li>
-                <li>✔ Garansi & maintenance</li>
+    <div class="container flex-grid">
+        <div class="col-text">
+            <h2>Kenapa Pilih Filter Air Clarion?</h2>
+            <ul class="feature-list">
+                <li>
+                    <i class="fas fa-microchip icon-good"></i>
+                    <div>
+                        <h4>Teknologi Filtrasi Modern</h4>
+                        <p>Menggunakan media filter berkualitas untuk hasil maksimal.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-home icon-good"></i>
+                    <div>
+                        <h4>Cocok untuk Sumur & PDAM</h4>
+                        <p>Didesain fleksibel untuk berbagai sumber air di Indonesia.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-piggy-bank icon-good"></i>
+                    <div>
+                        <h4>Hemat Jangka Panjang</h4>
+                        <p>Mengurangi pembelian air galon dan perawatan alat rumah tangga.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-tools icon-good"></i>
+                    <div>
+                        <h4>Instalasi Profesional</h4>
+                        <p>Dipasang oleh tim teknisi berpengalaman, rapi, dan cepat.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-shield-alt icon-good"></i>
+                    <div>
+                        <h4>Garansi & Maintenance</h4>
+                        <p>Layanan purna jual terjamin untuk ketenangan pikiran Anda.</p>
+                    </div>
+                </li>
             </ul>
+        </div>
+        <div class="col-image">
+            <img src="unit-filter.webp" alt="Unit Filter Air Clarion Terpasang">
         </div>
     </div>
 </section>
 
-<!-- TESTIMONI -->
-<section class="testimoni" style="background:#f1f5f9;">
+<section class="bg-light">
     <div class="container">
-        <h2>Testimoni Pelanggan</h2>
-        <p>"Air jadi jernih banget, gak bau lagi!"</p>
-        <p>"Mesin kopi lebih awet setelah pakai Clarion"</p>
-        <p>"Recommended banget untuk rumah!"</p>
+        <div class="section-header">
+            <h2>Apa Kata Mereka?</h2>
+            <p>Ribuan pelanggan puas telah mempercayakan kualitas air mereka pada Clarion.</p>
+        </div>
+        
+        <div class="testimoni-grid">
+            <div class="testi-card">
+                <i class="fas fa-quote-right quote"></i>
+                <p>"Air di rumah awalnya kuning banget dan bau besi. Setelah pasang Clarion, langsung jernih total dan gak bau lagi. Istri senang banget!"</p>
+                <div class="client-info">
+                    <img src="customer1.webp" alt="Foto Pelanggan 1">
+                    <div>
+                        <h5>Bpk. Andi</h5>
+                        <span>Jakarta Selatan (Air Sumur)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testi-card">
+                <i class="fas fa-quote-right quote"></i>
+                <p>"Mesin kopi di café kami sering mampet karena kerak kapur PDAM. Sejak pakai filter Clarion, air jadi aman dan rasa kopi lebih stabil."</p>
+                <div class="client-info">
+                    <img src="customer2.webp" alt="Foto Pelanggan 2">
+                    <div>
+                        <h5>Ibu Citra</h5>
+                        <span>Owner Café - Tangerang</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- FORM -->
-<section id="form">
+<section id="form-section">
     <div class="container">
-        <div class="card">
-            <h2>Konsultasi Gratis</h2>
+        <div id="form">
+            <div class="section-header">
+                <h2>Konsultasi Gratis</h2>
+                <p>Lengkapi data di bawah ini. Tim kami akan segera menghubungi Anda untuk memberikan solusi air terbaik.</p>
+            </div>
 
             <form id="clarionForm">
-                <input type="text" id="nama" placeholder="Nama Lengkap" required>
-                <input type="tel" id="wa" placeholder="Nomor WhatsApp" required>
-                <input type="text" id="kota" placeholder="Kota" required>
+                <div class="form-group">
+                    <input type="text" id="nama" placeholder="Nama Lengkap Anda" required>
+                </div>
+                <div class="form-group" style="display: flex; gap: 10px;">
+                    <input type="tel" id="wa" placeholder="Nomor WhatsApp (Aktif)" required>
+                    <input type="text" id="kota" placeholder="Kota / Wilayah Tinggal" required>
+                </div>
 
-                <select id="sumber" required>
-                    <option value="">Sumber Air</option>
-                    <option>Air Sumur</option>
-                    <option>PDAM</option>
-                    <option>WTP (Air Developer)</option>
-                </select>
+                <div class="form-group">
+                    <select id="sumber" required>
+                        <option value="">-- Pilih Sumber Air --</option>
+                        <option>Air Sumur / Tanah</option>
+                        <option>PDAM</option>
+                        <option>WTP (Air Developer)</option>
+                    </select>
+                </div>
 
-                <select id="budget" required>
-                    <option value="">Estimasi Budget</option>
-                    <option>Rp 1 - 3 juta</option>
-                    <option>Rp 3 - 7 juta</option>
-                    <option>Rp 7 - 15 juta</option>
-                    <option>Di atas 15 juta</option>
-                    <option>Belum Menentukan Budget</option>
-                </select>
+                <div class="form-group">
+                    <select id="budget" required>
+                        <option value="">-- Estimasi Budget --</option>
+                        <option>Rp 1 - 3 Juta</option>
+                        <option>Rp 3 - 7 Juta</option>
+                        <option>Rp 7 - 15 Juta</option>
+                        <option>Di atas 15 Juta</option>
+                        <option>Belum Menentukan Budget</option>
+                    </select>
+                </div>
 
-                <textarea id="pesan" placeholder="Masalah air Anda (keruh, bau, kuning, dll)"></textarea>
+                <div class="form-group">
+                    <textarea id="pesan" placeholder="Ceritakan masalah air Anda (contoh: kuning, bau got, kerak putih)..."></textarea>
+                </div>
 
-                <button type="submit">KONSULTASI GRATIS SEKARANG</button>
+                <button type="submit">KONSULTASI GRATIS SEKARANG <i class="fas fa-arrow-right"></i></button>
             </form>
         </div>
     </div>
 </section>
 
-<!-- SCRIPT -->
+<footer>
+    <div class="container">
+        <p>&copy; 2023 Clarion Indonesia. All rights reserved.</p>
+        <p style="font-size: 12px; opacity: 0.7; margin-top: 5px;">Ahli Kualitas Air Anda</p>
+    </div>
+</footer>
+
+<a href="https://wa.me/6281378699699?text=Halo Clarion, saya tertarik konsultasi filter air." class="wa-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+    <span>Tanya via WA</span>
+</a>
+
 <script>
 document.getElementById('clarionForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
+    // URL Apps Script Anda (GANTI JIKA PERLU)
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxSrWtR7ViBrmAgjzayuTkcCXkGBnCyA_ByhtUwK1WRVl0sZp-YNb-zNuB8-eIkxKORoQ/exec';
 
     const nama = document.getElementById('nama').value;
@@ -267,27 +645,33 @@ document.getElementById('clarionForm').addEventListener('submit', function(e) {
     params.append('budget', budget);
     params.append('pesan', pesan);
     params.append('tanggal', new Date().toLocaleString());
-    params.append('source', 'Landing Page Filter Air');
+    params.append('source', 'Landing Page Clarion Modern');
 
-    const teksWA = `Halo Clarion, saya ingin konsultasi:%0A%0A
-Nama: ${nama}%0A
-WA: ${wa}%0A
-Kota: ${kota}%0A
-Sumber: ${sumber}%0A
-Budget: ${budget}%0A
-Masalah: ${pesan}`;
+    // Teks WA dibuat lebih rapi
+    const teksWA = `Halo Clarion Indonesia,%0A%0ASaya ingin konsultasi gratis mengenai filter air.%0A%0A
+*Data Diri:*%0A
+- Nama: ${nama}%0A
+- WhatsApp: ${wa}%0A
+- Kota: ${kota}%0A
+- Sumber Air: ${sumber}%0A
+- Estimasi Budget: ${budget}%0A%0A
+*Masalah Air:*%0A
+${pesan}`;
 
     const urlWA = `https://wa.me/6281378699699?text=${teksWA}`;
 
+    // Kirim ke Google Sheets (mode no-cors agar tidak error cross-origin)
     fetch(scriptURL, {
         method: 'POST',
         body: params,
         mode: 'no-cors'
     })
     .then(() => {
+        // Langsung redirect ke WA setelah kirim data
         window.location.href = urlWA;
     })
     .catch(() => {
+        // Jika gagal kirim data, tetap redirect ke WA agar tidak kehilangan lead
         window.location.href = urlWA;
     });
 });
