@@ -5,18 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clarion Indonesia | Solusi Filter Air Rumah & Industri</title>
     <meta name="description" content="Solusi air bersih untuk keluarga Indonesia. Teknologi penyaringan air modern dari Clarion.">
-    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="preload" as="image" href="logo.png.png">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
     <div class="container header-flex">
         <a href="index.html" class="logo">
             <img src="logo.png.png" alt="Clarion Logo">
         </a>
-        
+
         <nav>
             <button class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
@@ -44,114 +52,162 @@
     </div>
 </header>
 
+<!-- MAIN -->
 <main>
 
-<!-- HERO -->
-<section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="container">
-        <h1>Solusi Air Bersih & Sehat untuk Keluarga Indonesia</h1>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <h1>Solusi Air Bersih & Sehat untuk Keluarga Indonesia</h1>
 
-        <!-- TAMBAHAN ADS -->
-        <h2 style="color:white;">Filter Air Sumur & PDAM Terbaik dari Clarion</h2>
-        <p>Atasi air keruh, bau & berkapur dengan sistem filtrasi modern</p>
+            <h2 style="color:white; margin-top:10px;">
+                Filter Air Sumur & PDAM Terbaik dari Clarion
+            </h2>
 
-        <p>✔ 1000+ pelanggan • ✔ 50+ Café • ✔ Garansi Resmi</p>
+            <p style="margin-top:10px;">
+                Atasi air keruh, kuning, bau & berkapur dengan sistem filtrasi modern
+            </p>
 
-        <div style="margin-top:20px;">
-            <a href="filter-air-rumah.html" class="btn-submit">Lihat Solusi Filter Air</a>
+            <p style="margin-top:10px;">
+                ✔ 1000+ pelanggan • ✔ 50+ Café • ✔ Garansi Resmi
+            </p>
+
+            <div style="margin-top:20px;">
+                <a href="filter-air-rumah.html" class="btn-submit">
+                    Lihat Solusi Filter Air
+                </a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- CTA KE LANDING -->
-<section style="padding:40px; text-align:center;">
-    <div class="container">
-        <h2>Punya Masalah Air?</h2>
-        <p>Klik di bawah untuk lihat solusi lengkap</p>
-        <a href="filter-air-rumah.html" class="btn-submit">Cek Solusi Sekarang</a>
-    </div>
-</section>
+    <!-- SECTION TRANSISI -->
+    <section style="padding:30px 0; text-align:center; background:#f8f9fa;">
+        <div class="container">
+            <h2 style="margin-bottom:10px;">Punya Masalah Air?</h2>
+            <p style="margin-bottom:15px;">
+                Air keruh, bau, kuning, atau berkapur? Kami siap bantu
+            </p>
 
-<!-- FORM -->
-<section class="consultation">
-    <div class="container">
-        <div class="section-header">
-            <h2>Konsultasi Masalah Air</h2>
+            <a href="filter-air-rumah.html" class="btn-submit">
+                Cek Solusi Sekarang
+            </a>
         </div>
-        
-        <form id="clarionForm">
-            <div class="form-row">
-                <div class="input-group">
-                    <label>Nama</label>
-                    <input type="text" id="nama" required>
-                </div>
-                <div class="input-group">
-                    <label>WhatsApp</label>
-                    <input type="tel" id="wa" required>
-                </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="consultation">
+        <div class="container">
+
+            <div class="section-header">
+                <h2>Konsultasi Masalah Air</h2>
+                <p>Lengkapi data di bawah agar kami bisa memberikan solusi yang tepat.</p>
             </div>
 
-            <div class="form-row">
-                <div class="input-group">
-                    <label>Kota</label>
-                    <input type="text" id="kota" required>
+            <!-- TRUST -->
+            <p style="text-align:center; margin-bottom:20px;">
+                Dipercaya 1000+ pelanggan di seluruh Indonesia • Digunakan di 50+ Café
+            </p>
+
+            <form id="clarionForm">
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" placeholder="Contoh: Budi Santoso" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="wa">Nomor WhatsApp</label>
+                        <input type="tel" id="wa" name="wa" placeholder="0812xxxx" required>
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label>Sumber Air</label>
-                    <select id="sumber" required>
-                        <option value="">Pilih</option>
-                        <option>Air Sumur</option>
-                        <option>PDAM</option>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="kota">Asal Daerah</label>
+                        <input type="text" id="kota" name="kota" placeholder="Kota/Kabupaten" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="sumber">Sumber Air</label>
+                        <select id="sumber" name="sumber" required>
+                            <option value="">-- Pilih Sumber Air --</option>
+                            <option value="Air Sumur/Tanah">Air Sumur/Tanah</option>
+                            <option value="PDAM">PDAM</option>
+                            <option value="WTP (Air Developer)">WTP (Air Developer)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="budget">Estimasi Budget</label>
+                    <select id="budget" name="budget" required>
+                        <option value="">-- Pilih Estimasi Budget --</option>
+                        <option value="Rp 1.000.000 - Rp 3.000.000">Rp 1.000.000 - Rp 3.000.000</option>
+                        <option value="Rp 3.000.000 - Rp 7.000.000">Rp 3.000.000 - Rp 7.000.000</option>
+                        <option value="Rp 7.000.000 - Rp 15.000.000">Rp 7.000.000 - Rp 15.000.000</option>
+                        <option value="Di atas Rp 15.000.000">Di atas Rp 15.000.000</option>
+                        <option value="Belum Menentukan Budget">Belum Menentukan Budget</option>
                     </select>
                 </div>
-            </div>
 
-            <div class="input-group">
-                <label>Budget</label>
-                <select id="budget" required>
-                    <option value="">Pilih</option>
-                    <option>1-3 juta</option>
-                    <option>3-7 juta</option>
-                    <option>7-15 juta</option>
-                    <option>15 juta+</option>
-                    <option>Belum Menentukan Budget</option>
-                </select>
-            </div>
+                <div class="input-group full-width">
+                    <label for="pesan">Masalah Air</label>
+                    <textarea id="pesan" name="pesan" placeholder="Ceritakan masalah air Anda (Keruh, bau, kuning, berminyak, dll)..." rows="4"></textarea>
+                </div>
 
-            <div class="input-group">
-                <label>Masalah</label>
-                <textarea id="pesan"></textarea>
-            </div>
+                <button type="submit" class="btn-submit">
+                    KONSULTASI GRATIS SEKARANG
+                </button>
 
-            <button type="submit" class="btn-submit">KONSULTASI SEKARANG</button>
-        </form>
-    </div>
-</section>
+            </form>
+        </div>
+    </section>
 
 </main>
 
+<!-- FOOTER -->
 <footer>
     <div class="container">
         <p>© 2026 PT Harjaya Mapan Sentosa</p>
+
+        <div class="footer-socials">
+            <a href="https://shopee.co.id/harjayamapansentosa" target="_blank">
+                <i class="fa-solid fa-bag-shopping"></i> Shopee
+            </a>
+            <a href="https://www.tiktok.com/@clarionid" target="_blank">
+                <i class="fa-brands fa-tiktok"></i> TikTok
+            </a>
+            <a href="https://instagram.com/clarionid" target="_blank">
+                <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+        </div>
     </div>
 </footer>
 
+<!-- WA FLOAT -->
 <a href="https://wa.me/6281378699699" class="wa-float" target="_blank">
-    Chat WhatsApp
+    <i class="fa-brands fa-whatsapp"></i>
+    <span>Chat WhatsApp</span>
 </a>
 
-<script src="form.js"></script>
-
+<!-- MENU SCRIPT -->
 <script>
-const menuToggle = document.getElementById('mobile-menu');
-const navMenu = document.querySelector('.nav-menu');
+    const menuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
 
-menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    menuToggle.classList.toggle('is-active');
-});
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        menuToggle.classList.toggle('is-active');
+    });
+
+    document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        menuToggle.classList.remove('is-active');
+    }));
 </script>
+
+<!-- FORM JS -->
+<script src="form.js"></script>
 
 </body>
 </html>
