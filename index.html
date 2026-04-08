@@ -52,9 +52,10 @@
 <main>
     <section class="hero">
         <div class="hero-overlay"></div>
-        <div class="container">
+        <div class="container hero-content">
             <h1>Solusi Air Bersih & Sehat untuk Keluarga Indonesia</h1>
             <p>Teknologi penyaringan air modern untuk rumah tangga, komersial, dan industri.</p>
+            <a href="filter-air-rumah.html" class="btn-landing">LIHAT PRODUK</a>
         </div>
     </section>
 
@@ -141,7 +142,6 @@
         menuToggle.classList.toggle('is-active');
     });
 
-    // Tutup menu saat klik link (untuk mobile)
     document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
         navMenu.classList.remove('active');
         menuToggle.classList.remove('is-active');
