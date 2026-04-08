@@ -8,10 +8,11 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <link rel="preload" as="image" href="logo.png.png">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,6 +23,12 @@
             <img src="logo.png.png" alt="Clarion Logo" width="150" height="50">
         </a>
         <nav>
+            <button class="menu-toggle" aria-label="Buka Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <ul class="nav-menu">
                 <li><a href="index.html">Beranda</a></li>
                 <li><a href="about.html">Tentang Kami</a></li>
@@ -112,18 +119,43 @@
 <footer>
     <div class="container">
         <p>© 2026 PT Harjaya Mapan Sentosa</p>
-        <div class="footer-links">
-            <a href="https://instagram.com/clarionid" rel="noopener">Instagram</a> | 
-            <a href="https://shopee.co.id/harjayamapansentosa" rel="noopener">Shopee</a> | 
-            <a href="https://www.tiktok.com/@clarionid" rel="noopener">TikTok</a>
+        <div class="footer-socials">
+            <a href="https://shopee.co.id/harjayamapansentosa" target="_blank" rel="noopener" title="Shopee">
+                <i class="fa-solid fa-bag-shopping"></i> Shopee
+            </a>
+            <a href="https://www.tiktok.com/@clarionid" target="_blank" rel="noopener" title="TikTok">
+                <i class="fa-brands fa-tiktok"></i> TikTok
+            </a>
+            <a href="https://instagram.com/clarionid" target="_blank" rel="noopener" title="Instagram">
+                <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
         </div>
     </div>
 </footer>
 
 <a href="https://wa.me/6281378699699" class="wa-float" target="_blank" rel="noopener">
+    <i class="fa-brands fa-whatsapp" style="margin-right: 8px; font-size: 20px;"></i>
     <span>Chat WhatsApp</span>
 </a>
 
+<script>
+    // Logic untuk Hamburger Menu Mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        menuToggle.classList.toggle('open');
+    });
+
+    // Menutup menu jika klik di luar
+    document.addEventListener('click', (e) => {
+        if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('open');
+        }
+    });
+</script>
 <script src="form.js" defer></script>
 
 </body>
