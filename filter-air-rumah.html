@@ -24,10 +24,10 @@
 }
 
 :root {
-    --primary-color: #0b3d91; /* Biru Gelap Profesional */
-    --secondary-color: #007bff; /* Biru Terang Accent */
-    --accent-color: #25D366; /* Hijau WhatsApp */
-    --bg-light: #f4f7fa; /* Abu-abu sangat muda */
+    --primary-color: #0b3d91;
+    --secondary-color: #007bff;
+    --accent-color: #25D366;
+    --bg-light: #f4f7fa;
     --text-dark: #2d3436;
     --text-muted: #636e72;
     --shadow-subtle: 0 10px 30px rgba(0,0,0,0.05);
@@ -35,33 +35,13 @@
     --transition: all 0.3s ease;
 }
 
-html {
-    scroll-behavior: smooth; /* Efek scroll halus */
-}
-
-body { 
-    background: #ffffff; 
-    color: var(--text-dark); 
-    line-height: 1.7; 
-}
-
-.container { 
-    width: 90%; 
-    max-width: 1100px; 
-    margin: 0 auto; 
-    position: relative;
-}
+html { scroll-behavior: smooth; }
+body { background: #ffffff; color: var(--text-dark); line-height: 1.7; }
+.container { width: 90%; max-width: 1100px; margin: 0 auto; position: relative; }
 
 /* ==========================================================================
-   2. TYPOGRAPHY & HEADER
+   2. HEADER & HERO
    ========================================================================== */
-h1, h2, h3 { 
-    font-weight: 800; 
-    letter-spacing: -1px; 
-    margin-bottom: 15px;
-    color: var(--primary-color);
-}
-
 header {
     background: #ffffff;
     padding: 15px 0;
@@ -70,71 +50,40 @@ header {
     top: 0;
     z-index: 1000;
 }
+header .container { display: flex; justify-content: space-between; align-items: center; }
+.logo img { height: 45px; width: auto; }
 
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo img { 
-    height: 40px; /* Sesuaikan tinggi logo */
-    width: auto;
-}
-
-/* ==========================================================================
-   3. HERO SECTION
-   ========================================================================== */
 .hero { 
     position: relative;
-    min-height: 100vh; /* Full screen di desktop */
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center; 
     color: white; 
-    /* GANTI 'banner-bg.webp' DENGAN GAMBAR ANDA */
     background: #091e42 url('banner-bg.webp') no-repeat center center/cover;
     padding: 100px 20px;
 }
-
-/* Overlay agar teks mudah dibaca */
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Hitam transparan */
+    background: rgba(0, 0, 0, 0.6);
     z-index: 1;
 }
-
 .hero .container { z-index: 2; }
-
-.hero h1 { 
-    font-size: 3.5rem; 
-    color: white; 
-    line-height: 1.1;
-    margin-bottom: 25px;
-}
-
-.hero p { 
-    font-size: 1.25rem; 
-    margin-bottom: 20px; 
-    opacity: 0.9;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
+.hero h1 { font-size: 3rem; color: white; line-height: 1.1; margin-bottom: 25px; }
+.hero p { font-size: 1.2rem; margin-bottom: 20px; opacity: 0.9; max-width: 800px; margin: 0 auto 30px; }
 
 .highlight-group {
-    margin: 30px 0;
+    margin: 20px 0;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     flex-wrap: wrap;
 }
-
 .highlight-item {
     background: rgba(255, 255, 255, 0.15);
-    padding: 8px 18px;
+    padding: 10px 20px;
     border-radius: 50px;
     font-size: 14px;
     font-weight: 600;
@@ -142,265 +91,124 @@ header .container {
     align-items: center;
     gap: 8px;
 }
-
 .highlight-item i { color: var(--accent-color); }
 
 /* ==========================================================================
-   4. BUTTONS
+   3. BUTTONS
    ========================================================================== */
-.btn-group {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 30px;
-    flex-wrap: wrap;
-}
-
+.btn-group { display: flex; gap: 15px; justify-content: center; margin-top: 30px; flex-wrap: wrap; }
 .btn { 
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 16px 30px; 
-    border-radius: 50px; 
-    text-decoration: none; 
-    font-weight: 700; 
-    font-size: 16px;
-    transition: var(--transition);
+    display: flex; align-items: center; gap: 10px; padding: 16px 32px; 
+    border-radius: 50px; text-decoration: none; font-weight: 700; transition: var(--transition);
 }
-
-.btn-primary { 
-    background: var(--accent-color); 
-    color: white; 
-    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
-}
-
-.btn-primary:hover { 
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
-}
-
-.btn-secondary { 
-    background: #ffffff; 
-    color: var(--primary-color); 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.btn-secondary:hover { 
-    background: #f1f5f9;
-    transform: translateY(-3px);
-}
+.btn-primary { background: var(--accent-color); color: white; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2); }
+.btn-secondary { background: #ffffff; color: var(--primary-color); }
+.btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
 
 /* ==========================================================================
-   5. SECTIONS & CARDS
+   4. SECTIONS & VIDEO
    ========================================================================== */
-section { 
-    padding: 100px 0; 
-}
-
+section { padding: 80px 0; }
 .bg-light { background: var(--bg-light); }
+.section-header { text-align: center; max-width: 700px; margin: 0 auto 50px; }
+.section-header h2 { font-size: 2.5rem; margin-bottom: 10px; }
 
-.section-header {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 60px auto;
-}
-
-.section-header h2 { font-size: 2.5rem; }
-.section-header p { color: var(--text-muted); font-size: 1.1rem; }
-
-/* Flex Grid */
-.flex-grid {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-}
-
+.flex-grid { display: flex; gap: 50px; align-items: center; }
 .col-image, .col-text { flex: 1; }
 
-.col-image img {
+/* Video Styling */
+.video-container {
     width: 100%;
     border-radius: 20px;
+    overflow: hidden;
     box-shadow: var(--shadow-hover);
+    line-height: 0;
 }
+.video-container video { width: 100%; height: auto; }
 
-/* List with Icons */
 .feature-list { list-style: none; }
 .feature-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    margin-bottom: 20px;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: var(--shadow-subtle);
-    transition: var(--transition);
+    display: flex; gap: 15px; margin-bottom: 20px;
+    background: #fff; padding: 20px; border-radius: 15px;
+    box-shadow: var(--shadow-subtle); transition: var(--transition);
 }
-
-.feature-list li:hover { transform: translateX(5px); box-shadow: var(--shadow-hover); }
-
-.feature-list i {
-    font-size: 24px;
-    margin-top: 3px;
-}
-
-.icon-bad { color: #e74c3c; /* Merah untuk masalah */ }
-.icon-good { color: var(--secondary-color); /* Biru untuk solusi */ }
-
-.feature-list h4 { font-weight: 700; color: var(--primary-color); margin-bottom: 2px;}
-.feature-list p { color: var(--text-muted); font-size: 14px; line-height: 1.5; }
+.feature-list li:hover { transform: translateX(10px); }
+.feature-list i { font-size: 24px; margin-top: 5px; }
+.icon-bad { color: #e74c3c; }
+.icon-good { color: var(--secondary-color); }
 
 /* ==========================================================================
-   6. TESTIMONI (Modern Cards)
+   5. TESTIMONI (RAFI)
    ========================================================================== */
 .testimoni-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
-    margin-top: 50px;
+    margin-top: 40px;
 }
-
 .testi-card {
-    background: #ffffff;
-    padding: 30px;
+    background: #fff;
+    padding: 35px;
     border-radius: 20px;
     box-shadow: var(--shadow-subtle);
-    position: relative;
-    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-
-.testi-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
-
-.testi-card i.quote {
-    font-size: 40px;
-    color: rgba(0, 123, 255, 0.1);
-    position: absolute;
-    top: 20px;
-    right: 20px;
+.testi-content { margin-bottom: 25px; position: relative; }
+.testi-content i.quote {
+    font-size: 30px; color: rgba(0,123,255,0.1);
+    position: absolute; top: -10px; left: -10px;
 }
-
-.testi-card p { color: var(--text-dark); font-style: italic; margin-bottom: 20px; position: relative; z-index: 1; }
+.testi-content p { font-style: italic; color: var(--text-dark); position: relative; z-index: 1; }
 
 .client-info {
     display: flex;
     align-items: center;
     gap: 15px;
-    border-top: 1px solid #eee;
-    padding-top: 15px;
+    padding-top: 20px;
+    border-top: 1px solid #f1f1f1;
 }
-
-.client-info img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.client-info h5 { font-weight: 700; color: var(--primary-color); }
-.client-info span { font-size: 12px; color: var(--text-muted); }
-
-/* ==========================================================================
-   7. FORMULIR KONSULTASI (Premium Look)
-   ========================================================================== */
-#form {
-    background: var(--bg-light);
-    border-radius: 30px;
-    padding: 80px 50px;
-}
-
-#clarionForm { 
-    max-width: 700px; 
-    margin: 0 auto; 
-}
-
-.form-group { margin-bottom: 15px; }
-
-input, select, textarea { 
-    width: 100%; 
-    padding: 16px; 
-    border-radius: 12px; 
-    border: 2px solid #e1e8ef; 
-    font-size: 15px;
-    background: #ffffff;
-    transition: var(--transition);
-}
-
-input:focus, select:focus, textarea:focus { 
-    outline: none; 
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
-}
-
-textarea { height: 120px; resize: none; }
-
-button { 
-    background: linear-gradient(135deg, #25D366, #1ebe57);
-    color: white; 
-    padding: 18px; 
-    border: none; 
-    width: 100%; 
-    border-radius: 12px; 
-    font-weight: 700; 
-    font-size: 16px;
-    cursor: pointer; 
-    margin-top: 15px;
-    transition: var(--transition);
-    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
-}
-
-button:hover { 
-    filter: brightness(1.1);
-    transform: translateY(-2px);
-}
-
-/* ==========================================================================
-   8. FOOTER & FLOATING WA
-   ========================================================================== */
-footer {
+.client-avatar {
+    width: 50px; height: 50px; border-radius: 50%;
     background: var(--primary-color);
-    color: white;
-    padding: 30px 0;
-    text-align: center;
-    font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-weight: bold; font-size: 20px;
 }
+.client-detail h5 { color: var(--primary-color); font-weight: 700; margin: 0; }
+.client-detail span { font-size: 13px; color: var(--text-muted); }
+
+/* ==========================================================================
+   6. FORM & FOOTER
+   ========================================================================== */
+#form { background: #fff; border-radius: 30px; padding: 50px; box-shadow: var(--shadow-hover); }
+.form-group { margin-bottom: 15px; }
+input, select, textarea { 
+    width: 100%; padding: 15px; border-radius: 12px; 
+    border: 1px solid #ddd; font-size: 15px; 
+}
+button { 
+    background: var(--accent-color); color: white; padding: 18px; 
+    border: none; width: 100%; border-radius: 12px; font-weight: 700; 
+    cursor: pointer; transition: var(--transition);
+}
+button:hover { background: #1ebe57; }
+
+footer { background: var(--primary-color); color: white; padding: 40px 0; text-align: center; }
 
 .wa-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: var(--accent-color);
-    color: white;
-    border-radius: 50px;
-    padding: 15px 25px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 700;
-    text-decoration: none;
-    z-index: 1000;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    transition: var(--transition);
+    position: fixed; bottom: 30px; right: 30px;
+    background: var(--accent-color); color: white;
+    padding: 15px 25px; border-radius: 50px;
+    text-decoration: none; font-weight: 700; z-index: 1000;
+    display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-.wa-float:hover { transform: translateY(-5px) scale(1.05); }
-.wa-float i { font-size: 24px; }
-
-/* ==========================================================================
-   9. RESPONSIVE MOBILE
-   ========================================================================== */
-@media (max-width: 992px) {
-    .hero h1 { font-size: 2.8rem; }
-    .flex-grid { flex-direction: column; gap: 30px; }
-    #form { padding: 50px 20px; }
-}
-
+/* RESPONSIVE */
 @media (max-width: 768px) {
-    section { padding: 60px 0; }
+    .flex-grid { flex-direction: column; }
     .hero h1 { font-size: 2.2rem; }
-    .hero p { font-size: 1rem; }
-    .btn-group { flex-direction: column; gap: 10px; }
-    .btn { width: 100%; justify-content: center; }
-    .section-header h2 { font-size: 2rem; }
+    #form { padding: 30px 20px; }
 }
 </style>
 </head>
@@ -429,12 +237,12 @@ footer {
 
         <div class="highlight-group">
             <div class="highlight-item"><i class="fas fa-users"></i> Ribuan+ Pelanggan</div>
-            <div class="highlight-item"><i class="fas fa-coffee"></i> Ratusan+ Café/Bisnis/Industri</div>
+            <div class="highlight-item"><i class="fas fa-coffee"></i> Ratusan+ Bisnis & Industri</div>
             <div class="highlight-item"><i class="fas fa-award"></i> Garansi Resmi</div>
         </div>
 
         <div class="btn-group">
-            <a href="#form" class="btn btn-secondary"><i class="fas fa-wpforms"></i> Isi Form Konsultasi</a>
+            <a href="#form-section" class="btn btn-secondary"><i class="fas fa-wpforms"></i> Isi Form Konsultasi</a>
             <a href="https://wa.me/6281378699699" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
         </div>
     </div>
@@ -443,38 +251,29 @@ footer {
 <section class="bg-light">
     <div class="container flex-grid">
         <div class="col-image">
-            <img src="water-problem.webp" alt="Masalah Air Keruh">
+            <div class="video-container">
+                <video autoplay muted loop playsinline>
+                    <source src="video-masalah-air.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung tag video.
+                </video>
+            </div>
         </div>
         <div class="col-text">
             <h2>Masalah Air yang Sering Terjadi</h2>
-            <p style="color:var(--text-muted); margin-bottom:20px;">Jangan remehkan kualitas air di rumah Anda. Air yang bermasalah dapat mengganggu kesehatan dan merusak peralatan rumah tangga.</p>
+            <p style="color:var(--text-muted); margin-bottom:20px;">Jangan remehkan kualitas air Anda. Air bermasalah merusak peralatan dan mengganggu kesehatan.</p>
             <ul class="feature-list">
                 <li>
                     <i class="fas fa-tint-slash icon-bad"></i>
                     <div>
                         <h4>Air Keruh & Kuning</h4>
-                        <p>Mengandung zat besi tinggi, mengotori bak mandi dan pakaian.</p>
+                        <p>Mengandung zat besi tinggi, mengotori bak dan pakaian.</p>
                     </div>
                 </li>
                 <li>
                     <i class="fas fa-smog icon-bad"></i>
                     <div>
                         <h4>Bau Tidak Sedap</h4>
-                        <p>Aroma besi, kaporit, atau bau got yang mengganggu kenyamanan.</p>
-                    </div>
-                </li>
-                <li>
-                    <i class="fas fa-hand-holding-water icon-bad"></i>
-                    <div>
-                        <h4>Licin / Berminyak</h4>
-                        <p>Terasa tidak bersih saat bilas, meninggalkan lapisan di permukaan air.</p>
-                    </div>
-                </li>
-                <li>
-                    <i class="fas fa-soap icon-bad"></i>
-                    <div>
-                        <h4>Kerak Putih (Kapur)</h4>
-                        <p>Meninggalkan noda putih membandel di kran, shower, dan ubin.</p>
+                        <p>Aroma besi atau bau got yang mengganggu kenyamanan.</p>
                     </div>
                 </li>
             </ul>
@@ -483,49 +282,28 @@ footer {
 </section>
 
 <section>
-    <div class="container flex-grid">
+    <div class="container flex-grid" style="flex-direction: row-reverse;">
+        <div class="col-image">
+            <img src="unit-filter.webp" alt="Unit Filter Clarion" style="width:100%; border-radius:20px; box-shadow:var(--shadow-hover);">
+        </div>
         <div class="col-text">
-            <h2>Kenapa Pilih Filter Air Clarion?</h2>
+            <h2>Kenapa Pilih Clarion?</h2>
             <ul class="feature-list">
                 <li>
                     <i class="fas fa-microchip icon-good"></i>
                     <div>
-                        <h4>Teknologi Filtrasi Modern</h4>
-                        <p>Menggunakan media filter berkualitas untuk hasil maksimal.</p>
-                    </div>
-                </li>
-                <li>
-                    <i class="fas fa-home icon-good"></i>
-                    <div>
-                        <h4>Cocok untuk Sumur & PDAM</h4>
-                        <p>Didesain fleksibel untuk berbagai sumber air di Indonesia.</p>
-                    </div>
-                </li>
-                <li>
-                    <i class="fas fa-piggy-bank icon-good"></i>
-                    <div>
-                        <h4>Hemat Jangka Panjang</h4>
-                        <p>Mengurangi pembelian air galon dan perawatan alat rumah tangga.</p>
+                        <h4>Teknologi Modern</h4>
+                        <p>Media filter berkualitas tinggi untuk hasil maksimal.</p>
                     </div>
                 </li>
                 <li>
                     <i class="fas fa-tools icon-good"></i>
                     <div>
                         <h4>Instalasi Profesional</h4>
-                        <p>Dipasang oleh tim teknisi berpengalaman, rapi, dan cepat.</p>
-                    </div>
-                </li>
-                <li>
-                    <i class="fas fa-shield-alt icon-good"></i>
-                    <div>
-                        <h4>Garansi & Maintenance</h4>
-                        <p>Layanan purna jual terjamin untuk ketenangan pikiran Anda.</p>
+                        <p>Dipasang oleh teknisi berpengalaman, rapi, dan cepat.</p>
                     </div>
                 </li>
             </ul>
-        </div>
-        <div class="col-image">
-            <img src="unit-filter.webp" alt="Unit Filter Air Clarion Terpasang">
         </div>
     </div>
 </section>
@@ -534,22 +312,32 @@ footer {
     <div class="container">
         <div class="section-header">
             <h2>Apa Kata Mereka?</h2>
-            <p>Ribuan pelanggan puas telah mempercayakan kualitas air mereka pada Clarion.</p>
+            <p>Bukti nyata kualitas layanan dan produk Clarion Indonesia.</p>
         </div>
         
         <div class="testimoni-grid">
             <div class="testi-card">
-                <i class="fas fa-quote-right quote"></i>
-                <p>"Air di rumah awalnya kuning banget dan bau besi. Setelah pasang Clarion, langsung jernih total dan gak bau lagi. Istri senang banget!"</p>
-
+                <div class="testi-content">
+                    <i class="fas fa-quote-left quote"></i>
+                    <p>"Air di rumah awalnya kuning banget dan bau besi. Setelah pasang Clarion, langsung jernih total dan gak bau lagi. Istri senang banget!"</p>
+                </div>
+                <div class="client-info">
+                    <div class="client-avatar">A</div>
+                    <div class="client-detail">
                         <h5>Bpk. Andi</h5>
                         <span>Jakarta Selatan (Air Sumur)</span>
                     </div>
                 </div>
             </div>
+
             <div class="testi-card">
-                <i class="fas fa-quote-right quote"></i>
-                <p>"Mesin kopi di café kami sering mampet karena kerak kapur PDAM. Sejak pakai filter Clarion, air jadi aman dan rasa kopi lebih stabil."</p>
+                <div class="testi-content">
+                    <i class="fas fa-quote-left quote"></i>
+                    <p>"Mesin kopi di café kami sering mampet karena kerak kapur PDAM. Sejak pakai filter Clarion, air jadi aman dan rasa kopi lebih stabil."</p>
+                </div>
+                <div class="client-info">
+                    <div class="client-avatar">C</div>
+                    <div class="client-detail">
                         <h5>Ibu Citra</h5>
                         <span>Owner Café - Tangerang</span>
                     </div>
@@ -563,44 +351,29 @@ footer {
     <div class="container">
         <div id="form">
             <div class="section-header">
-                <h2>Konsultasi Gratis</h2>
-                <p>Lengkapi data di bawah ini. Tim kami akan segera menghubungi Anda untuk memberikan solusi air terbaik.</p>
+                <h2>Konsultasi Gratis Sekarang</h2>
+                <p>Tim kami akan segera menghubungi Anda untuk memberikan solusi air terbaik.</p>
             </div>
-
             <form id="clarionForm">
                 <div class="form-group">
-                    <input type="text" id="nama" placeholder="Nama Lengkap Anda" required>
+                    <input type="text" id="nama" placeholder="Nama Lengkap" required>
                 </div>
-                <div class="form-group" style="display: flex; gap: 10px;">
-                    <input type="tel" id="wa" placeholder="Nomor WhatsApp (Aktif)" required>
-                    <input type="text" id="kota" placeholder="Kota / Wilayah Tinggal" required>
+                <div class="form-group" style="display:flex; gap:10px;">
+                    <input type="tel" id="wa" placeholder="WhatsApp" required>
+                    <input type="text" id="kota" placeholder="Kota" required>
                 </div>
-
                 <div class="form-group">
                     <select id="sumber" required>
                         <option value="">-- Pilih Sumber Air --</option>
-                        <option>Air Sumur / Tanah</option>
+                        <option>Air Sumur</option>
                         <option>PDAM</option>
-                        <option>WTP (Air Developer)</option>
+                        <option>WTP</option>
                     </select>
                 </div>
-
                 <div class="form-group">
-                    <select id="budget" required>
-                        <option value="">-- Estimasi Budget --</option>
-                        <option>Rp 1 - 3 Juta</option>
-                        <option>Rp 3 - 7 Juta</option>
-                        <option>Rp 7 - 15 Juta</option>
-                        <option>Di atas 15 Juta</option>
-                        <option>Belum Menentukan Budget</option>
-                    </select>
+                    <textarea id="pesan" placeholder="Ceritakan masalah air Anda..."></textarea>
                 </div>
-
-                <div class="form-group">
-                    <textarea id="pesan" placeholder="Ceritakan masalah air Anda (contoh: kuning, bau got, kerak putih)..."></textarea>
-                </div>
-
-                <button type="submit">KONSULTASI GRATIS SEKARANG <i class="fas fa-arrow-right"></i></button>
+                <button type="submit">KIRIM PERMINTAAN KONSULTASI <i class="fas fa-paper-plane"></i></button>
             </form>
         </div>
     </div>
@@ -608,12 +381,11 @@ footer {
 
 <footer>
     <div class="container">
-        <p>&copy; 2023 Clarion Indonesia. All rights reserved.</p>
-        <p style="font-size: 12px; opacity: 0.7; margin-top: 5px;">Ahli Kualitas Air Anda</p>
+        <p>&copy; 2026 Clarion Indonesia. All rights reserved.</p>
     </div>
 </footer>
 
-<a href="https://wa.me/6281378699699?text=Halo Clarion, saya tertarik konsultasi filter air." class="wa-float" target="_blank">
+<a href="https://wa.me/6281378699699" class="wa-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
     <span>Tanya via WA</span>
 </a>
@@ -621,54 +393,16 @@ footer {
 <script>
 document.getElementById('clarionForm').addEventListener('submit', function(e) {
     e.preventDefault();
-
-    // URL Apps Script Anda (GANTI JIKA PERLU)
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxSrWtR7ViBrmAgjzayuTkcCXkGBnCyA_ByhtUwK1WRVl0sZp-YNb-zNuB8-eIkxKORoQ/exec';
-
+    
     const nama = document.getElementById('nama').value;
     const wa = document.getElementById('wa').value;
-    const kota = document.getElementById('kota').value;
-    const sumber = document.getElementById('sumber').value;
-    const budget = document.getElementById('budget').value;
-    const pesan = document.getElementById('pesan').value || "-";
+    const teksWA = `Halo Clarion, saya *${nama}* (${wa}) ingin konsultasi filter air.`;
+    const urlWA = `https://wa.me/6281378699699?text=${encodeURIComponent(teksWA)}`;
 
-    const params = new URLSearchParams();
-    params.append('nama', nama);
-    params.append('wa', wa);
-    params.append('kota', kota);
-    params.append('sumber', sumber);
-    params.append('budget', budget);
-    params.append('pesan', pesan);
-    params.append('tanggal', new Date().toLocaleString());
-    params.append('source', 'Landing Page Clarion Modern');
-
-    // Teks WA dibuat lebih rapi
-    const teksWA = `Halo Clarion Indonesia,%0A%0ASaya ingin konsultasi gratis mengenai filter air.%0A%0A
-*Data Diri:*%0A
-- Nama: ${nama}%0A
-- WhatsApp: ${wa}%0A
-- Kota: ${kota}%0A
-- Sumber Air: ${sumber}%0A
-- Estimasi Budget: ${budget}%0A%0A
-*Masalah Air:*%0A
-${pesan}`;
-
-    const urlWA = `https://wa.me/6281378699699?text=${teksWA}`;
-
-    // Kirim ke Google Sheets (mode no-cors agar tidak error cross-origin)
-    fetch(scriptURL, {
-        method: 'POST',
-        body: params,
-        mode: 'no-cors'
-    })
-    .then(() => {
-        // Langsung redirect ke WA setelah kirim data
-        window.location.href = urlWA;
-    })
-    .catch(() => {
-        // Jika gagal kirim data, tetap redirect ke WA agar tidak kehilangan lead
-        window.location.href = urlWA;
-    });
+    fetch(scriptURL, { method: 'POST', body: new FormData(this), mode: 'no-cors'})
+    .then(() => window.location.href = urlWA)
+    .catch(() => window.location.href = urlWA);
 });
 </script>
 
