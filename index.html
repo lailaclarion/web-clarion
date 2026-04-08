@@ -5,26 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clarion Indonesia | Solusi Filter Air Rumah & Industri</title>
     <meta name="description" content="Solusi air bersih untuk keluarga Indonesia. Teknologi penyaringan air modern dari Clarion.">
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <link rel="preload" as="image" href="logo.png.png">
+    
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- HEADER -->
 <header>
     <div class="container header-flex">
         <a href="index.html" class="logo">
             <img src="logo.png.png" alt="Clarion Logo">
         </a>
-
+        
         <nav>
             <button class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
@@ -52,65 +49,23 @@
     </div>
 </header>
 
-<!-- MAIN -->
 <main>
-
-    <!-- HERO -->
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="container">
             <h1>Solusi Air Bersih & Sehat untuk Keluarga Indonesia</h1>
-
-            <h2 style="color:white; margin-top:10px;">
-                Filter Air Sumur & PDAM Terbaik dari Clarion
-            </h2>
-
-            <p style="margin-top:10px;">
-                Atasi air keruh, kuning, bau & berkapur dengan sistem filtrasi modern
-            </p>
-
-            <p style="margin-top:10px;">
-                ✔ 1000+ pelanggan • ✔ 50+ Café • ✔ Garansi Resmi
-            </p>
-
-            <div style="margin-top:20px;">
-                <a href="filter-air-rumah.html" class="btn-submit">
-                    Lihat Solusi Filter Air
-                </a>
-            </div>
+            <p>Teknologi penyaringan air modern untuk rumah tangga, komersial, dan industri.</p>
         </div>
     </section>
 
-    <!-- SECTION TRANSISI -->
-    <section style="padding:30px 0; text-align:center; background:#f8f9fa;">
-        <div class="container">
-            <h2 style="margin-bottom:10px;">Punya Masalah Air?</h2>
-            <p style="margin-bottom:15px;">
-                Air keruh, bau, kuning, atau berkapur? Kami siap bantu
-            </p>
-
-            <a href="filter-air-rumah.html" class="btn-submit">
-                Cek Solusi Sekarang
-            </a>
-        </div>
-    </section>
-
-    <!-- FORM -->
     <section class="consultation">
         <div class="container">
-
             <div class="section-header">
                 <h2>Konsultasi Masalah Air</h2>
                 <p>Lengkapi data di bawah agar kami bisa memberikan solusi yang tepat.</p>
             </div>
-
-            <!-- TRUST -->
-            <p style="text-align:center; margin-bottom:20px;">
-                Dipercaya 1000+ pelanggan di seluruh Indonesia • Digunakan di 50+ Café
-            </p>
-
+            
             <form id="clarionForm">
-
                 <div class="form-row">
                     <div class="input-group">
                         <label for="nama">Nama Lengkap</label>
@@ -152,45 +107,31 @@
 
                 <div class="input-group full-width">
                     <label for="pesan">Masalah Air</label>
-                    <textarea id="pesan" name="pesan" placeholder="Ceritakan masalah air Anda (Keruh, bau, kuning, berminyak, dll)..." rows="4"></textarea>
+                    <textarea id="pesan" name="pesan" placeholder="Ceritakan masalah air Anda..." rows="4"></textarea>
                 </div>
-
-                <button type="submit" class="btn-submit">
-                    KONSULTASI GRATIS SEKARANG
-                </button>
-
+                
+                <button type="submit" class="btn-submit">KONSULTASI VIA WHATSAPP</button>
             </form>
         </div>
     </section>
-
 </main>
 
-<!-- FOOTER -->
 <footer>
     <div class="container">
         <p>© 2026 PT Harjaya Mapan Sentosa</p>
-
         <div class="footer-socials">
-            <a href="https://shopee.co.id/harjayamapansentosa" target="_blank">
-                <i class="fa-solid fa-bag-shopping"></i> Shopee
-            </a>
-            <a href="https://www.tiktok.com/@clarionid" target="_blank">
-                <i class="fa-brands fa-tiktok"></i> TikTok
-            </a>
-            <a href="https://instagram.com/clarionid" target="_blank">
-                <i class="fa-brands fa-instagram"></i> Instagram
-            </a>
+            <a href="https://shopee.co.id/harjayamapansentosa" target="_blank"><i class="fa-solid fa-bag-shopping"></i> Shopee</a>
+            <a href="https://www.tiktok.com/@clarionid" target="_blank"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+            <a href="https://instagram.com/clarionid" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
         </div>
     </div>
 </footer>
 
-<!-- WA FLOAT -->
 <a href="https://wa.me/6281378699699" class="wa-float" target="_blank">
     <i class="fa-brands fa-whatsapp"></i>
     <span>Chat WhatsApp</span>
 </a>
 
-<!-- MENU SCRIPT -->
 <script>
     const menuToggle = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
@@ -200,14 +141,12 @@
         menuToggle.classList.toggle('is-active');
     });
 
+    // Tutup menu saat klik link (untuk mobile)
     document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
         navMenu.classList.remove('active');
         menuToggle.classList.remove('is-active');
     }));
 </script>
-
-<!-- FORM JS -->
-<script src="form.js"></script>
 
 </body>
 </html>
