@@ -6,27 +6,25 @@
     <title>Clarion Indonesia | Solusi Filter Air Rumah & Industri</title>
     <meta name="description" content="Solusi air bersih untuk keluarga Indonesia. Teknologi penyaringan air modern dari Clarion.">
     
+    <link rel="preload" href="banner-bg.webp" as="image" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-    <link rel="preload" href="banner-bg.webp" as="image" imagesrcset="banner-bg.webp">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
-    
     <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
 </head>
 <body>
 
 <header>
     <div class="container header-flex">
-<a href="index.html" class="logo">
-    <img src="logo.png.png" alt="Clarion Indonesia Logo" width="180" height="50" style="object-fit: contain;">
-</a>
+        <a href="index.html" class="logo">
+            <img src="logo.png.png" alt="Clarion Indonesia Logo" width="180" height="50">
+        </a>
+        
         <nav>
-            <button class="menu-toggle" id="mobile-menu" aria-label="Buka Menu Navigasi">
+            <button class="menu-toggle" id="mobile-menu" aria-label="Buka Menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -98,7 +96,7 @@
                     </div>
                 </div>
 
-                <div class="input-group full-width">
+                <div class="input-group full-width" style="margin-bottom: 20px;">
                     <label for="budget">Estimasi Budget</label>
                     <select id="budget" name="budget" required>
                         <option value="">-- Pilih Estimasi Budget --</option>
@@ -110,7 +108,7 @@
                     </select>
                 </div>
 
-                <div class="input-group full-width">
+                <div class="input-group full-width" style="margin-bottom: 25px;">
                     <label for="pesan">Masalah Air</label>
                     <textarea id="pesan" name="pesan" placeholder="Ceritakan masalah air Anda..." rows="4"></textarea>
                 </div>
@@ -125,34 +123,27 @@
     <div class="container">
         <p>© 2026 PT Harjaya Mapan Sentosa</p>
         <div class="footer-socials">
-            <a href="https://shopee.co.id/harjayamapansentosa" target="_blank" rel="noopener"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> Shopee</a>
-            <a href="https://www.tiktok.com/@clarionid" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok" aria-hidden="true"></i> TikTok</a>
-            <a href="https://instagram.com/clarionid" target="_blank" rel="noopener"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a>
+            <a href="https://shopee.co.id/harjayamapansentosa" target="_blank" rel="noopener"><i class="fa-solid fa-bag-shopping"></i> Shopee</a>
+            <a href="https://www.tiktok.com/@clarionid" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+            <a href="https://instagram.com/clarionid" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
         </div>
     </div>
 </footer>
 
-<a href="https://wa.me/6281378699699" class="wa-float" target="_blank" rel="noopener" aria-label="Chat WhatsApp kami sekarang">
-    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+<a href="https://wa.me/6281378699699" class="wa-float" target="_blank" rel="noopener" aria-label="Chat WhatsApp Sekarang">
+    <i class="fa-brands fa-whatsapp"></i>
     <span>Chat WhatsApp</span>
 </a>
 
 <script>
     const menuToggle = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
-
     menuToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
-        menuToggle.classList.toggle('is-active');
     });
-
-    document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        menuToggle.classList.remove('is-active');
-    }));
 </script>
 
-<script src="form.js"></script>
+<script src="form.js" async></script>
 
 </body>
 </html>
