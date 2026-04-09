@@ -13,8 +13,7 @@ header {
     z-index: 1000;
 }
 .header-flex { display: flex; justify-content: space-between; align-items: center; }
-/* Mencegah pergeseran logo */
-.logo img { height: 50px; width: auto; display: block; aspect-ratio: auto 180 / 50; }
+.logo img { height: 50px; width: auto; display: block; aspect-ratio: 180 / 50; }
 
 .nav-menu { display: flex; list-style: none; gap: 25px; align-items: center; }
 .nav-menu a { text-decoration: none; color: #333; font-weight: 600; font-size: 15px; transition: 0.3s; }
@@ -35,24 +34,32 @@ header {
 .menu-toggle { display: none; cursor: pointer; background: none; border: none; }
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background: #0056b3; transition: 0.3s; }
 
-/* --- HERO & LANDING BUTTON (Optimasi LCP) --- */
+/* --- HERO (Optimasi LCP Mobile) --- */
 .hero { 
-    position: relative; min-height: 500px; display: flex; align-items: center; 
-    justify-content: center; text-align: center; color: white; 
-    background: #222; /* Fallback color */
+    position: relative; 
+    min-height: 500px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    color: white; 
+    background: #1a1a1a; /* Background solid saat gambar loading */
     overflow: hidden;
 }
-/* Menggunakan elemen img sebagai background agar bisa menggunakan fetchpriority */
 .hero-bg-img {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    object-fit: cover; z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
 }
 .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2; }
 .hero-content { position: relative; z-index: 3; }
-.hero h1 { font-size: 2.8rem; margin-bottom: 15px; font-weight: 700; line-height: 1.2; }
+.hero h1 { font-size: 2.8rem; margin-bottom: 15px; font-weight: 700; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
 .hero p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
 
-/* Perbaikan Kontras Tombol Landing Page */
 .btn-landing {
     display: inline-block;
     padding: 15px 35px;
@@ -82,16 +89,19 @@ header {
 .input-group { flex: 1; display: flex; flex-direction: column; }
 .input-group label { font-weight: 600; margin-bottom: 8px; font-size: 14px; color: #222; }
 .input-group input, .input-group select, .input-group textarea { 
-    padding: 12px; border: 1.5px solid #bdc3c7; border-radius: 10px; font-size: 15px; 
+    padding: 12px; border: 1.5px solid #bdc3c7; border-radius: 10px; font-size: 15px; transition: 0.3s;
+}
+.input-group input:focus, .input-group select:focus, .input-group textarea:focus {
+    border-color: #005ecb; outline: none; box-shadow: 0 0 0 3px rgba(0, 94, 203, 0.1);
 }
 
-/* Perbaikan Kontras Tombol Submit (WhatsApp Green) */
 .btn-submit { 
     width: 100%; padding: 18px; background: #1a9447; 
     color: #fff; border: none; 
     border-radius: 10px; font-weight: 700; cursor: pointer; font-size: 16px; transition: 0.3s;
 }
 .btn-submit:hover { background: #147a3a; transform: translateY(-2px); }
+.btn-submit:disabled { background: #ccc; cursor: not-allowed; transform: none; }
 
 /* --- FOOTER --- */
 footer { background: #1a1a1a; color: #fff; padding: 50px 0; text-align: center; }
@@ -121,4 +131,7 @@ footer { background: #1a1a1a; color: #fff; padding: 50px 0; text-align: center; 
     .dropdown-menu { position: static; box-shadow: none; border: none; background: #fdfdfd; width: 100%; }
     .form-row { flex-direction: column; gap: 15px; }
     .hero h1 { font-size: 2rem; }
+    .hero { min-height: 400px; }
+    .consultation { padding: 50px 0; }
+    #clarionForm { padding: 25px; }
 }
