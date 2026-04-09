@@ -8,9 +8,12 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
     
     <link rel="stylesheet" href="style.css">
 </head>
@@ -19,11 +22,11 @@
 <header>
     <div class="container header-flex">
         <a href="index.html" class="logo">
-            <img src="logo.png.png" alt="Clarion Logo">
+            <img src="logo.png.png" alt="Clarion Logo" width="180" height="50">
         </a>
         
         <nav>
-            <button class="menu-toggle" id="mobile-menu">
+            <button class="menu-toggle" id="mobile-menu" aria-label="Buka Menu Navigasi">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -51,6 +54,7 @@
 
 <main>
     <section class="hero">
+        <img src="banner-bg.webp" alt="Background" class="hero-bg-img" fetchpriority="high">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
             <h1>Solusi Air Bersih & Sehat untuk Keluarga Indonesia</h1>
