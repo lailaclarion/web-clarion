@@ -11,8 +11,9 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="banner-bg.webp" as="image">
     
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
     
     <link rel="stylesheet" href="style.css">
@@ -115,7 +116,7 @@
                     <textarea id="pesan" name="pesan" placeholder="Ceritakan masalah air Anda..." rows="4"></textarea>
                 </div>
                 
-                <button type="submit" class="btn-submit">KONSULTASI VIA WHATSAPP</button>
+                <button type="submit" class="btn-submit" id="submitBtn">KONSULTASI VIA WHATSAPP</button>
             </form>
         </div>
     </section>
@@ -151,6 +152,8 @@
         menuToggle.classList.remove('is-active');
     }));
 </script>
+
+<script src="form.js"></script>
 
 </body>
 </html>
