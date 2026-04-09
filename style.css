@@ -13,18 +13,19 @@ header {
     z-index: 1000;
 }
 .header-flex { display: flex; justify-content: space-between; align-items: center; }
-.logo img { height: 50px; width: auto; display: block; }
+/* Mencegah pergeseran logo */
+.logo img { height: 50px; width: auto; display: block; aspect-ratio: auto 180 / 50; }
 
 .nav-menu { display: flex; list-style: none; gap: 25px; align-items: center; }
 .nav-menu a { text-decoration: none; color: #333; font-weight: 600; font-size: 15px; transition: 0.3s; }
-.nav-menu a:hover { color: #007bff; }
+.nav-menu a:hover { color: #0056b3; }
 
 /* --- DROPDOWN --- */
 .dropdown { position: relative; }
 .dropdown-menu { 
     display: none; position: absolute; top: 100%; left: 0; 
     background: #fff; min-width: 180px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
-    border-top: 3px solid #007bff; list-style: none; padding: 10px 0;
+    border-top: 3px solid #0056b3; list-style: none; padding: 10px 0;
 }
 .dropdown:hover .dropdown-menu { display: block; }
 .dropdown-menu a { padding: 10px 20px; display: block; font-size: 14px; }
@@ -32,36 +33,42 @@ header {
 
 /* --- HAMBURGER --- */
 .menu-toggle { display: none; cursor: pointer; background: none; border: none; }
-.bar { display: block; width: 25px; height: 3px; margin: 5px auto; background: #007bff; transition: 0.3s; }
+.bar { display: block; width: 25px; height: 3px; margin: 5px auto; background: #0056b3; transition: 0.3s; }
 
-/* --- HERO & LANDING BUTTON --- */
+/* --- HERO & LANDING BUTTON (Optimasi LCP) --- */
 .hero { 
     position: relative; min-height: 500px; display: flex; align-items: center; 
     justify-content: center; text-align: center; color: white; 
-    background: #222 url('banner-bg.webp') no-repeat center/cover; 
+    background: #222; /* Fallback color */
+    overflow: hidden;
 }
-.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
-.hero-content { position: relative; z-index: 2; }
+/* Menggunakan elemen img sebagai background agar bisa menggunakan fetchpriority */
+.hero-bg-img {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover; z-index: 1;
+}
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2; }
+.hero-content { position: relative; z-index: 3; }
 .hero h1 { font-size: 2.8rem; margin-bottom: 15px; font-weight: 700; line-height: 1.2; }
 .hero p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
 
-/* Desain Tombol Landing Page */
+/* Perbaikan Kontras Tombol Landing Page */
 .btn-landing {
     display: inline-block;
     padding: 15px 35px;
-    background-color: #007bff;
+    background-color: #005ecb; 
     color: #fff;
     text-decoration: none;
     font-weight: 700;
     border-radius: 50px;
     letter-spacing: 1px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 94, 203, 0.4);
 }
 .btn-landing:hover {
-    background-color: #0056b3;
+    background-color: #004494;
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6);
+    box-shadow: 0 6px 20px rgba(0, 94, 203, 0.6);
 }
 
 /* --- FORM KONSULTASI --- */
@@ -73,27 +80,31 @@ header {
 }
 .form-row { display: flex; gap: 20px; margin-bottom: 20px; }
 .input-group { flex: 1; display: flex; flex-direction: column; }
-.input-group label { font-weight: 600; margin-bottom: 8px; font-size: 14px; }
+.input-group label { font-weight: 600; margin-bottom: 8px; font-size: 14px; color: #222; }
 .input-group input, .input-group select, .input-group textarea { 
-    padding: 12px; border: 1.5px solid #e1e8ef; border-radius: 10px; font-size: 15px; 
+    padding: 12px; border: 1.5px solid #bdc3c7; border-radius: 10px; font-size: 15px; 
 }
+
+/* Perbaikan Kontras Tombol Submit (WhatsApp Green) */
 .btn-submit { 
-    width: 100%; padding: 18px; background: #25d366; color: #fff; border: none; 
+    width: 100%; padding: 18px; background: #1a9447; 
+    color: #fff; border: none; 
     border-radius: 10px; font-weight: 700; cursor: pointer; font-size: 16px; transition: 0.3s;
 }
-.btn-submit:hover { background: #1ebe57; transform: translateY(-2px); }
+.btn-submit:hover { background: #147a3a; transform: translateY(-2px); }
 
 /* --- FOOTER --- */
-footer { background: #222; color: #fff; padding: 50px 0; text-align: center; }
+footer { background: #1a1a1a; color: #fff; padding: 50px 0; text-align: center; }
 .footer-socials { margin-top: 20px; display: flex; justify-content: center; gap: 20px; }
-.footer-socials a { color: #fff; text-decoration: none; font-size: 14px; opacity: 0.8; transition: 0.3s; }
-.footer-socials a:hover { opacity: 1; color: #007bff; }
+.footer-socials a { color: #fff; text-decoration: none; font-size: 14px; opacity: 0.9; transition: 0.3s; }
+.footer-socials a:hover { opacity: 1; color: #3498db; }
 
 /* --- WA FLOAT --- */
 .wa-float { 
-    position: fixed; bottom: 25px; right: 25px; background: #25d366; color: #fff; 
+    position: fixed; bottom: 25px; right: 25px; background: #1a9447; color: #fff; 
     padding: 12px 22px; border-radius: 50px; text-decoration: none; z-index: 2000; 
-    font-weight: 700; display: flex; align-items: center; gap: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    font-weight: 700; display: flex; align-items: center; gap: 8px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 /* --- MOBILE RESPONSIVE --- */
@@ -110,7 +121,4 @@ footer { background: #222; color: #fff; padding: 50px 0; text-align: center; }
     .dropdown-menu { position: static; box-shadow: none; border: none; background: #fdfdfd; width: 100%; }
     .form-row { flex-direction: column; gap: 15px; }
     .hero h1 { font-size: 2rem; }
-    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
-    .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
