@@ -20,35 +20,27 @@ document.getElementById('clarionForm').addEventListener('submit', function(e) {
     params.append('tanggal', new Date().toLocaleString());
     params.append('source', 'Homepage');
 
-    const nomorAdmin = "6281378699699";
+    // 1. GOOGLE ADS CONVERSION (Tetap dijalankan di sini sebagai cadangan)
+    if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-18065186210/SsbiCOOX15YcEKK7k6ZD',
+            'value': 1.0,
+            'currency': 'IDR'
+        });
+    }
 
-    const teksPesan =
-`Halo Clarion Indonesia, saya ingin konsultasi:%0A%0A
-Nama: ${nama}%0A
-WhatsApp: ${wa}%0A
-Kota: ${kota}%0A
-Sumber Air: ${sumber}%0A
-Estimasi Budget: ${budget}%0A
-Keluhan: ${pesan}`;
-
-    const urlWA = `https://wa.me/${nomorAdmin}?text=${teksPesan}`;
-
-    // GOOGLE ADS CONVERSION
-    gtag('event', 'conversion', {
-        'send_to': 'AW-18065186210/SsbiCOOX15YcEKK7k6ZD',
-        'value': 1.0,
-        'currency': 'IDR'
-    });
-
-    // SEND TO GOOGLE SHEET
+    // 2. SEND TO GOOGLE SHEET
     fetch(scriptURL, {
         method: 'POST',
         body: params,
         mode: 'no-cors'
+    })
+    .then(() => {
+        // 3. REDIRECT KE THANK YOU PAGE (Bukan langsung ke WA)
+        window.location.href = 'thankyou.html';
+    })
+    .catch(() => {
+        // Jika gagal kirim pun, tetap arahkan ke Thank You Page
+        window.location.href = 'thankyou.html';
     });
-
-    // REDIRECT WA
-    setTimeout(() => {
-        window.location.href = urlWA;
-    }, 300);
 });
