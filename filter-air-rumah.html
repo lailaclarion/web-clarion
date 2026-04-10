@@ -11,22 +11,12 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'AW-18065186210');
-    </script>
-
-    <script>
-      gtag('event', 'conversion', {
-          'send_to': 'AW-18065186210/SsbiCOOX15YcEKK7k6ZD',
-          'value': 1.0,
-          'currency': 'IDR'
-      });
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
@@ -673,6 +663,12 @@
 <script>
 document.getElementById('clarionForm').addEventListener('submit', function(e) {
     e.preventDefault();
+    
+    // UI Feedback
+    const btn = this.querySelector('button');
+    btn.innerHTML = "Memproses...";
+    btn.style.opacity = "0.7";
+
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxSrWtR7ViBrmAgjzayuTkcCXkGBnCyA_ByhtUwK1WRVl0sZp-YNb-zNuB8-eIkxKORoQ/exec';
 
     const nama = document.getElementById('nama').value;
@@ -692,12 +688,14 @@ document.getElementById('clarionForm').addEventListener('submit', function(e) {
     params.append('tanggal', new Date().toLocaleString());
     params.append('source', 'Landing Page Clarion Modern');
 
-    const teksWA = `Halo Clarion Indonesia,%0A%0ASaya ingin konsultasi gratis mengenai filter air.%0A%0A*Data Diri:*%0A- Nama: ${nama}%0A- WhatsApp: ${wa}%0A- Kota: ${kota}%0A- Sumber Air: ${sumber}%0A- Estimasi Budget: ${budget}%0A%0A*Masalah Air:*%0A${pesan}`;
-    const urlWA = `https://wa.me/6281378699699?text=${teksWA}`;
-
+    // MENGIRIM DATA KE GOOGLE SHEETS LALU PINDAH KE THANK YOU PAGE
     fetch(scriptURL, { method: 'POST', body: params, mode: 'no-cors' })
-    .then(() => { window.location.href = urlWA; })
-    .catch(() => { window.location.href = urlWA; });
+    .then(() => { 
+        window.location.href = 'thankyou.html'; 
+    })
+    .catch(() => { 
+        window.location.href = 'thankyou.html'; 
+    });
 });
 </script>
 
