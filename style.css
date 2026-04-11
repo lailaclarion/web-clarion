@@ -3,7 +3,7 @@
 body { line-height: 1.6; color: #1a1a1a; background: #fff; overflow-x: hidden; }
 .container { width: 90%; max-width: 1200px; margin: 0 auto; position: relative; }
 
-/* --- HEADER & LOGO (Fix Penyet) --- */
+/* --- HEADER & LOGO --- */
 header {
     background: #fff;
     padding: 12px 0;
@@ -21,7 +21,7 @@ header {
     object-fit: contain; 
 }
 
-/* --- NAVIGATION --- */
+/* --- NAVIGATION (Desktop) --- */
 .nav-menu { display: flex; list-style: none; gap: 25px; align-items: center; }
 .nav-menu a { text-decoration: none; color: #000; font-weight: 700; font-size: 15px; transition: 0.3s; }
 .nav-menu a:hover { color: #004a99; }
@@ -35,7 +35,10 @@ header {
 .dropdown:hover .dropdown-menu { display: block; }
 .dropdown-menu a { padding: 10px 20px; display: block; font-size: 14px; }
 
-/* --- HERO SECTION (Aksesibilitas Kontras Tinggi) --- */
+/* Tombol Hamburger (Default Sembunyi di Desktop) */
+.menu-toggle { display: none; }
+
+/* --- HERO SECTION --- */
 .hero { 
     position: relative; 
     min-height: 550px; 
@@ -55,7 +58,7 @@ header {
 }
 .hero-overlay { 
     position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-    background: rgba(0, 0, 0, 0.7); /* Overlay gelap agar teks putih lolos kontras */
+    background: rgba(0, 0, 0, 0.7); 
     z-index: 2; 
 }
 .hero-content { position: relative; z-index: 3; padding: 20px; }
@@ -65,7 +68,7 @@ header {
 .btn-landing {
     display: inline-block;
     padding: 16px 40px;
-    background-color: #004a99; /* Biru Cobalt Tua (Contrast Ratio Lolos) */
+    background-color: #004a99; 
     color: #ffffff !important;
     text-decoration: none;
     font-weight: 700;
@@ -75,7 +78,7 @@ header {
 }
 .btn-landing:hover { background-color: #003366; transform: translateY(-3px); }
 
-/* --- FORM KONSULTASI (Aksesibilitas Kontras Tinggi) --- */
+/* --- FORM KONSULTASI --- */
 .consultation { padding: 80px 0; background: #f1f5f9; }
 .section-header { text-align: center; margin-bottom: 40px; }
 .section-header h2 { font-size: 2rem; color: #000; font-weight: 800; }
@@ -94,7 +97,7 @@ header {
 .btn-submit { 
     width: 100%; 
     padding: 18px; 
-    background: #065f46; /* Hijau Emerald Tua (Contrast Ratio Lolos) */
+    background: #065f46; 
     color: #ffffff !important; 
     border: none; 
     border-radius: 10px; 
@@ -106,67 +109,29 @@ header {
 .btn-submit:hover { background: #044e3a; transform: translateY(-2px); }
 
 /* --- FOOTER --- */
-        footer {
-            background: #000000; 
-            color: #ffffff;
-            padding: 40px 0;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        .footer-socials {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .footer-socials a {
-            color: #bbbbbb; 
-            text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .footer-socials a:hover {
-            color: var(--secondary-color); 
-        }
-
-        .wa-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--accent-color);
-            color: white;
-            border-radius: 50px;
-            padding: 15px 25px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-            text-decoration: none;
-            z-index: 1000;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            transition: var(--transition);
-        }
-
-        @media (max-width: 992px) {
-            .hero h1 { font-size: 2.8rem; }
-            .flex-grid { flex-direction: column; gap: 30px; }
-            #form { padding: 50px 20px; }
-        }
-
-        @media (max-width: 768px) {
-            section { padding: 60px 0; }
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1rem; }
-            .btn-group { flex-direction: column; gap: 10px; }
-            .btn { width: 100%; justify-content: center; }
-            .section-header h2 { font-size: 2rem; }
-        }
+footer {
+    background: #000000; 
+    color: #ffffff;
+    padding: 40px 0;
+    text-align: center;
+    font-size: 14px;
+}
+.footer-socials {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.footer-socials a {
+    color: #bbbbbb; 
+    text-decoration: none;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.footer-socials a:hover { color: #fff; }
 
 /* --- WHATSAPP FLOAT --- */
 .wa-float { 
@@ -184,21 +149,26 @@ header {
     align-items: center; 
     gap: 10px; 
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+.wa-float:hover { transform: scale(1.05); background: #044e3a; }
+
+/* --- RESPONSIVE / MEDIA QUERIES --- */
+
+@media (max-width: 992px) {
+    .hero h1 { font-size: 2.5rem; }
 }
 
-/* --- RESPONSIVE MOBILE --- */
 @media (max-width: 768px) {
-    /* Pastikan tombol muncul dan punya area klik */
+    /* Hamburger Menu Logic */
     .menu-toggle { 
         display: block; 
         background: none; 
         border: none; 
         cursor: pointer;
-        padding: 10px; /* Tambah padding supaya area klik lebih luas */
-        z-index: 1001; /* Harus lebih tinggi dari header */
+        padding: 10px;
+        z-index: 1001; 
     }
-
-    /* Pastikan garis hamburger terlihat */
     .bar { 
         display: block; 
         width: 25px; 
@@ -210,7 +180,7 @@ header {
     }
     
     .nav-menu {
-        display: none; /* Sembunyi secara default */
+        display: none; 
         flex-direction: column; 
         background: #fff;
         position: absolute; 
@@ -220,18 +190,25 @@ header {
         padding: 20px; 
         box-shadow: 0 10px 10px rgba(0,0,0,0.1);
         z-index: 999;
+        gap: 15px;
     }
 
-    /* Ini yang membuat menu muncul saat JS menambahkan class 'active' */
     .nav-menu.active { 
         display: flex !important; 
     }
-    
-    /* Perbaikan tambahan untuk tampilan mobile */
-    .form-row { flex-direction: column; gap: 15px; }
+
+    /* Content adjustments */
     .hero h1 { font-size: 1.9rem; }
-}
-    
+    .hero p { font-size: 1rem; }
+    .form-row { flex-direction: column; gap: 15px; }
+    section { padding: 50px 0; }
+
+    /* WhatsApp Mobile */
     .wa-float span { display: none; }
-    .wa-float { padding: 15px; border-radius: 50%; bottom: 20px; right: 20px; }
+    .wa-float { 
+        padding: 15px; 
+        border-radius: 50%; 
+        bottom: 20px; 
+        right: 20px; 
+    }
 }
