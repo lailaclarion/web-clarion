@@ -15,6 +15,8 @@
         header { background: #fff; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         header .container { display: flex; justify-content: space-between; align-items: center; }
         .logo img { height: 65px; width: auto; display: block; }
+        
+        /* Nav Menu (Desktop Default) */
         nav ul { list-style: none; display: flex; align-items: center; gap: 25px; }
         nav ul li { position: relative; padding: 15px 0; }
         nav ul li a { text-decoration: none; color: #333; font-weight: 600; transition: 0.3s; }
@@ -25,6 +27,65 @@
         .dropdown:hover .dropdown-menu { display: block; }
         .dropdown-menu li a { padding: 10px 20px; display: block; text-decoration: none; color: #333; font-size: 14px; font-weight: 500; }
         .dropdown-menu li a:hover { background: #f8f9fa; color: #007bff; }
+
+        /* HAMBURGER STYLING */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1100;
+        }
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background: #333;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* RESPONSIVE MENU (MOBILE) */
+        @media (max-width: 992px) {
+            .menu-toggle { display: flex; }
+
+            nav ul {
+                position: fixed;
+                top: 85px; /* Sesuaikan tinggi header */
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: calc(100vh - 85px);
+                background: #fff;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+                gap: 0;
+                transition: 0.4s ease;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                overflow-y: auto;
+            }
+
+            nav ul.active { right: 0; }
+
+            nav ul li { width: 100%; padding: 0; border-bottom: 1px solid #eee; }
+            nav ul li a { display: block; padding: 15px 0; width: 100%; }
+
+            /* Mobile Dropdown Fix */
+            .dropdown-menu { 
+                position: static; 
+                display: block; 
+                box-shadow: none; 
+                border-top: none; 
+                padding-left: 15px;
+                background: #fdfdfd;
+            }
+            .dropdown:hover .dropdown-menu { display: block; }
+
+            /* Hamburger Animation */
+            .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+            .menu-toggle.active span:nth-child(2) { opacity: 0; }
+            .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+        }
 
         /* PAGE HEADER */
         .page-header { background: #007bff; color: white; padding: 60px 0; text-align: center; }
@@ -49,48 +110,12 @@
         .cert-title { text-align: center; margin-top: 40px; margin-bottom: 40px; }
         .cert-title h2 { font-size: 2rem; color: #222; }
         
-        .slider-container {
-            width: 100%;
-            overflow: hidden;
-            background: #fff;
-            padding: 40px 0;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-        }
-
-        .slider-track {
-            display: flex;
-            width: calc(300px * 12); 
-            animation: scroll 25s linear infinite;
-        }
-
+        .slider-container { width: 100%; overflow: hidden; background: #fff; padding: 40px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .slider-track { display: flex; width: calc(300px * 12); animation: scroll 25s linear infinite; }
         .slider-track:hover { animation-play-state: paused; }
-
-        .slide {
-            width: 300px;
-            padding: 0 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 400px;
-            object-fit: contain;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background: #fdfdfd;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-
-        .slide p {
-            margin-top: 15px;
-            font-size: 0.85rem;
-            color: #666;
-            font-weight: bold;
-            text-align: center;
-        }
+        .slide { width: 300px; padding: 0 15px; display: flex; flex-direction: column; align-items: center; }
+        .slide img { width: 100%; height: 400px; object-fit: contain; border: 1px solid #ddd; border-radius: 8px; background: #fdfdfd; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .slide p { margin-top: 15px; font-size: 0.85rem; color: #666; font-weight: bold; text-align: center; }
 
         @keyframes scroll {
             0% { transform: translateX(0); }
@@ -98,69 +123,16 @@
         }
 
         /* FOOTER */
-        footer { 
-            background: #222; 
-            color: #ffffff; 
-            padding: 50px 0; 
-            text-align: center; 
-            border-top: 5px solid #007bff;
-        }
-
-        footer p {
-            font-size: 15px;
-            margin-bottom: 20px;
-            opacity: 0.8;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        footer a {
-            color: #ffffff; 
-            text-decoration: none;
-            font-weight: 500;
-            transition: 0.3s;
-            padding: 5px 10px;
-            border-radius: 4px;
-        }
-
-        footer a:hover {
-            color: #007bff;
-            background: rgba(255, 255, 255, 0.05);
-        }
+        footer { background: #222; color: #ffffff; padding: 50px 0; text-align: center; border-top: 5px solid #007bff; }
+        footer p { font-size: 15px; margin-bottom: 20px; opacity: 0.8; }
+        .footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        footer a { color: #ffffff; text-decoration: none; font-weight: 500; transition: 0.3s; padding: 5px 10px; border-radius: 4px; }
+        footer a:hover { color: #007bff; background: rgba(255, 255, 255, 0.05); }
 
         /* TOMBOL WHATSAPP */
-        .wa-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-            color: #fff !important;
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            z-index: 3000;
-            font-weight: bold;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .wa-float:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
-            filter: brightness(1.1);
-        }
-
-        .wa-float i {
-            font-size: 20px;
-        }
+        .wa-float { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #25d366 0%, #128c7e 100%); color: #fff !important; padding: 12px 25px; border-radius: 50px; text-decoration: none; z-index: 3000; font-weight: bold; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); transition: 0.3s; display: flex; align-items: center; gap: 10px; }
+        .wa-float:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4); filter: brightness(1.1); }
+        .wa-float i { font-size: 20px; }
     </style>
 </head>
 <body>
@@ -168,8 +140,15 @@
 <header>
     <div class="container">
         <a href="index.html" class="logo"><img src="logo.png.png" alt="Clarion Logo"></a>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
         <nav>
-            <ul>
+            <ul id="nav-list">
                 <li><a href="index.html">Beranda</a></li>
                 <li><a href="about.html" style="color: #007bff;">Tentang Kami</a></li>
                 <li class="dropdown">
@@ -215,24 +194,16 @@
             </ul>
 
             <hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;">
-    <h3>Mengenal CLARION</h3>
-
-    <p><strong>PT. Harjaya Mapan Sentosa</strong> berdiri sejak tahun 2019 sebagai perusahaan yang bergerak di bidang penyediaan produk <em>water prefilter</em> dan <em>water purifier</em> dengan brand <strong>Clarion</strong>.</p>
-
-    <p>Selama lebih dari 7 tahun, Clarion hadir sebagai solusi atas berbagai permasalahan air, mulai dari kebutuhan rumah tangga, komersial, lembaga, hingga industri di seluruh Indonesia. Produk Clarion dikenal berkualitas, higienis, terjangkau, dan mudah diakses oleh masyarakat luas.</p>
-
-    <p>Hingga saat ini, Clarion telah melayani ribuan pelanggan, dari skala rumahan hingga industri, serta dipercaya oleh lebih dari 50+ kafe di Indonesia sebagai solusi pengolahan air mereka.</p>
-
-    <p>Pada tahun 2025, Clarion meluncurkan inovasi terbaru berupa <strong>Drinking System</strong>, yaitu mesin air isi ulang berbasis <em>RO (Reverse Osmosis)</em> yang menghadirkan gaya hidup baru yang lebih praktis dan sehat bagi masyarakat.</p>
-
-    <p>Sebagai bentuk komitmen terhadap pemberdayaan ekonomi, Clarion juga membuka peluang kerja sama bagi pelanggan dan masyarakat, khususnya UMKM, melalui program dukungan unit <strong>Drinking System</strong> sebagai sarana usaha.</p>
-
-    <p>Kami berkomitmen memberikan layanan terbaik melalui desain produk yang inovatif, instalasi profesional, konsultasi pra dan pasca pemasangan, perawatan berkala, hingga garansi penggunaan unit.</p>
-
-    <p><strong>PT. Harjaya Mapan Sentosa</strong> mengusung konsep <strong>One Step Solution</strong> untuk memenuhi seluruh kebutuhan air pelanggan, dengan slogan:</p>
-
-    <p><em>“The Finest Product, Yet Best Solution and Service.”</em></p>
-</div>
+            <h3>Mengenal CLARION</h3>
+            <p><strong>PT. Harjaya Mapan Sentosa</strong> berdiri sejak tahun 2019 sebagai perusahaan yang bergerak di bidang penyediaan produk <em>water prefilter</em> dan <em>water purifier</em> dengan brand <strong>Clarion</strong>.</p>
+            <p>Selama lebih dari 7 tahun, Clarion hadir sebagai solusi atas berbagai permasalahan air, mulai dari kebutuhan rumah tangga, komersial, lembaga, hingga industri di seluruh Indonesia. Produk Clarion dikenal berkualitas, higienis, terjangkau, dan mudah diakses oleh masyarakat luas.</p>
+            <p>Hingga saat ini, Clarion telah melayani ribuan pelanggan, dari skala rumahan hingga industri, serta dipercaya oleh lebih dari 50+ kafe di Indonesia sebagai solusi pengolahan air mereka.</p>
+            <p>Pada tahun 2025, Clarion meluncurkan inovasi terbaru berupa <strong>Drinking System</strong>, yaitu mesin air isi ulang berbasis <em>RO (Reverse Osmosis)</em> yang menghadirkan gaya hidup baru yang lebih praktis dan sehat bagi masyarakat.</p>
+            <p>Sebagai bentuk komitmen terhadap pemberdayaan ekonomi, Clarion juga membuka peluang kerja sama bagi pelanggan dan masyarakat, khususnya UMKM, melalui program dukungan unit <strong>Drinking System</strong> sebagai sarana usaha.</p>
+            <p>Kami berkomitmen memberikan layanan terbaik melalui desain produk yang inovatif, instalasi profesional, konsultasi pra dan pasca pemasangan, perawatan berkala, hingga garansi penggunaan unit.</p>
+            <p><strong>PT. Harjaya Mapan Sentosa</strong> mengusung konsep <strong>One Step Solution</strong> untuk memenuhi seluruh kebutuhan air pelanggan, dengan slogan:</p>
+            <p><em>“The Finest Product, Yet Best Solution and Service.”</em></p>
+        </div>
         <div class="about-image">
             <img src="About US.jpg" alt="Tentang Clarion">
         </div>
@@ -246,30 +217,12 @@
 
 <div class="slider-container">
     <div class="slider-track">
-        <div class="slide">
-            <img src="Sertifikat/Sertifikat 1.jpeg" alt="Sertifikat 1">
-            <p>Lab Result Agains Infection Bacterial</p>
-        </div>
-        <div class="slide">
-            <img src="Sertifikat/Sertifikat 2.jpeg" alt="Sertifikat 2">
-            <p>2 Lab Result Flu Virus</p>
-        </div>
-        <div class="slide">
-            <img src="Sertifikat/Sertifikat 3.jpeg" alt="Sertifikat 3">
-            <p>Lab Result SARS - Covid Virus</p>
-        </div>
-        <div class="slide">
-            <img src="Sertifikat/Sertifikat 4.jpeg" alt="Sertifikat 4">
-            <p>Hasil Uji Lab Free Bakteri dan Virus</p>
-        </div>
-        <div class="slide">
-            <img src="Sertifikat/Sertifikat 5.jpeg" alt="Sertifikat 5">
-            <p>Hasil Uji Lab Free Bakteri dan Virus</p>
-        </div>
-        <div class="slide">
-            <img src="Sertifikat/Sertifikat 6.jpeg" alt="Sertifikat 6">
-            <p>Hasil Uji Lab Free Bakteri dan Virus</p>
-        </div>
+        <div class="slide"><img src="Sertifikat/Sertifikat 1.jpeg" alt="Sertifikat 1"><p>Lab Result Agains Infection Bacterial</p></div>
+        <div class="slide"><img src="Sertifikat/Sertifikat 2.jpeg" alt="Sertifikat 2"><p>2 Lab Result Flu Virus</p></div>
+        <div class="slide"><img src="Sertifikat/Sertifikat 3.jpeg" alt="Sertifikat 3"><p>Lab Result SARS - Covid Virus</p></div>
+        <div class="slide"><img src="Sertifikat/Sertifikat 4.jpeg" alt="Sertifikat 4"><p>Hasil Uji Lab Free Bakteri dan Virus</p></div>
+        <div class="slide"><img src="Sertifikat/Sertifikat 5.jpeg" alt="Sertifikat 5"><p>Hasil Uji Lab Free Bakteri dan Virus</p></div>
+        <div class="slide"><img src="Sertifikat/Sertifikat 6.jpeg" alt="Sertifikat 6"><p>Hasil Uji Lab Free Bakteri dan Virus</p></div>
         <div class="slide"><img src="Sertifikat/Sertifikat 1.jpeg" alt="Sertifikat 1"><p>Lab Result Agains Infection Bacterial</p></div>
         <div class="slide"><img src="Sertifikat/Sertifikat 2.jpeg" alt="Sertifikat 2"><p>2 Lab Result Flu Virus</p></div>
         <div class="slide"><img src="Sertifikat/Sertifikat 3.jpeg" alt="Sertifikat 3"><p>Lab Result SARS - Covid Virus</p></div>
@@ -294,6 +247,24 @@
     <i class="fab fa-whatsapp"></i>
     <span>Chat WhatsApp</span>
 </a>
+
+<script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navList.classList.toggle('active');
+    });
+
+    // Menutup menu jika user mengklik link
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navList.classList.remove('active');
+        });
+    });
+</script>
 
 </body>
 </html>
