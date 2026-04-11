@@ -187,21 +187,50 @@ header {
 }
 
 /* --- RESPONSIVE MOBILE --- */
-.menu-toggle { display: none; }
-
 @media (max-width: 768px) {
-    .menu-toggle { display: block; background: none; border: none; }
-    .bar { display: block; width: 25px; height: 3px; margin: 5px; background: #004a99; }
+    /* Pastikan tombol muncul dan punya area klik */
+    .menu-toggle { 
+        display: block; 
+        background: none; 
+        border: none; 
+        cursor: pointer;
+        padding: 10px; /* Tambah padding supaya area klik lebih luas */
+        z-index: 1001; /* Harus lebih tinggi dari header */
+    }
+
+    /* Pastikan garis hamburger terlihat */
+    .bar { 
+        display: block; 
+        width: 25px; 
+        height: 3px; 
+        margin: 5px auto; 
+        background: #004a99; 
+        transition: 0.3s;
+        border-radius: 3px;
+    }
     
     .nav-menu {
-        display: none; flex-direction: column; background: #fff;
-        position: absolute; top: 100%; left: 0; width: 100%;
-        padding: 20px; box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        display: none; /* Sembunyi secara default */
+        flex-direction: column; 
+        background: #fff;
+        position: absolute; 
+        top: 100%; 
+        left: 0; 
+        width: 100%;
+        padding: 20px; 
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        z-index: 999;
     }
-    .nav-menu.active { display: flex; }
+
+    /* Ini yang membuat menu muncul saat JS menambahkan class 'active' */
+    .nav-menu.active { 
+        display: flex !important; 
+    }
     
+    /* Perbaikan tambahan untuk tampilan mobile */
     .form-row { flex-direction: column; gap: 15px; }
     .hero h1 { font-size: 1.9rem; }
+}
     
     .wa-float span { display: none; }
     .wa-float { padding: 15px; border-radius: 50%; bottom: 20px; right: 20px; }
