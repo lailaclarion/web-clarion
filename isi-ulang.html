@@ -81,6 +81,64 @@
             .logo img { height: 55px; }
             .section-title h2 { font-size: 1.6rem; }
         }
+        .featured-product{
+    display:flex;
+    gap:40px;
+    align-items:center;
+    background:#fff;
+    border-radius:20px;
+    padding:35px;
+    margin-bottom:60px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    border:2px solid #0f5fff;
+}
+
+.featured-image img{
+    width:100%;
+    max-width:500px;
+    border-radius:15px;
+}
+
+.featured-content{
+    flex:1;
+}
+
+.featured-content h2{
+    color:#0f5fff;
+    margin-bottom:15px;
+}
+
+.featured-content ul{
+    margin:20px 0;
+    padding-left:20px;
+}
+
+.featured-price{
+    font-size:32px;
+    font-weight:700;
+    color:#0f5fff;
+    margin:20px 0;
+}
+
+.featured-price span{
+    font-size:18px;
+    color:#666;
+}
+
+.featured-badge{
+    position:absolute;
+    background:#ff9800;
+    color:white;
+    padding:8px 18px;
+    border-radius:50px;
+    font-weight:700;
+}
+
+@media(max-width:768px){
+    .featured-product{
+        flex-direction:column;
+    }
+}
     </style>
 </head>
 <body>
@@ -118,45 +176,140 @@
 </section>
 
 <section class="container">
-    <div class="section-title"><h2>Pilihan Unit Isi Ulang</h2></div>
+
+    <div class="section-title">
+        <h2>Paket Premium Isi Ulang Air Minum</h2>
+    </div>
+
+    <!-- FEATURED PRODUCT -->
+    <div class="featured-product">
+
+        <div class="featured-badge">🔥 NEW • PAKET TERLENGKAP</div>
+
+        <div class="featured-image">
+            <img src="Isi Ulang/4.jpg" alt="Clarion Isi Ulang Premium Stainless">
+        </div>
+
+        <div class="featured-content">
+            <h2>CLARION RO STAINLESS PREMIUM</h2>
+
+            <p>
+                Solusi usaha depot air minum isi ulang modern dengan desain stainless premium
+                dan sistem operasional lengkap. Cocok untuk Anda yang ingin langsung menjalankan
+                bisnis tanpa repot menyiapkan perlengkapan tambahan.
+            </p>
+
+            <ul>
+                <li>✅ Unit Isi Ulang Stainless Premium</li>
+                <li>✅ Sistem RO Kapasitas Besar</li>
+                <li>✅ Set Filter Clarion Lengkap</li>
+                <li>✅ Alat Cuci Galon Otomatis</li>
+                <li>✅ PLC & Monitoring Sistem</li>
+                <li>✅ Pompa, Tandon & Instalasi Pipa PPR</li>
+                <li>✅ Pemasangan oleh Tim Profesional</li>
+                <li>✅ Desain Banner & Materi Promosi</li>
+                <li>✅ Siap Operasional & Siap Jualan</li>
+            </ul>
+
+            <div class="featured-price">
+                Rp350.000.000 <span>/ Paket All In</span>
+            </div>
+
+            <a href="https://wa.me/6281378699699" class="btn-wa">
+                Konsultasi Paket Premium
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="container">
+
+    <div class="section-title">
+        <h2>Pilihan Unit Isi Ulang RO</h2>
+        <p>Pilih unit yang sesuai dengan kebutuhan dan skala usaha Anda.</p>
+    </div>
+
     <div class="product-grid">
+
+        <!-- 2 KRAN -->
         <div class="product-card">
-            <div class="product-image"><img src="Isi Ulang/3.jpg" alt="Unit 2 Kran"></div>
+            <div class="product-image">
+                <img src="Isi Ulang/3.jpg" alt="Unit 2 Kran">
+            </div>
+
             <div class="product-info">
                 <h3>ISI ULANG RO 2 KRAN</h3>
-                <p>Sistem filtrasi 8 tahap dengan kapasitas produksi Besar dan Berkualitas Metode Pembayaran QRIS, Kartu, Koin. Sistem Monitoring online 24/7.</p>
-                <span class="price">Beli Rp85.000.000 | Kerjasama DP Rp5.000.000</span>
-                <a href="https://wa.me/6281378699699" class="btn-wa">Konsultasi WA</a>
+
+                <p>
+                    Kapasitas produksi besar dengan sistem filtrasi RO 8 tahap.
+                    Mendukung pembayaran QRIS, kartu, dan koin untuk operasional
+                    yang lebih modern dan efisien.
+                </p>
+
+                <span class="price">
+                    Beli Rp85.000.000 | Kerjasama DP Rp5.000.000
+                </span>
+
+                <a href="https://wa.me/6281378699699" class="btn-wa">
+                    Konsultasi WA
+                </a>
             </div>
         </div>
+
+        <!-- 1 KRAN KOIN -->
         <div class="product-card">
-            <div class="product-image"><img src="Isi Ulang/2.jpg" alt="Unit 1 Kran Koin"></div>
+            <div class="product-image">
+                <img src="Isi Ulang/2.jpg" alt="Unit 1 Kran Koin">
+            </div>
+
             <div class="product-info">
-                <h3>ISI ULANG RO 1 KRAN (Koin)</h3>
-                <p>Sistem filtrasi 8 tahap dengan kapasitas produksi Besar dan Berkualitas Metode Pembayaran QRIS, Kartu, Koin. Bisa Self Service.</p>
-                <span class="price">Beli Rp57.000.000 | Kerjasama DP Rp5.000.000</span>
-                <a href="https://wa.me/6281378699699" class="btn-wa">Konsultasi WA</a>
+                <h3>ISI ULANG RO 1 KRAN (SELF SERVICE)</h3>
+
+                <p>
+                    Sistem RO 8 tahap dengan fitur pembayaran QRIS, kartu dan koin.
+                    Cocok untuk konsep depot modern dengan layanan mandiri 24 jam.
+                </p>
+
+                <span class="price">
+                    Beli Rp57.000.000 | Kerjasama DP Rp5.000.000
+                </span>
+
+                <a href="https://wa.me/6281378699699" class="btn-wa">
+                    Konsultasi WA
+                </a>
             </div>
         </div>
+
+        <!-- 1 KRAN -->
         <div class="product-card">
-            <div class="product-image"><img src="Isi Ulang/1.jpg" alt="Unit 1 Kran Non Koin"></div>
+            <div class="product-image">
+                <img src="Isi Ulang/1.jpg" alt="Unit 1 Kran">
+            </div>
+
             <div class="product-info">
                 <h3>ISI ULANG RO 1 KRAN</h3>
-                <p>Sistem filtrasi 8 tahap dengan kapasitas produksi Besar dan Berkualitas Metode Pembayaran QRIS, Kartu. Sistem Monitoring online 24/7.</p>
-                <span class="price">Beli Rp55.000.000 | Kerjasama DP Rp5.000.000</span>
-                <a href="https://wa.me/6281378699699" class="btn-wa">Konsultasi WA</a>
+
+                <p>
+                    Pilihan ekonomis dengan kualitas filtrasi RO 8 tahap.
+                    Mendukung pembayaran QRIS dan kartu serta monitoring sistem online.
+                </p>
+
+                <span class="price">
+                    Beli Rp55.000.000 | Kerjasama DP Rp5.000.000
+                </span>
+
+                <a href="https://wa.me/6281378699699" class="btn-wa">
+                    Konsultasi WA
+                </a>
             </div>
-              <div class="product-card">
-            <div class="product-image"><img src="Isi Ulang/4.jpg" alt="Unit Isi ulang Baru"></div>
-            <div class="product-info">
-                <h3>ISI ULANG NEW * STAINLESSS</h3>
-                <p>Sistem Lengkap mulai dari unit produk isi ulang,alat cuci galon, set filter clarion, pipa PPA, tandon,PLC, Pompa, Pemasangan, Desain Banner dan kebutuhan Promosi,.</p>
-                <span class="price">Beli 350.000.000/ALL IN</span>
-                <a href="https://wa.me/6281378699699" class="btn-wa">Konsultasi WA</a>
-            </div>
-                   </div>
         </div>
+
     </div>
+
 </section>
 
 <section class="container">
